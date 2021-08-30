@@ -164,6 +164,10 @@ if(isset($_SESSION['login'])) {
     function otpr() {
         document.getElementById("vmsg").innerHTML = '';
     }
+
+    function otpr() {
+        document.getElementById("rvmsg").innerHTML = '';
+    }
     </script>
     <script src="ajax.js"></script>
 </body>
