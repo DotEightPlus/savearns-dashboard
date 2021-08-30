@@ -136,6 +136,42 @@ if(isset($_SESSION['login'])) {
                     </div>
                 </div>
 
+
+                <div style="display:none" class="col-xl-8 col-lg-5 col-md-7 mx-auto" id="updatepword">
+                    <div class="card z-index-0">
+                        <div class="card-header text-center pt-4">
+                            <h5>Verify your account</h5>
+                            <p>Check your mail for an otp code</p>
+                        </div>
+
+                        <div class="card-body">
+                            <form role="form text-left">
+                                <div class="mb-3">
+                                    <label>Input OTP</label>
+                                    <input type="number" id="otpper" class="form-control"
+                                        placeholder="Input one time password" aria-label="Name"
+                                        aria-describedby="otp-addon" onclick="otpr()">
+
+                                    <input type="email" id="otpmail" class="form-control"
+                                        value="<?php echo $_SESSION['fgeml'] ?>" hidden>
+                                </div>
+
+
+                                <div class="text-center">
+                                    <p class="text-danger" id="vmsg"></p>
+                                    <p class="text-danger" id="rvmsg"></p>
+                                    <button type="button" id="vsub" class="btn bg-gradient-dark w-100 my-4 mb-2">Verify
+                                        Account</button>
+                                    <p style="cursor: pointer"
+                                        class="text-sm mt-3 mb-0 text-center text-dark font-weight-bolder" id="rotp">
+                                        Resend OTP</p>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -149,6 +185,11 @@ if(isset($_SESSION['login'])) {
     //open verify page by default
     function otpVerify() {
         document.getElementById('verify').style.display = 'block';
+    }
+
+    //open update pword page
+    function updatePword() {
+        document.getElementById('updatepword').style.display = 'block';
     }
 
     //close signup page
