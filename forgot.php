@@ -190,6 +190,7 @@ if(isset($_SESSION['login'])) {
     //open update pword page
     function updatePword() {
         document.getElementById('updatepword').style.display = 'block';
+        document.getElementById('verify').style.display = 'none';
     }
 
     //close signup page
