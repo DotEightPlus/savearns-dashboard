@@ -1,7 +1,7 @@
 <?php
 //creating the database to use
-$con = mysqli_connect("localhost","root","","savearns");
-//$con = mysqli_connect("localhost","dotpedia_user","securemelikekilode","dotpedia_dotpedia");
+//$con = mysqli_connect("localhost","root","","savearns");
+$con = mysqli_connect("localhost","savearns_user","securemelikekilode","savearns_savearns");
 
 function row_count($result) {
 
