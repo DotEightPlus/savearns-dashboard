@@ -289,7 +289,7 @@ if(isset($_POST['vemail']) && isset($_POST['votp'])) {
 		echo 'Loading...Please Wait';
 
 		if(!isset($_SESSION['vnext'])) {
-		echo '<script>window.location.href ="./"</script>';
+		//echo '<script>window.location.href ="./"</script>';
 		} else {
 			$data = $_SESSION['vnext'];
 			echo '<script>'.$data.'</script>';
