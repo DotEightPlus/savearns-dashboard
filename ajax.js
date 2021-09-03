@@ -67,7 +67,7 @@ $("#rotp").click(function () {
   document.getElementById("vmsg").style.display = 'none';
 
   var otpp  = $("#otpper").val();
-  
+
   if (otpp == "" || otpp == null) {
     $("#vmsg").html("Invalid OTP!");
   } else {
@@ -133,6 +133,7 @@ $("#vsub").click(function () {
       }
     }
   });
+  
 
   //forgot
   $("#fsub").click(function () {

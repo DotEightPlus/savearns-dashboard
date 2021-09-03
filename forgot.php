@@ -140,8 +140,8 @@ if(isset($_SESSION['login'])) {
                 <div style="display:none" class="col-xl-8 col-lg-5 col-md-7 mx-auto" id="updatepword">
                     <div class="card z-index-0">
                         <div class="card-header text-center pt-4">
-                            <h5>Verify your account</h5>
-                            <p>Check your mail for an otp code</p>
+                            <h5>Update Your Password</h5>
+                            <p>Restore back your account</p>
                         </div>
 
                         <div class="card-body">
@@ -152,8 +152,6 @@ if(isset($_SESSION['login'])) {
                                         placeholder="Input one time password" aria-label="Name"
                                         aria-describedby="otp-addon" onclick="otpr()">
 
-                                    <input type="email" id="otpmail" class="form-control"
-                                        value="<?php echo $_SESSION['fgeml'] ?>" hidden>
                                 </div>
 
 

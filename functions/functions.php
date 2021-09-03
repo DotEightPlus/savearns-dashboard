@@ -367,6 +367,8 @@ if(isset($_POST['fgeml'])) {
 	
 	$email  = clean(escape($_POST['fgeml']));
 
+	$_SESSION['usermail'] = $email;
+
 	if(!email_exist($email)) {
 
 		echo "Sorry! This email doesn't have an account";
@@ -381,8 +383,6 @@ if(isset($_POST['fgeml'])) {
 	//redirect to verify function
 	$subj = "RESET YOUR PASSWORD";
 	$msg  = "Hi there! <br /><br />Kindly use the otp below to restore your password;";
-
-	$_SESSION['fgeml'] = $email;
 
 	mail_mailer($email, $activator, $subj, $msg);
 
@@ -399,7 +399,7 @@ if(isset($_POST['fgeml'])) {
 /** RESET PASSWORD **/
 if(isset($_POST['fgpword']) && isset($_POST['fgcpword']) && isset($_POST['act'])) {
 
-	$fgpword = md5($_POST['fgpword']);
+	    $fgpword = md5($_POST['fgpword']);
         $eml = $_SESSION['fgeml'];
 
 	$sql = "UPDATE signup SET `pword` = '$fgpword', `activator` = '' WHERE `email` = '$eml'";
