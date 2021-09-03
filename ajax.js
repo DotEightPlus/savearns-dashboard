@@ -66,51 +66,46 @@ $("#rotp").click(function () {
   document.getElementById("rvmsg").style.display = 'block';
   document.getElementById("vmsg").style.display = 'none';
 
-  var email = $("#otpmail").val();
-  var otpp  = "1111";
-
-  if (email == "" || email == null) {
-    $("#rvmsg").html("Server Error!");
+  var otpp  = $("#otpper").val();
+  
+  if (otpp == "" || otpp == null) {
+    $("#vmsg").html("Invalid OTP!");
   } else {
+
     $("#rvmsg").html("Loading... Please wait");
+
     $.ajax({
       type: "post",
       url: "functions/init.php",
-      data: {email:email, otpp: otpp},
+      data: {otpp: otpp},
       success: function (data) {
         $("#rvmsg").html(data);
       },
     });
   }
-
 })
 
 
 //verify otp
 $("#vsub").click(function () {
 
-  var vemail = $("#otpmail").val();
-  var votp   = $("#otpper").val();
+   var votp   = $("#otpper").val();
 
   document.getElementById("rvmsg").style.display = 'none';
   document.getElementById("vmsg").style.display = 'block';
 
-  if (vemail == "" || vemail == null) {
-    $("#vmsg").html("Server Error!");
-  } else {
-    if (votp == "" || votp == null) {
+      if (votp == "" || votp == null) {
       $("#vmsg").html("Invalid OTP!");
     } else {
     $("#vmsg").html("Loading... Please Wait");
     $.ajax({
       type: "post",
       url: "functions/init.php",
-      data: {vemail:vemail, votp: votp},
+      data: {votp: votp},
       success: function (data) {
         $("#vmsg").html(data);
       },
     });
-  }
   }
 })
 

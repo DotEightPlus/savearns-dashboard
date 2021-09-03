@@ -158,6 +158,9 @@ function register($fname, $tel, $email, $uname, $pword, $ref) {
 
 	$datereg = date("Y-m-d");
 
+	$_SESSION['usermail'] = $emai;
+		
+
 	$activator = otp();
 	
 $sql = "INSERT INTO users(`sn`, `fname`, `usname`, `email`, `pword`, `datereg`, `active`, `tel`, `activator`, `ref`)";
@@ -167,8 +170,6 @@ $result = query($sql);
 //redirect to verify function
 $subj = "VERIFY YOUR EMAIL";
 $msg  = "Hi there! <br /><br />Kindly use the otp below to activate your account;";
-
-$_SESSION['usemail'] = $email;
 
 mail_mailer($email, $activator, $subj, $msg);
 
@@ -234,9 +235,9 @@ $send = mail($to, $subject, $body, $headers);
 
 
 /** RESEND OTP */
-if(isset($_POST['email']) && isset($_POST['otpp'])) {
+if(isset($_POST['otpp'])) {
 	
-	$email = clean(escape($_POST['email']));
+	$email = $_SESSION['usermail'];
 	
 	$activator = otp();	
 
@@ -252,9 +253,9 @@ if(isset($_POST['email']) && isset($_POST['otpp'])) {
 
 
 /**Activate OTP ACCOUNT */
-if(isset($_POST['vemail']) && isset($_POST['votp'])) {
+if(isset($_POST['votp'])) {
 
-	$email = clean(escape($_POST['vemail']));
+	$email = $_SESSION['usermail'];
 	$veotp = clean(escape($_POST['votp']));
 
 	$otp   = $_SESSION['otp'];
@@ -284,7 +285,7 @@ if(isset($_POST['vemail']) && isset($_POST['votp'])) {
 		$user = $row['usname'];
 
 		$_SESSION['usname'] = $user;
-		unset($_SESSION['usemail']);
+		
 		
 		echo 'Loading...Please Wait';
 

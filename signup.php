@@ -158,8 +158,7 @@ if(isset($_SESSION['login'])) {
                                         placeholder="Input one time password" aria-label="Name"
                                         aria-describedby="otp-addon" onclick="otpr()">
 
-                                    <input type="email" id="otpmail" class="form-control"
-                                        value="<?php echo $_SESSION['usemail'] ?>" hidden>
+
                                 </div>
 
 
