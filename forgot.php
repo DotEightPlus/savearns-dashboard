@@ -146,23 +146,26 @@ if(isset($_SESSION['login'])) {
 
                         <div class="card-body">
                             <form role="form text-left">
-                                <div class="mb-3">
-                                    <label>Input OTP</label>
-                                    <input type="number" id="otpper" class="form-control"
-                                        placeholder="Input one time password" aria-label="Name"
-                                        aria-describedby="otp-addon" onclick="otpr()">
-
+                                <div class="row">
+                                    <div class="mb-3 col-lg-6">
+                                        <label>Create New Password</label>
+                                        <input type="password" id="pword" class="form-control" placeholder="Password"
+                                            aria-label="Password" aria-describedby="password-addon" onfocus="pwrr()">
+                                    </div>
+                                    <div class="mb-3 col-lg-6">
+                                        <label>Confirm Password</label>
+                                        <input type="password" id="cpword" class="form-control"
+                                            placeholder="Confirm Password" aria-label="Password"
+                                            aria-describedby="password-addon" onfocus="cprr()">
+                                    </div>
                                 </div>
 
 
                                 <div class="text-center">
                                     <p class="text-danger" id="vmsg"></p>
-                                    <p class="text-danger" id="rvmsg"></p>
-                                    <button type="button" id="vsub" class="btn bg-gradient-dark w-100 my-4 mb-2">Verify
-                                        Account</button>
-                                    <p style="cursor: pointer"
-                                        class="text-sm mt-3 mb-0 text-center text-dark font-weight-bolder" id="rotp">
-                                        Resend OTP</p>
+                                    <button type="button" id="updf" class="btn bg-gradient-dark w-100 my-4 mb-2">Update
+                                        Password</button>
+
                                 </div>
 
                             </form>
@@ -199,6 +202,14 @@ if(isset($_SESSION['login'])) {
     //erase validations
     function fmail() {
         document.getElementById("fmsg").innerHTML = '';
+    }
+
+    function pwrr() {
+        document.getElementById("msg").innerHTML = '';
+    }
+
+    function cprr() {
+        document.getElementById("msg").innerHTML = '';
     }
 
     function otpr() {

@@ -133,7 +133,7 @@ $("#vsub").click(function () {
       }
     }
   });
-  
+
 
   //forgot
   $("#fsub").click(function () {
@@ -155,36 +155,35 @@ $("#vsub").click(function () {
     }
   });
 
+
+
   //reset
-  $("#reset").click(function () {
-    var fgpword = $("#fgpword").val();
-    var fgcpword = $("#fgcpword").val();
-    var act = $("#act").text();
+  $("#updf").click(function () {
+    var fgpword = $("#pword").val();
+    var fgcpword = $("#cpword").val();
 
     if (fgpword == "" || fgpword == null) {
-      $("#msg").html("Please create a password");
+      $("#vmsg").html("Please create a new password");
     } else {
       if (fgcpword == "" || fgcpword == null) {
-        $("#msg").html("Confirm Your Password");
+        $("#vmsg").html("Kindly confirm Your Password");
       } else {
         if (fgpword != fgcpword) {
-          $("#msg").html("Password does not match!");
+          $("#vmsg").html("Password does not match!");
         } else {
-          $("#msg").html("Loading...Please Wait!");
+          $("#vmsg").html("Loading... Please Wait!");
 
           $.ajax({
             type: "post",
             url: "functions/init.php",
-            data: { fgpword: fgpword, fgcpword: fgcpword, act: act },
+            data: { fgpword: fgpword, fgcpword: fgcpword },
             success: function (data) {
-              $("#msg").html(data);
+              $("#vmsg").html(data);
             },
           });
         }
       }
     }
-
-    $("#exampleModalCenter").modal();
   });
 
   /******** USER PROFILE SECTION */
