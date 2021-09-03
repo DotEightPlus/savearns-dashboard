@@ -174,7 +174,7 @@ $msg  = "Hi there! <br /><br />Kindly use the otp below to activate your account
 mail_mailer($email, $activator, $subj, $msg);
 
 //open otp page
-echo 'Loading...Please Wait!';
+echo 'Loading... Please Wait!';
 echo'<script>otpVerify(); signupClose();</script>';
 	 }
 
@@ -276,7 +276,7 @@ if(isset($_POST['votp'])) {
 	$rsl = query($ssl);
 	if(row_count($rsl) == '') {
 		
-		echo 'Loading...Please Wait';
+		echo 'Loading... Please Wait';
 		echo '<script>window.location.href ="./signin"</script>';
 		
 	} else {
@@ -287,10 +287,10 @@ if(isset($_POST['votp'])) {
 		$_SESSION['usname'] = $user;
 		
 		
-		echo 'Loading...Please Wait';
+		echo 'Loading... Please Wait';
 
 		if(!isset($_SESSION['vnext'])) {
-		//echo '<script>window.location.href ="./"</script>';
+		echo '<script>window.location.href ="./"</script>';
 		} else {
 			$data = $_SESSION['vnext'];
 			echo '<script>'.$data.'</script>';
@@ -333,7 +333,7 @@ if(isset($_POST['votp'])) {
 					mail_mailer($email, $activator, $subj, $msg);
 
 					//open otp page
-					echo 'Loading...Please Wait!';
+					echo 'Loading... Please Wait!';
 					echo '<script>otpVerify(); signupClose();</script>';
 	
 					
@@ -343,7 +343,7 @@ if(isset($_POST['votp'])) {
 						
 						$_SESSION['login'] = $username;
 
-						echo 'Loading...Please Wait';	
+						echo 'Loading... Please Wait';	
 
 						echo '<script>window.location.href ="./"</script>';	
 					} else {
@@ -355,7 +355,7 @@ if(isset($_POST['votp'])) {
 
 		}else {
 
-		         echo 'Loading...Please Wait!';
+		         echo 'Loading... Please Wait!';
                  echo '<script>window.location.href ="./forgot"</script>';
 		}
 	}
@@ -387,7 +387,7 @@ if(isset($_POST['fgeml'])) {
 	mail_mailer($email, $activator, $subj, $msg);
 
 	//open otp page
-	echo 'Loading...Please Wait!';
+	echo 'Loading... Please Wait!';
 	$_SESSION['vnext'] = "updatePword();";
 	echo '<script>otpVerify(); signupClose();</script>';
 
@@ -406,7 +406,7 @@ if(isset($_POST['fgpword']) && isset($_POST['fgcpword']) && isset($_POST['act'])
 	$rsl = query($sql);
 
 	//redirect to verify page
-	echo 'Loading...Please Wait!';
+	echo 'Loading... Please Wait!';
 	echo '<script>window.location.href ="./updated"</script>';
 }
 
@@ -437,7 +437,7 @@ if (!empty($_FILES["fle"]["name"])) {
 	   move_uploaded_file($_FILES["fle"]["tmp_name"], $targetFilePath);
 	   img_prod($target_file);
 
-	  echo 'Loading...Please Wait!';
+	  echo 'Loading... Please Wait!';
 	  echo '<script>window.location.href ="./profile"</script>';
 }
 }	    	
@@ -611,7 +611,7 @@ if(isset($_POST['donatenow'])) {
 
 		$_SESSION['uploaded'] = "Your PDF was approved and uploaded successfully";
 
-		echo 'Loading...Please Wait!';
+		echo 'Loading... Please Wait!';
 		echo '<script>window.location.href ="./pdf#latest"</script>';
 
 	} else {
@@ -691,7 +691,7 @@ function uploadpq() {
 	
 			$_SESSION['pquploaded'] = "Your Past Questions was approved and uploaded successfully";
 	
-			echo 'Loading...Please Wait!';
+			echo 'Loading... Please Wait!';
 			echo '<script>window.location.href ="./pq#latest"</script>';
 	
 		} else {
