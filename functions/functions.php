@@ -330,7 +330,7 @@ if(isset($_POST['votp'])) {
 
 					$activator = otp();
 
-					$_SESSION['usemail'] = $email;
+					$_SESSION['usermail'] = $email;
 
 					//update activation link
 					$ups = "UPDATE users SET `activator` = '$activate' WHERE `usname` = '$username'";
