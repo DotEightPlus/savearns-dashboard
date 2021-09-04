@@ -1,4 +1,10 @@
 <?php
+include("functions/init.php");
+
+if(!isset($_SESSION['usermail']) || !isset($_SESSION['login'])) {
+
+  redirect("./signin");
+}
 
 echo "//check for valid login and user session <br/>
  //save last seen <br/>
