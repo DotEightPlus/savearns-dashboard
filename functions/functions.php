@@ -206,9 +206,8 @@ $body = "
 <head>
 <meta charset='UTF-8'>
 <title>Savearns</title>
-<link rel='stylesheet' href='https://savearns.com/assets/css/bootstrap.min.css'>
 </head>
-
+<link rel='stylesheet' href='https://savearns.com/assets/css/bootstrap.min.css'>
 <body style='text-align: center;'>";
 $body .= "<section style='margin: 30px; margin-top: 50px ; background: #34459C; color: #fff;'>";
 $body .= "<img style='margin-top: 35px; width: 460px; height: 105px;' src='{$logo}' alt='Savearns'>";
