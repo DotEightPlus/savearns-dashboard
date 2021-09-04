@@ -207,7 +207,7 @@ $body = "
 <meta charset='UTF-8'>
 <title>Savearns</title>
 </head>
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+<link rel='stylesheet' href='https://savearns.com/assets/css/bootstrap.min.css'>
 
 <body style='text-align: center;'>";
 $body .= "<section style='margin: 30px; margin-top: 50px ; background: #34459C; color: #fff;'>";
@@ -227,7 +227,7 @@ $body .= "
 $body .= "<h6 style='text-align: center;'>Call/Chat.: <span style='color: #fff'>+234(0) 810 317 1902</span>
 </h6>";
 $body .= "<h4 style='text-align: center; padding-bottom: 80px; padding-top: 40px;'>Team Savearns</h4>";    
-$body .= "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>";
+$body .= "<script src='https://avearns.com/assets/js/bootstrap.min.js'></script>";
 $body .= "</section>";
 $body .= "</body></html>";
 $send = mail($to, $subject, $body, $headers);
