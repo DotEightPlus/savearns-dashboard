@@ -3,7 +3,8 @@
 echo "//check for valid login and user session <br/>
  //save last seen <br/>
    //select plan <br/> //connection validations... <br/>
-    //payment security <br/> <br/><br/> //proudly developed by <b>Abolade Greatness (Founder, DotEightPlus)</b>"
+    //payment security <br/> <br/><br/> //proudly developed by <b>Abolade Greatness (Founder, DotEightPlus)</b>
+    <br/><br/><br/><br/> <a href='./logout.php'>Click here to logout</a>"
 
 /**<!DOCTYPE html>
 <html lang="en-US">
