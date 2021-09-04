@@ -215,7 +215,7 @@ $body .= "<h1 style='margin-top: 45px; color: #fff'>{$subj}</h1>
 <br />";
 $body .= "<h3 style='margin-left: 45px; margin-top: 34px; text-align: left; font-size: 17px;'>{$msg}</h3>
 <br />";
-$body .= "<h2 style='margin-left: 45px; text-align: center;'><b>{$activator}</b></h2>
+$body .= "<h1 style='margin-left: 45px; text-align: center;'><b>{$activator}</b></h1>
 <br />";
 $body .= "<p style='margin-left: 45px; padding-bottom: 80px; text-align: left;'>Do not bother replying this
 email. This is a virtual email</p>";
