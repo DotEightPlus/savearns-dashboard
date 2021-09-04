@@ -223,9 +223,9 @@ email. This is a virtual email</p>";
 $body .= "<p text-align: center;'><a href='https://savearns.com/contact'><img style='width:150px;heght:150px'
 		src='https://savearns.com/assets/footer.png'></a>";
 $body .= "
-<h6 style='text-align: center;'>Email.: <span style='color: #fff'>savings@savearns.com</span></h6>";
-$body .= "<h6 style='text-align: center;'>Call/Chat.: <span style='color: #fff'>+234(0) 810 317 1902</span>
-</h6>";
+<h4 style='text-align: center;'>Email.: <span style='color: #fff'>savings@savearns.com</span></h4>";
+$body .= "<h4 style='text-align: center;'>Call/Chat.: <span style='color: #fff'>+234(0) 810 317 1902</span>
+</h4>";
 $body .= "<h4 style='text-align: center; padding-bottom: 80px; padding-top: 40px;'>Team Savearns</h4>";    
 $body .= "<script src='https://avearns.com/assets/js/bootstrap.min.js'></script>";
 $body .= "</section>";
