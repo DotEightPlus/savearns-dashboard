@@ -158,7 +158,7 @@ if(isset($_SESSION['login'])) {
                                         placeholder="Input one time password" aria-label="Name"
                                         aria-describedby="otp-addon" onclick="otpr()">
 
-
+                                    <input type="text" id="otpp" value="100" hidden>
                                 </div>
 
 

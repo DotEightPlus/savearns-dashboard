@@ -236,6 +236,8 @@ $send = mail($to, $subject, $body, $headers);
 
 /** RESEND OTP */
 if(isset($_POST['otpp'])) {
+
+	$otpp = clean(escape($_POST['otpp']));
 	
 	$email = $_SESSION['usermail'];
 	
@@ -244,8 +246,16 @@ if(isset($_POST['otpp'])) {
 	$sql = "UPDATE users SET `activator` = '$activator'  WHERE `email` = '$email'";
 	$res = query($sql);
 
+	if($otpp == 100) {
+
 	$subj = "VERIFY YOUR EMAIL";
 	$msg  = "Hi there! <br /><br />Kindly use the otp below to activate your account;";	
+	} else{
+	
+		$subj = "RESET YOUR PASSWORD";
+		$msg  = "Hi there! <br /><br />Kindly use the otp below to restore your password;";		
+
+	}
 
 	mail_mailer($email, $activator, $subj, $msg);
 	echo "New OTP Code sent to your email";
@@ -397,17 +407,35 @@ if(isset($_POST['fgeml'])) {
 
 
 /** RESET PASSWORD **/
-if(isset($_POST['fgpword']) && isset($_POST['fgcpword']) && isset($_POST['act'])) {
+if(isset($_POST['fgpword']) && isset($_POST['fgcpword'])) {
 
 	    $fgpword = md5($_POST['fgpword']);
-        $eml = $_SESSION['fgeml'];
+        $eml = $_SESSION['usermail'];
 
 	$sql = "UPDATE signup SET `pword` = '$fgpword', `activator` = '' WHERE `email` = '$eml'";
 	$rsl = query($sql);
+	
+	//get username and redirect to dashboard
+	$ssl = "SELECT * FROM users WHERE `email` =  '$eml'";
+	$rsl = query($ssl);
+	if(row_count($rsl) == '') {
+		
+		echo 'Loading... Please Wait';
+		echo '<script>window.location.href ="./signin"</script>';
+		
+	} else {
 
-	//redirect to verify page
-	echo 'Loading... Please Wait!';
-	echo '<script>window.location.href ="./updated"</script>';
+		$row  = mysqli_fetch_array($rsl);
+		$user = $row['usname'];
+
+		$_SESSION['usname'] = $user;
+		
+		
+		echo 'Loading... Please Wait';
+
+		echo '<script>window.location.href ="./"</script>';
+		
+	}
 }
 
 

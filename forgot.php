@@ -116,8 +116,7 @@ if(isset($_SESSION['login'])) {
                                         placeholder="Input one time password" aria-label="Name"
                                         aria-describedby="otp-addon" onclick="otpr()">
 
-                                    <input type="email" id="otpmail" class="form-control"
-                                        value="<?php echo $_SESSION['fgeml'] ?>" hidden>
+                                    <input type="text" id="otpp" value="101" hidden>
                                 </div>
 
 
@@ -205,18 +204,15 @@ if(isset($_SESSION['login'])) {
     }
 
     function pwrr() {
-        document.getElementById("msg").innerHTML = '';
+        document.getElementById("vmsg").innerHTML = '';
     }
 
     function cprr() {
-        document.getElementById("msg").innerHTML = '';
-    }
-
-    function otpr() {
         document.getElementById("vmsg").innerHTML = '';
     }
 
     function otpr() {
+        document.getElementById("vmsg").innerHTML = '';
         document.getElementById("rvmsg").innerHTML = '';
     }
     </script>

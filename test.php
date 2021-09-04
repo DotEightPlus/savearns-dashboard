@@ -1,7 +1,7 @@
 <?php
 include('functions/init.php');
 
-echo $_SESSION['vnext'];
+echo $_SESSION['usermail'];
 
 //unset($_SESSION['usermail'])
 //unset($_SESSION['usemail']);

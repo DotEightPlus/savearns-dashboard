@@ -66,10 +66,11 @@ $("#rotp").click(function () {
   document.getElementById("rvmsg").style.display = 'block';
   document.getElementById("vmsg").style.display = 'none';
 
-  var otpp  = $("#otpper").val();
+  //I left this code so as to give a dummy text to the function validator
+  var otpp  = $("#otpp").val();
 
   if (otpp == "" || otpp == null) {
-    $("#vmsg").html("Invalid OTP!");
+    $("#rvmsg").html("Invalid OTP!");
   } else {
 
     $("#rvmsg").html("Loading... Please wait");
@@ -159,7 +160,10 @@ $("#vsub").click(function () {
 
   //reset
   $("#updf").click(function () {
-    var fgpword = $("#pword").val();
+
+    document.getElementById("vmsg").style.display = 'block';
+    
+    var fgpword  = $("#pword").val();
     var fgcpword = $("#cpword").val();
 
     if (fgpword == "" || fgpword == null) {
