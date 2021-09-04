@@ -161,28 +161,26 @@ $("#vsub").click(function () {
   //reset
   $("#updf").click(function () {
 
-    document.getElementById("vmsg").style.display = 'block';
-    
     var fgpword  = $("#pword").val();
     var fgcpword = $("#cpword").val();
 
     if (fgpword == "" || fgpword == null) {
-      $("#vmsg").html("Please create a new password");
+      $("#umsg").html("Please create a new password");
     } else {
       if (fgcpword == "" || fgcpword == null) {
-        $("#vmsg").html("Kindly confirm Your Password");
+        $("#umsg").html("Kindly confirm Your Password");
       } else {
         if (fgpword != fgcpword) {
-          $("#vmsg").html("Password does not match!");
+          $("#umsg").html("Password does not match!");
         } else {
-          $("#vmsg").html("Loading... Please Wait!");
+          $("#umsg").html("Loading... Please Wait!");
 
           $.ajax({
             type: "post",
             url: "functions/init.php",
             data: { fgpword: fgpword, fgcpword: fgcpword },
             success: function (data) {
-              $("#vmsg").html(data);
+              $("#umsg").html(data);
             },
           });
         }

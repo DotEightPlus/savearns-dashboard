@@ -140,7 +140,7 @@ if(isset($_SESSION['login'])) {
                     <div class="card z-index-0">
                         <div class="card-header text-center pt-4">
                             <h5>Update Your Password</h5>
-                            <p>Restore back your account</p>
+                            <p>Restore your account</p>
                         </div>
 
                         <div class="card-body">
@@ -161,7 +161,7 @@ if(isset($_SESSION['login'])) {
 
 
                                 <div class="text-center">
-                                    <p class="text-danger" id="vmsg"></p>
+                                    <p class="text-danger" id="umsg"></p>
                                     <button type="button" id="updf" class="btn bg-gradient-dark w-100 my-4 mb-2">Update
                                         Password</button>
 
@@ -204,11 +204,11 @@ if(isset($_SESSION['login'])) {
     }
 
     function pwrr() {
-        document.getElementById("vmsg").innerHTML = '';
+        document.getElementById("umsg").innerHTML = '';
     }
 
     function cprr() {
-        document.getElementById("vmsg").innerHTML = '';
+        document.getElementById("umsg").innerHTML = '';
     }
 
     function otpr() {
