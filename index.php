@@ -6,6 +6,8 @@ if(!isset($_SESSION['usermail']) || !isset($_SESSION['login'])) {
   redirect("./signin");
 }
 
+redirect("./soon");
+
 echo "//check for valid login and user session <br/>
  //save last seen <br/>
    //select plan <br/> //connection validations... <br/>
