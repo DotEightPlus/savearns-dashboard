@@ -1,3 +1,9 @@
+<?php 
+include("../functions/init.php");
+
+if(isset($_SESSION['login']) || isset($_SESSION['usname'])) {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,3 +81,12 @@
 </body>
 
 </html>
+<?php
+
+  
+} else {
+
+    redirect(".././logout");
+
+}
+?>
