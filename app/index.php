@@ -205,7 +205,8 @@ if(isset($_SESSION['login'])) {
                                                                         <i class="fas fa-user"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input type="email" class="form-control phone-number">
+                                                                <input type="text" class="form-control phone-number"
+                                                                    disabled>
                                                             </div>
                                                         </div>
 
