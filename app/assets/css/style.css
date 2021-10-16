@@ -2719,6 +2719,7 @@ a.dropdown-item.active {
 
 body {
   background-color: #fafdfb;
+  background-image: url("../img/hero-bg.png");
   font-size: 14px;
   font-weight: 400;
   font-family: "Nunito", "Segoe UI", arial;
