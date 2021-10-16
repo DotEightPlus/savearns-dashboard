@@ -293,7 +293,7 @@ if(isset($_POST['votp'])) {
 		$row  = mysqli_fetch_array($rsl);
 		$user = $row['usname'];
 
-		$_SESSION['usname'] = $user;
+		$_SESSION['login'] = $user;
 		
 		
 		echo 'Loading... Please Wait';
@@ -427,13 +427,37 @@ if(isset($_POST['fgpword']) && isset($_POST['fgcpword'])) {
 		$row  = mysqli_fetch_array($rsl);
 		$user = $row['usname'];
 
-		$_SESSION['usname'] = $user;
+		$_SESSION['login'] = $user;
 		
 		
 		echo 'Loading... Please Wait';
 
 		echo '<script>window.location.href ="./"</script>';
 		
+	}
+}
+
+
+
+
+// DASHBOARD FUNCTIONS FOR USER
+function user_details() {
+
+	$data	    = $_SESSION['login']; 
+
+	$sql = "SELECT * FROM users WHERE `usname` = '$data'";
+	$rsl = query($sql);
+
+	//check if user details is valid
+	if(row_count($rsl) == '') {
+
+		redirect(".././logout");
+		
+	} else {
+
+		$GLOBALS['t_users'] = mysqli_fetch_array($rsl);
+	
+
 	}
 }
 

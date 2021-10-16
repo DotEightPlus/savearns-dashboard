@@ -1,8 +1,12 @@
 <?php 
 include("../functions/init.php");
 
-if(isset($_SESSION['login']) || isset($_SESSION['usname'])) {
+if(isset($_SESSION['login'])) {
+
+   
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,27 +20,35 @@ if(isset($_SESSION['login']) || isset($_SESSION['usname'])) {
 
             <?php 
                 include("include/nav.php"); 
-                include("include/sidebar.php");
+                 //check if user is a new customer 
+                 user_details();
+
+                 if($t_users['transaction pin'] == '' || $t_users['transaction pin'] == 0) {
+
+                include("include/newcust.php");
+
+
+               
                 ?>
 
 
 
 
-            <!-- Main Content -->
+            <!--Greet new customer -->
             <div class="main-content">
                 <section class="section">
                     <div class="section-header">
-                        <h1>Transprent Sidebar</h1>
-                        <div class="section-header-breadcrumb">
+                        <h1>Hello <?php echo $t_users['usname'] ?></h1>
+                        <!---<div class="section-header-breadcrumb">
                             <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                             <div class="breadcrumb-item"><a href="#">Layout</a></div>
                             <div class="breadcrumb-item">Transprent Sidebar</div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="section-body">
-                        <h2 class="section-title">This is Example Page</h2>
-                        <p class="section-lead">This page is just an example for you to create your own page.</p>
+                        <h2 class="section-title">Welcome to Savearns</h2>
+                        <p class="section-lead">Thank you for creating an account with savearns</p>
                         <div class="card">
                             <div class="card-header">
                                 <h4>Example Card</h4>
@@ -57,7 +69,16 @@ if(isset($_SESSION['login']) || isset($_SESSION['usname'])) {
                 </section>
             </div>
 
-            <?php include("include/footer.php") ?>
+
+
+            <?php 
+            
+            include("include/footer.php");
+                } else {
+
+                    
+                } 
+            ?>
         </div>
     </div>
 
@@ -81,6 +102,8 @@ if(isset($_SESSION['login']) || isset($_SESSION['usname'])) {
 </body>
 
 </html>
+
+
 <?php
 
   

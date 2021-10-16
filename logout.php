@@ -1,7 +1,7 @@
 <?php
 include('functions/init.php');
 
-$data = $_SESSION['usname'];
+$data = $_SESSION['login'];
 
 //get last seen
 $lastseen = date('Y-m-d h:i:sa');
