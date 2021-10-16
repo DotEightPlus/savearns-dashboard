@@ -18,13 +18,14 @@ if(isset($_SESSION['login'])) {
         <div class="main-wrapper">
 
 
-            <?php 
-                include("include/nav.php"); 
-                 //check if user is a new customer 
+            <?php
+            
+                //check if user is a new customer 
                  user_details();
 
                  if($t_users['transaction pin'] == '' || $t_users['transaction pin'] == 0) {
-
+                
+                include("include/navcust.php"); 
                 include("include/newcust.php");
 
 
