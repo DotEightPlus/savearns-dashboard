@@ -73,6 +73,9 @@ if(isset($_SESSION['login'])) {
                                                     aria-selected="false">Security</a>
                                             </li>
                                         </ul>
+
+
+
                                         <div class="tab-content" id="myTabContent2">
                                             <div class="tab-pane fade show active" id="profile" role="tabpanel"
                                                 aria-labelledby="home-tab3">
@@ -160,107 +163,108 @@ if(isset($_SESSION['login'])) {
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
+
                                             <div class="tab-pane fade" id="account" role="tabpanel"
                                                 aria-labelledby="profile-tab3">
-                                                <div class="tab-pane fade show active" id="profile" role="tabpanel"
-                                                    aria-labelledby="home-tab3">
-                                                    <div class="card">
+                                                <div class="card">
 
-                                                        <div class="card-body row">
-                                                            <div class="form-group col-md-6  col-lg-6 col-sm-12">
-                                                                <label>Bank Name</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <div class="input-group-text">
-                                                                            <i class="fas fa-user"></i>
-                                                                        </div>
+                                                    <div class="card-body row">
+                                                        <div class="form-group col-md-6  col-lg-6 col-sm-12">
+                                                            <label>Bank Name</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-credit-card"></i>
                                                                     </div>
-                                                                    <input type="text"
-                                                                        value="<?php echo $t_users['fname'] ?>"
-                                                                        class="form-control" disabled>
                                                                 </div>
-
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                                <label>Telephone</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <div class="input-group-text">
-                                                                            <i class="fas fa-phone"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <input type="text"
-                                                                        value="<?php echo $t_users['tel'] ?>"
-                                                                        class="form-control" disabled>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                                <label>Email </label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <div class="input-group-text">
-                                                                            <i class="fas fa-envelope"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <input type="email"
-                                                                        class="form-control phone-number">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                                <label>Select Gender</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <div class="input-group-text">
-                                                                            <i class="fas fa-users"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <input type="password"
-                                                                        class="form-control pwstrength"
-                                                                        data-indicator="pwindicator">
-                                                                </div>
-                                                                <div id="pwindicator" class="pwindicator">
-                                                                    <div class="bar"></div>
-                                                                    <div class="label"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                                <label>Institution Name</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <div class="input-group-text">
-                                                                            <i class="fas fa-graduation-cap"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <input type="text" class="form-control currency">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                                <label>Department</label>
-                                                                <input type="text" class="form-control">
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                                <label>Level</label>
-                                                                <input type="text" class="form-control invoice-input">
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                                <label>Matric Number</label>
                                                                 <input type="text" class="form-control">
                                                             </div>
 
                                                         </div>
+                                                        <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                            <label>Account Number</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-key"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="number" class="form-control">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-lg-12 col-sm-12">
+                                                            <label>Account Name </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-user"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="email" class="form-control phone-number">
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="security" role="tabpanel"
-                                                    aria-labelledby="contact-tab3">
-                                                </div>
                                             </div>
+
+
+
+
+
+
+                                            <div class="tab-pane fade" id="security" role="tabpanel"
+                                                aria-labelledby="contact-tab3">
+
+
+                                                <div class="card">
+
+                                                    <div class="card-body row">
+                                                        <div class="form-group col-md-6  col-lg-6 col-sm-12">
+                                                            <label>Create Transaction PIN</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-lock"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="text" class="form-control">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                            <label>Confirm PIN</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-lock"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="number" class="form-control">
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!--<div class="card">
+                        <!--<div class="card">
                             <div class="card-header">
                                 <h4>Example Card</h4>
                             </div>
@@ -276,7 +280,7 @@ if(isset($_SESSION['login'])) {
                                 This is card footer
                             </div>
                         </div>-->
-                        </div>
+                    </div>
                 </section>
             </div>
 
