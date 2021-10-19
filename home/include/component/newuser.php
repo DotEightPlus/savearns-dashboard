@@ -143,7 +143,9 @@
                                                             <i class="fas fa-credit-card"></i>
                                                         </div>
                                                     </div>
-                                                    <input type="text" id="bank" class="form-control">
+                                                    <select id="bank" class="form-control">
+                                                        <?php echo bank_list() ?>
+                                                    </select>
                                                 </div>
 
                                             </div>

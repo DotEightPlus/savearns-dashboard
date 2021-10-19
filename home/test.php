@@ -242,9 +242,14 @@
       'name' => 'Jubilee Life Mortgage Bank'
   ),
 );
-for ($row = 0; $row < 68; $row++) {
- 
-  
-    echo strtoupper($banks[$row]['name'])."<br/>";
-}
-  //echo $banks[0]['name'];
+
+
+    $x= 0; 
+    
+    while($x < 68) {
+
+echo '<option id="bank">'.strtoupper($banks[$x]['name']).'</option>';
+
+$x++;
+} 
+?>
