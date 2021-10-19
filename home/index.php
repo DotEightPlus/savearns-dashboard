@@ -23,7 +23,7 @@ if(isset($_SESSION['login'])) {
                 //check if user is a new customer 
                  user_details();
 
-                if($t_users['transaction pin'] == '' || $t_users['transaction pin'] == 0) {
+                if($t_users['tpin'] == '' || $t_users['tpin'] == 0) {
                 
                 include("include/navcust.php"); 
                 include("include/newcust.php");

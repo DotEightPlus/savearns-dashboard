@@ -84,19 +84,22 @@ $(document).ready(function () {
 
 
   //get account name
-  $("#acct").change(function () {
+  $("#acctn").change(function () {
 
   var bank = $("#bank").val();
   var acctn = $("#acctn").val();
+  var trd   = "hello";
 
   $.ajax({
     type: "post",
-    url: "functions/init.php",
+    url: "../functions/init.php",
     data: {bank: bank, acctn: acctn, trd: trd},
     success: function (data) {
-      $("#actn").value(data);
+      $("#msg").html(data);
     },
   });
+
+  //alert(bank + acctn);
 
   });
 
