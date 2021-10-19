@@ -260,7 +260,7 @@
 
 <script>
 //get account number
-document.getElementById('acctn').addEventListener('keypress', resResult);
+document.getElementById('acctn').addEventListener('change', resResult);
 
 function resResult() {
     var bank = document.forms["userdetails"]["bank"].value;

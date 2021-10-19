@@ -243,12 +243,19 @@
   ),
 );
 
-for ($row = 0; $row < 4; $row++) {
-    echo "<p><b>Row number $row</b></p>";
-    echo "<ul>";
-    for ($col = 0; $col < 3; $col++) {
-      echo "<li>".$cars[$row][$col]."</li>";
-    }
-    echo "</ul>";
-  }
+
+for ($row = 0; $row < 68; $row++) {
+
+    $bankname = "Jubilee Life Mortgage Bank";
+
+    if($banks[$row]['name'] == $bankname){
+
+    $bankcode = $banks[$row]['code'];
+
+   
+
+    } 
+}
+
+echo $bankcode;
 ?>

@@ -712,9 +712,15 @@ function bank_list() {
 		
 		while($x < 68) {
 	
-	echo '<option id="bank" name="bank">'.strtoupper($banks[$x]['name']).'</option>';
+	echo '
+	
+	<option id="bank" name="bank">'.strtoupper($banks[$x]['name']).'</option>';
 	
 	$x++;
 	} 
 }
+
+
+
+	
 ?>
