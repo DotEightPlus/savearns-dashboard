@@ -260,7 +260,7 @@
 
 <script>
 //get account number
-document.getElementById('acctn').addEventListener('change', resResult);
+/*document.getElementById('acctn').addEventListener('change', resResult);
 
 function resResult() {
     var bank = document.forms["userdetails"]["bank"].value;
@@ -280,7 +280,7 @@ function resResult() {
     }
 
     xhr.send();
-}
+}*/
 </script>
 <script>
 //open verify page by default

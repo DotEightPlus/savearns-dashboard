@@ -80,4 +80,27 @@ $(document).ready(function () {
         }
   });
 
+
+
+
+  //get account name
+  $("#acctn").change(function () {
+
+  var bank = $("#bank").val();
+  var acctn = $("#acctn").val();
+
+  $.ajax({
+    type: "post",
+    url: "functions/init.php",
+    data: {
+      bank: bank
+      acctn: acctn,
+    },
+    success: function (data) {
+      $("#actn").value(data);
+    },
+  });
+
+  });
+
 });
