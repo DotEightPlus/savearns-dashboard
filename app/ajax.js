@@ -32,21 +32,21 @@ $(document).ready(function () {
                     $("#msg").html("Invalid account number");
                   } else {
                   if(actn == "" || actn == null) {
-
+                    $("#msg").html("Unable to retrieve account name");
                   } else {
 
                   if(pword == "" || pword == null) {
-
+                    $("#msg").html("Transaction Pin not set");
                   } else {
 
 
                   if(cpword == "" || cpword == null) {
-
+                    $("#msg").html("Kindly confirm the transaction pin inputted");
                   } else {
 
                   if(pword != cpword) {
 
-
+                    $("#msg").html("Transaction pin doesn't match");
                   } else {
 
                   

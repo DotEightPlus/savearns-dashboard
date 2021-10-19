@@ -107,7 +107,8 @@
                                                             <i class="fas fa-graduation-cap"></i>
                                                         </div>
                                                     </div>
-                                                    <input type="text" id="inst" class="form-control">
+                                                    <input type="text" id="inst" onclick="hideMsg()"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6 col-lg-6 col-sm-12">
@@ -154,7 +155,7 @@
                                                             <i class="fas fa-key"></i>
                                                         </div>
                                                     </div>
-                                                    <input type="number" oid="acctn" class="form-control">
+                                                    <input type="number" id="acctn" class="form-control">
                                                 </div>
 
                                             </div>
@@ -194,7 +195,7 @@
                                                             <i class="fas fa-lock"></i>
                                                         </div>
                                                     </div>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" id="pword" class="form-control">
                                                 </div>
 
                                             </div>
@@ -206,7 +207,7 @@
                                                             <i class="fas fa-lock"></i>
                                                         </div>
                                                     </div>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" id="cpword" class="form-control">
                                                 </div>
 
                                             </div>
@@ -249,3 +250,28 @@
         </div>
     </section>
 </div>
+<script>
+//open verify page by default
+function otpVerify() {
+    document.getElementById('verify').style.display = 'block';
+}
+
+//close signup page
+function signupClose() {
+    document.getElementById('signup').style.display = 'none';
+}
+
+//erase validations
+function usr() {
+    document.getElementById("lmsg").innerHTML = '';
+}
+
+function prr() {
+    document.getElementById("lmsg").innerHTML = '';
+}
+
+function otpr() {
+    document.getElementById("vmsg").innerHTML = '';
+    document.getElementById("rvmsg").innerHTML = '';
+}
+</script>
