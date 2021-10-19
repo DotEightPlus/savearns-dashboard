@@ -394,7 +394,7 @@ $banks = array(
 
                                                                 while($row < 68) {
 
-                                                                echo '<option id="bank">'.strtoupper($banks[$row]['name']).'</option>';
+                                                                echo '<option id="bank">'.$banks[$row]['name'].'</option>';
 
                                                                 $row++;
                                                                 } 
