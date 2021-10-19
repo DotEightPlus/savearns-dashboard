@@ -243,13 +243,12 @@
   ),
 );
 
-
-    $x= 0; 
-    
-    while($x < 68) {
-
-echo '<option id="bank">'.strtoupper($banks[$x]['name']).'</option>';
-
-$x++;
-} 
+for ($row = 0; $row < 4; $row++) {
+    echo "<p><b>Row number $row</b></p>";
+    echo "<ul>";
+    for ($col = 0; $col < 3; $col++) {
+      echo "<li>".$cars[$row][$col]."</li>";
+    }
+    echo "</ul>";
+  }
 ?>

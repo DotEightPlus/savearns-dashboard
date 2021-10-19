@@ -37,197 +37,202 @@
                             </ul>
 
 
+                            <form id="userdetails">
+                                <div class="tab-content" id="myTabContent2">
+                                    <div class="tab-pane fade show active" id="profile" role="tabpanel"
+                                        aria-labelledby="home-tab3">
+                                        <div class="card">
 
-                            <div class="tab-content" id="myTabContent2">
-                                <div class="tab-pane fade show active" id="profile" role="tabpanel"
-                                    aria-labelledby="home-tab3">
-                                    <div class="card">
-
-                                        <div class="card-body row">
-                                            <div class="form-group col-md-6  col-lg-6 col-sm-12">
-                                                <label>Full Name</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-user"></i>
+                                            <div class="card-body row">
+                                                <div class="form-group col-md-6  col-lg-6 col-sm-12">
+                                                    <label>Full Name</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-user"></i>
+                                                            </div>
                                                         </div>
+                                                        <input type="text" value="<?php echo $t_users['fname'] ?>"
+                                                            class="form-control" disabled>
                                                     </div>
-                                                    <input type="text" value="<?php echo $t_users['fname'] ?>"
-                                                        class="form-control" disabled>
-                                                </div>
-
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Telephone</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-phone"></i>
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" value="<?php echo $t_users['tel'] ?>"
-                                                        class="form-control" disabled>
-                                                </div>
-
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Email </label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-envelope"></i>
-                                                        </div>
-                                                    </div>
-                                                    <input type="email" value="<?php echo $t_users['email'] ?>"
-                                                        class="form-control phone-number" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Select Gender</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-users"></i>
-                                                        </div>
-                                                    </div>
-                                                    <select id="gend" class="form-control">
-                                                        <option id="gend">Select Gender</option>
-                                                        <option id="gend">Male</option>
-                                                        <option id="gend">Female</option>
-                                                    </select>
 
                                                 </div>
-
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Institution Name</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-graduation-cap"></i>
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Telephone</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-phone"></i>
+                                                            </div>
                                                         </div>
+                                                        <input type="text" value="<?php echo $t_users['tel'] ?>"
+                                                            class="form-control" disabled>
                                                     </div>
-                                                    <input type="text" id="inst" onclick="hideMsg()"
-                                                        class="form-control">
+
                                                 </div>
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Department</label>
-                                                <input type="text" id="dept" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Level</label>
-                                                <input type="text" id="level" class="form-control invoice-input">
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Matric Number</label>
-                                                <input type="text" id="matric" class="form-control">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="profile-tab3">
-                                    <div class="card">
-
-                                        <div class="card-body row">
-                                            <div class="form-group col-md-6  col-lg-6 col-sm-12">
-                                                <label>Bank Name</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-credit-card"></i>
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Email </label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-envelope"></i>
+                                                            </div>
                                                         </div>
+                                                        <input type="email" value="<?php echo $t_users['email'] ?>"
+                                                            class="form-control phone-number" disabled>
                                                     </div>
-                                                    <select id="bank" class="form-control">
-                                                        <?php echo bank_list() ?>
-                                                    </select>
                                                 </div>
-
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Account Number</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-key"></i>
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Select Gender</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-users"></i>
+                                                            </div>
                                                         </div>
+                                                        <select id="gend" class="form-control">
+                                                            <option id="gend">Select Gender</option>
+                                                            <option id="gend">Male</option>
+                                                            <option id="gend">Female</option>
+                                                        </select>
+
                                                     </div>
-                                                    <input type="number" id="acctn" class="form-control">
+
                                                 </div>
-
-                                            </div>
-                                            <div class="form-group col-md-12 col-lg-12 col-sm-12">
-                                                <label>Account Name </label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-user"></i>
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Institution Name</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-graduation-cap"></i>
+                                                            </div>
                                                         </div>
+                                                        <input type="text" id="inst" onclick="hideMsg()"
+                                                            class="form-control">
                                                     </div>
-                                                    <input type="text" id="actn" class="form-control phone-number"
-                                                        disabled>
                                                 </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
-
-
-                                <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="contact-tab3">
-
-
-                                    <div class="card">
-
-                                        <div class="card-body row">
-                                            <div class="form-group col-md-6  col-lg-6 col-sm-12">
-                                                <label>Create Transaction PIN</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-lock"></i>
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" id="pword" class="form-control">
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Department</label>
+                                                    <input type="text" id="dept" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Level</label>
+                                                    <input type="text" id="level" class="form-control invoice-input">
+                                                </div>
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Matric Number</label>
+                                                    <input type="text" id="matric" class="form-control">
                                                 </div>
 
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
-                                                <label>Confirm PIN</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-lock"></i>
-                                                        </div>
-                                                    </div>
-                                                    <input type="number" id="cpword" class="form-control">
-                                                </div>
-
-                                            </div>
-
-                                            <div class="card-footer text-right">
-                                                <p class="font-weight-bolder text-danger" id="msg"></p>
-                                                <button type="button" id="subprof"
-                                                    class="btn btn-primary footer-right">Submit</button>
                                             </div>
                                         </div>
                                     </div>
 
 
+
+
+                                    <div class="tab-pane fade" id="account" role="tabpanel"
+                                        aria-labelledby="profile-tab3">
+                                        <div class="card">
+
+                                            <div class="card-body row">
+                                                <div class="form-group col-md-6  col-lg-6 col-sm-12">
+                                                    <label>Bank Name</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-credit-card"></i>
+                                                            </div>
+                                                        </div>
+                                                        <select id="bank" class="form-control">
+                                                            <?php echo bank_list() ?>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Account Number</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-key"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="number" id="acctn" name="numb"
+                                                            class="form-control">
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group col-md-12 col-lg-12 col-sm-12">
+                                                    <label>Account Name </label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-user"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" id="actn" class="form-control phone-number"
+                                                            disabled>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="tab-pane fade" id="security" role="tabpanel"
+                                        aria-labelledby="contact-tab3">
+
+
+                                        <div class="card">
+
+                                            <div class="card-body row">
+                                                <div class="form-group col-md-6  col-lg-6 col-sm-12">
+                                                    <label>Create Transaction PIN</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-lock"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" id="pword" class="form-control">
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                                    <label>Confirm PIN</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-lock"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="number" id="cpword" class="form-control">
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="card-footer text-right">
+                                                    <p class="font-weight-bolder text-danger" id="msg"></p>
+                                                    <button type="button" id="subprof"
+                                                        class="btn btn-primary footer-right">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
                                 </div>
+                            </form>
 
-
-
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -252,6 +257,31 @@
         </div>
     </section>
 </div>
+
+<script>
+//get account number
+document.getElementById('acctn').addEventListener('keypress', resResult);
+
+function resResult() {
+    var bank = document.forms["userdetails"]["bank"].value;
+    var numb = document.forms["userdetails"]["numb"].value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './accountname?id=' + bank + '&other=' + numb, true);
+
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            //document.write(this.responseText);
+            document.getElementById('actn').value = xhr.responseText;
+        } else {
+
+            document.getElementById('actn').value = 'Poor Internet Connection';
+        }
+    }
+
+    xhr.send();
+}
+</script>
 <script>
 //open verify page by default
 function otpVerify() {
