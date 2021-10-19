@@ -145,7 +145,7 @@
                                                             </div>
                                                         </div>
                                                         <select id="bank" class="form-control">
-                                                            <?php echo bank_list() ?>
+                                                            <?php  ?>
                                                         </select>
                                                     </div>
 

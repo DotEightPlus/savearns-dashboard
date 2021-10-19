@@ -84,7 +84,7 @@ $(document).ready(function () {
 
 
   //get account name
-  $("#acctn").change(function () {
+  $("#acct").change(function () {
 
   var bank = $("#bank").val();
   var acctn = $("#acctn").val();
@@ -92,10 +92,7 @@ $(document).ready(function () {
   $.ajax({
     type: "post",
     url: "functions/init.php",
-    data: {
-      bank: bank
-      acctn: acctn,
-    },
+    data: {bank: bank, acctn: acctn, trd: trd},
     success: function (data) {
       $("#actn").value(data);
     },
