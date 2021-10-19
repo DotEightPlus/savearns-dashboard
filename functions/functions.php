@@ -411,7 +411,7 @@ if(isset($_POST['fgpword']) && isset($_POST['fgcpword'])) {
 	    $fgpword = md5($_POST['fgpword']);
         $eml = $_SESSION['usermail'];
 
-	$sql = "UPDATE signup SET `pword` = '$fgpword', `activator` = '' WHERE `email` = '$eml'";
+	$sql = "UPDATE users SET `pword` = '$fgpword', `activator` = '' WHERE `email` = '$eml'";
 	$rsl = query($sql);
 	
 	//get username and redirect to dashboard

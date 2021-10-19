@@ -62,7 +62,7 @@ if(isset($_SESSION['login'])) {
     <!-- End Navbar -->
     <section class="min-vh-100 mb-8">
         <div class="page-header align-items-start min-vh-50 pt-0 pb-11 m-3 border-radius-lg"
-            style="background-image: url(assets/img/bg.png), url(assets/img/1.png);">
+            style="background-image: url(assets/img/hero-bg.png), url(assets/img/bg.png), url(assets/img/1.png);;">
 
         </div>
         <div class="container">
