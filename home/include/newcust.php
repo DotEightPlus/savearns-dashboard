@@ -1,6 +1,7 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
-        <div class="sidebar-brand sidebar-gone-show"><a href="./"><img src="">Savearns</a></div>
+        <div class="sidebar-brand sidebar-gone-show"><a href="./">Savearns</a>
+        </div>
 
 
         <div class="mt-0 mb-0 p-0 hide-sidebar-mini">
