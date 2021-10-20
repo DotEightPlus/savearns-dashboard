@@ -66,7 +66,7 @@ if(isset($_SESSION['login'])) {
                                                 <tr>
                                                     <th scope="row"><?php echo $row['t_ref']; ?></th>
                                                     <td>NGN<?php echo number_format($row['amt']); ?></td>
-                                                    <td><?php echo $row['status']; ?></td>
+                                                    <td><?php echo ucwords($row['status']); ?></td>
                                                     <td><?php echo date('l, F d, Y  - h:i:sa', strtotime($row['datepaid'])); ?>
                                                     </td>
                                                 </tr>

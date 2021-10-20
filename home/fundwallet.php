@@ -19,7 +19,7 @@ if(isset($_GET['status']) && isset($_GET['tx_ref']) && isset($_GET['transaction_
         CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => array(
             "Content-Type: application/json",
-            "Authorization: Bearer FLWSECK_TEST-185a2dd929590007032cacfb3837f3c8-X"
+            "Authorization: Bearer FLWSECK-1109e7cb4c9e1871e91a90f1d91c8479-X"
         ),
         ));
 

@@ -112,12 +112,11 @@ if(isset($_SESSION['login'])) {
                                 <label>Input Amount</label>
                                 <div class="input-group">
 
-                                    <input type="number" name="amount" class="form-control">
+                                    <input type="number" name="amount" class="form-control" required>
                                 </div>
                             </div>
 
-                            <input type="hidden" name="public_key"
-                                value="FLWPUBK_TEST-252c57dacbb153862b1a4865fe33c9f6-X" />
+                            <input type="hidden" name="public_key" value="FLWPUBK-aec1e883ede5d055024d042a034f18c9-X" />
                             <input type="hidden" name="customer[email]" value="<?php echo $t_users['email'] ?>" />
                             <input type="hidden" name="customer[phone_number]" value="<?php echo $t_users['tel'] ?>" />
                             <input type="hidden" name="customizations[title]" value="Savearns" />
@@ -129,8 +128,7 @@ if(isset($_SESSION['login'])) {
                             <input type="hidden" name="customizations[logo]"
                                 value="https://savearns.com/assets/1.png" />
                             <div class="form-group mb-0">
-                                <button type="submit" class="form-control btn-primary" placeholder="Password"
-                                    name="password">Fund
+                                <button type="submit" class="form-control btn-primary">Fund
                                     Now </button>
                             </div>
                         </form>
