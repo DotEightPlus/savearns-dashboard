@@ -58,7 +58,7 @@ include("include/head.php");
                                         $currency = "NGN";
                                         $txref = $tranref; // ensure you generate unique references per transaction.
                                         $PBFPubKey = "FLWPUBK-aec1e883ede5d055024d042a034f18c9-X"; //get your public key from the dashboard.
-                                        $redirect_url = "./pay?txref=$txref";
+                                        $redirect_url = "https://savearns.com";
 
                                         // Flutterwave RAVE Payment API
                                         $curl = curl_init();

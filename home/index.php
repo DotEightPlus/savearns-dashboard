@@ -37,7 +37,7 @@ if(isset($_SESSION['login'])) {
 
                 
                 //check if user is a new customer and hasn't activate account
-                if($t_users['tpin'] != '' && $t_users['wallet'] == '') {
+                if($t_users['tpin'] != '' && $t_users['wallet'] == '' && !isset($_SESSION['actref'])) {
 
                 include("include/navcust.php"); 
                 include("include/newcust.php");
@@ -48,6 +48,38 @@ if(isset($_SESSION['login'])) {
                 //footer
                 include("include/footer.php");
                     
+                } else {
+                    
+                
+                //new customer paid activation fee
+                if(isset($_SESSION['actref']) || isset($_SESSION['login'])) {
+
+                    include("include/navcust.php"); 
+                    include("include/newcust.php");
+
+                    if($_SESSION['actref'] === $_GET['tx_ref'] && $_GET['status'] === "successful") {
+                        
+                    //credit user wallet
+                    $txt = $_SESSION['actref'];
+                    $user = $_SESSION['login'];
+
+                    
+
+                    
+                    //new user page
+                    include("include/component/home.php");
+                    
+                    } else {
+                    
+                    //new user page
+                    include("include/component/home.php");
+                   
+                    //footer
+                    include("include/footer.php");  
+                    
+                    }
+                }
+                
                 }
 
                     
