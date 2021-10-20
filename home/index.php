@@ -64,14 +64,15 @@ if(isset($_SESSION['login'])) {
                         $data = $_SESSION['login'];
                         $date = date("Y-m-d h:i:sa");
                         $ref  = "tref".rand(0, 999);
-                        $msg = "Hi there, <br/>Thank you for signing up with SAVEARNS. <br/>Your account is now fully activated.";
-
+                        $msg  = "Hi there, <br/>Thank you for signing up with SAVEARNS. <br/>Your account is now fully activated.";
+                        $sbj  = "Account Activated";
+                        
                         $csql = "UPDATE users SET `wallet` = '200' WHERE `usname` = '$data'";
                         $cres = query($csql);
 
                         //alert user a message
-                        $msql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`)";
-                        $msql .="VALUES('$data', 'unread', '1', '$msg', '$date', '$ref')";
+                        $msql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+                        $msql .="VALUES('$data', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
 
                         $mes = query($msql);
 
