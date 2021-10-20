@@ -52,10 +52,33 @@ if(isset($_SESSION['login'])) {
                     
                 
                 //new customer paid activation fee
-                if(isset($_SESSION['actref']) == isset($_GET['tx_ref']) && isset($_GET['status']) == "successful") {
+                if(isset($_SESSION['actref']) || isset($_SESSION['login'])) {
 
-                    include("include/navcust.php"); 
-                    include("include/newcust.php");
+                    include("include/nav.php"); 
+                    include("include/sidebar.php");
+                    
+
+                    //credit user wallet
+                    if(isset($_SESSION['actref']) == isset($_GET['tx_ref']) && isset($_GET['status']) == "successful") {
+
+                        $data = $_SESSION['login'];
+                        $date = date("Y-m-d h:i:sa");
+                        $ref  = "tref".rand(0, 999);
+                        $msg = "Hi there, <br/>Thank you for signing up with SAVEARNS. <br/>Your account is now fully activated.";
+
+                        $csql = "UPDATE users SET `wallet` = '200' WHERE `usname` = '$data'";
+                        $cres = query($csql);
+
+                        //alert user a message
+                        $msql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`)";
+                        $msql .="VALUES('$data', 'unread', '1', '$msg', '$date', '$ref')";
+
+                        $mes = query($msql);
+                        
+                    } 
+
+                    //display welcome page
+                    include("include/component/home.php");
 
                     //footer
                     include("include/footer.php");
