@@ -184,7 +184,7 @@ if(isset($_SESSION['paymsg'])) {
           position: 'topCenter'
         });</script>";
 
-    //unset($_SESSION['paymsg']);
+    unset($_SESSION['paymsg']);
     } else {
 
         echo "<script>
@@ -194,7 +194,7 @@ if(isset($_SESSION['paymsg'])) {
           position: 'topCenter'
         });</script>";
 
-        
+        unset($_SESSION['paymsg']);
     }
 }
   
