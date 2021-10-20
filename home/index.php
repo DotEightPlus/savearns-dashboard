@@ -52,12 +52,13 @@ if(isset($_SESSION['login'])) {
                     
                 
                 //new customer paid activation fee
-                if(isset($_SESSION['actref']) === isset($_GET['tx_ref']) && isset($_GET['status']) === "successful") {
+                if(isset($_SESSION['actref']) == isset($_GET['tx_ref']) && isset($_GET['status']) == "successful") {
 
                     include("include/navcust.php"); 
                     include("include/newcust.php");
 
-                    
+                    //footer
+                    include("include/footer.php");
                 }
                 
                 }
