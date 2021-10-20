@@ -12,8 +12,8 @@
         <div class="section-body">
 
             <h2 class="section-title">Avalable Wallet Balance :
-                <b>NGN<?php echo number_format($t_users['wallet']) ?></b> <button
-                    class="btn btn-primary mt-2 section-lead">Fund Wallet </button>
+                <b>NGN<?php echo number_format($t_users['wallet']) ?></b> <button data-toggle="modal"
+                    data-target="#payModal" class="btn btn-primary mt-2 section-lead">Fund Wallet </button>
             </h2>
 
             <div class="section-header">

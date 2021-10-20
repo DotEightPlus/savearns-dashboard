@@ -2,6 +2,8 @@
 include("../functions/init.php");
 if(isset($_GET['status']) && isset($_GET['tx_ref']) && isset($_GET['transaction_id'])) {
 
+    if($_GET['status'] == "successful") {
+
     $data = $_SESSION['login'];
     $date = date("Y-m-d h:i:sa");
     $ref  = "tref".rand(0, 999);
@@ -27,7 +29,11 @@ if(isset($_GET['status']) && isset($_GET['tx_ref']) && isset($_GET['transaction_
 
     //redirect to home
     redirect("./");
+    
+    } else {
 
+        redirect(".././signin");
+    }
 
 } else {
 

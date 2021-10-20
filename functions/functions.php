@@ -791,4 +791,10 @@ if(isset($_POST['gend']) && isset($_POST['inst']) && isset($_POST['dept']) && is
 	echo "Loading... Please wait";
 	echo '<script>window.location.href ="./"</script>';
 }
+
+
+function fundwallet() {
+
+	
+}
 ?>
