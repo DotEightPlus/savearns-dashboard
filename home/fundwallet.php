@@ -24,53 +24,59 @@ if(isset($_GET['status']) && isset($_GET['tx_ref']) && isset($_GET['transaction_
         ));
 
         $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+		if($err){
+		// there was an error contacting the rave API
+        echo "Poor Internet Connection. Refresh this page please";
+        //redirect("./");
+        die();
+        
+		}
 
         curl_close($curl);
 
         $res = json_decode($response);
         $amt = $res->data->amount;
+
+        $data = $_SESSION['login'];
+        $date = date("Y-m-d h:i:sa");
+        $tref = "tpay".rand(0, 999);
         
-    $data = $_SESSION['login'];
-    $date = date("Y-m-d h:i:sa");
-    $tref = "tpay".rand(0, 999);
-    //get previous wallet balance
-    $asql = "SELECT * FROM users WHERE `usname` = '$data'";
-    $aes  = query($asql);
+        //get previous wallet balance
+        $asql = "SELECT * FROM users WHERE `usname` = '$data'";
+        $aes  = query($asql);
 
-    $row = mysqli_fetch_array($aes);
+        $row = mysqli_fetch_array($aes);
 
-    $prvamt = $row['wallet'];
+        $prvamt = $row['wallet'];
 
-    $newbal =  $prvamt + $amt;
+        $newbal =  $prvamt + $amt;
+        $note = "Your wallet was credited with NGN".number_format($amt);
 
+        //credit user
+        $csql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$data'";
+        $cres = query($csql);
+
+        //insert into transaction history
+        $tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
+        $tsql .= "VALUES('$tref', '$amt', '$date', '$data', '1', 'credit', '$note')";
+
+        $tes = query($tsql);
+
+        //redirect to home
+        $_SESSION['paymsg'] = "Your Wallet has been funded successfully";
+           
+        redirect("./");
     
-    $note = "Your wallet was credited with NGN".number_format($amt);
-
-    
-
-    //credit user
-    $csql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$data'";
-    $cres = query($csql);
-
-    //insert into transaction history
-    $tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
-    $tsql .= "VALUES('$tref', '$amt', '$date', '$data', '1', 'credit', '$note')";
-
-    $tes = query($tsql);
-
-    //redirect to home
-    $_SESSION['paymsg'] = "Your Wallet has been funded successfully";
-    redirect("./");
-    
-    } else {
+        } else {
 
         $_SESSION['paymsg'] = "Error processing your payment";
         redirect("./");
-    }
+        }
+        } else {
 
-} else {
-
-    $_SESSION['paymsg'] = "Error processing your payment";
-    redirect("./");
-}
+                $_SESSION['paymsg'] = "Error processing your payment";
+                redirect("./");
+            }
 ?>
