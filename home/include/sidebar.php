@@ -1,14 +1,15 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
-        <div class="sidebar-brand sidebar-gone-show"><a href="index.html">Stisla</a></div>
+        <div class="sidebar-brand sidebar-gone-show"><a style="color: #34459c;" href="./">SAVEARNS</a></div>
         <ul class="sidebar-menu">
             <li><a href="./"><i class="fa fa-home"></i>
                     <span>Home</span></a></li>
             <li><a href="./plans"><i class="fa fa-list"></i> <span>Plans</span></a></li>
             <li><a href="./transactionhistory"><i class="fa fa-clock"></i> <span>History</span></a></li>
-            <li><a href="#"><i class="fa fa-gift"></i> <span>Referal</span></a></li>
+            <li><a data-toggle="modal" href="#exampleModal"><i class="fa fa-gift"></i> <span>Referal</span></a></li>
             <li><a href="blank.html"><i class="fa fa-credit-card"></i> <span>Payment</span></a></li>
             <li><a href="#"><i class="fa fa-envelope"></i> <span>Chat</span></a></li>
+            <li><a href="./logout"><i class="fa fa-lock"></i> <span>Logout</span></a></li>
 
             <!--<li class="menu-header">Dashboard</li>
             <li class="dropdown">

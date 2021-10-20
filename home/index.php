@@ -69,6 +69,30 @@ if(isset($_SESSION['login'])) {
         </div>
     </div>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="col-12 col-md-12 col-sm-12">
+                        <div class="empty-state" data-height="400">
+                            <div class="empty-state-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <h2 class="mb-3">Get free ₦250</h2>
+                            <p class="lead">
+                                You and your friends earn cash reward when they signup and save with your referral link
+                                or code.
+                            </p>
+                            <a href="#" class="btn btn-primary mt-4">Need to see how you've performed? <i
+                                    class="fas fa-gift"></i> <i class="fas fa-gift"></i></a>
+                            <a href="#" class="mt-4 bb">View Referral Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- General JS Scripts -->
     <script src="assets/modules/jquery.min.js"></script>
     <script src="assets/modules/popper.js"></script>
