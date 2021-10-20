@@ -20,20 +20,20 @@
                     <div class="card">
 
                         <div class="card-body">
-                            <a href="">
+                            <a href="./activatewallet">
                                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="d-block w-100" src="assets/img/news/img01.jpg"
-                                                alt="First slide">
+                                            <img class="d-block w-100" src="assets/img/1.png" alt="First slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block w-100" src="assets/img/news/img07.jpg"
-                                                alt="Second slide">
+                                            <img class="d-block w-100" src="assets/img/3.jpg" alt="Second slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block w-100" src="assets/img/news/img08.jpg"
-                                                alt="Third slide">
+                                            <img class="d-block w-100" src="assets/img/4.jpg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="assets/img/5.jpg" alt="Third slide">
                                         </div>
                                     </div>
                                 </div>

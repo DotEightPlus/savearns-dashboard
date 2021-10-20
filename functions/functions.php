@@ -749,18 +749,15 @@ if(isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['trd'])) {
 		));
 	
 	    $response = curl_exec($curl);
+		$err = curl_error($curl);
 
-		if (curl_errno($curl)) {
-			
-			$error_msg = curl_error($curl);
+		if($err){
+		// there was an error contacting the rave API
+		die('Error Retrieving Your Account Name');
 		}
-	
+		
 		curl_close($curl);
 
-		if (isset($error_msg)) {
-			
-			echo "Error Retrieving your account name";
-		} 
 		
 		$res = json_decode($response);
 
