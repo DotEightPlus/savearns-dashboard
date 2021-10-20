@@ -23,7 +23,7 @@ if(isset($_SESSION['login'])) {
                 //check if user is a new customer 
                  user_details();
 
-                if($t_users['tpin'] == '' || $t_users['tpin'] == 0) {
+                if($t_users['tpin'] == '' && $t_users['wallet'] == '') {
                 
                 include("include/navcust.php"); 
                 include("include/newcust.php");
@@ -36,7 +36,19 @@ if(isset($_SESSION['login'])) {
                 } else {
 
                 
-                //existing customer page
+                //check if user is a new customer and hasn't activate account
+                if($t_users['tpin'] != '' && $t_users['wallet'] == '') {
+
+                include("include/navcust.php"); 
+                include("include/newcust.php");
+
+                //wallet empty page
+                include("include/component/wallet.php");
+
+                //footer
+                include("include/footer.php");
+                    
+                }
 
                     
                 } 

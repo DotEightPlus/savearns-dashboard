@@ -1,4 +1,22 @@
 $(document).ready(function () {
+
+    //get account name
+    $("#acctn").change(function () {
+      var bank = $("#bank").val();
+      var acctn = $("#acctn").val();
+      var trd = "hello";
+  
+      $.ajax({
+        type: "post",
+        url: "../functions/init.php",
+        data: { bank: bank, acctn: acctn, trd: trd },
+        success: function (data) {
+          $("#actn").val(data);
+        },
+      });
+    });
+
+
   //profile complete
   $("#subprof").click(function () {
     var gend = $("#gend").val();
@@ -48,15 +66,17 @@ $(document).ready(function () {
 
                         $.ajax({
                           type: "post",
-                          url: "functions/init.php",
+                          url: "../functions/init.php",
                           data: {
-                            fname: fname,
-                            tel: tel,
-                            email: email,
-                            user: user,
+                            gend: gend,
+                            inst: inst,
+                            dept: dept,
+                            level: level,
+                            matric: matric,
+                            bank: bank,
+                            acctn: acctn,
+                            actn: actn,
                             pword: pword,
-                            cpword: cpword,
-                            ref: ref,
                           },
                           success: function (data) {
                             $("#msg").html(data);
@@ -72,23 +92,5 @@ $(document).ready(function () {
         }
       }
     }
-  });
-
-  //get account name
-  $("#acctn").change(function () {
-    var bank = $("#bank").val();
-    var acctn = $("#acctn").val();
-    var trd = "hello";
-
-    $.ajax({
-      type: "post",
-      url: "../functions/init.php",
-      data: { bank: bank, acctn: acctn, trd: trd },
-      success: function (data) {
-        $("#actn").val(data);
-      },
-    });
-
-    //alert(bank + acctn);
   });
 });

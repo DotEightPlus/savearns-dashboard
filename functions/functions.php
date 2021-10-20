@@ -462,7 +462,7 @@ function user_details() {
 //get account name
 if(isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['trd'])) {
 
-	$bank  = ucwords($_POST['bank']);
+	$bank  = $_POST['bank'];
 	$acctn = $_POST['acctn'];
 
 
@@ -721,7 +721,8 @@ if(isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['trd'])) {
 		
 		$row++;
     }
-	//echo $bankcode;
+	
+	//echo $bank;
 
 	$request = [
 
@@ -748,8 +749,18 @@ if(isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['trd'])) {
 		));
 	
 	    $response = curl_exec($curl);
+
+		if (curl_errno($curl)) {
+			
+			$error_msg = curl_error($curl);
+		}
 	
 		curl_close($curl);
+
+		if (isset($error_msg)) {
+			
+			echo "Error Retrieving your account name";
+		} 
 		
 		$res = json_decode($response);
 
@@ -757,8 +768,30 @@ if(isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['trd'])) {
 		echo $res->data->account_name;
         } else {
 
-            echo "Error Retrieving your account name";
+            echo "Error Retrieving Your Account Name";
         }
 	
+}
+
+
+if(isset($_POST['gend']) && isset($_POST['inst']) && isset($_POST['dept']) && isset($_POST['level']) && isset($_POST['matric']) && isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['actn']) && isset($_POST['pword'])) {
+
+	$gend 	 = $_POST['gend'];
+	$inst 	 = $_POST['inst'];
+	$dept 	 = $_POST['dept'];
+	$level	 = $_POST['level'];
+	$matric  = $_POST['matric'];
+	$bank    = $_POST['bank'];
+	$acctn   = $_POST['acctn'];
+	$actn    = $_POST['actn'];
+	$pword   = md5($_POST['pword']);
+
+	$user = $_SESSION['login'];
+
+	$sql = "UPDATE users SET `gend` = '$gend', `inst` = '$inst', `tpin` = '$pword', `dept` = '$dept', `level` = '$level', `matric` = '$matric', `bname` = '$bank', `bact` = '$acctn', `actname` = '$actn' WHERE `usname` = '$user'";
+	$res = query($sql);
+
+	echo "Loading... Please wait";
+	echo '<script>window.location.href ="./"</script>';
 }
 ?>

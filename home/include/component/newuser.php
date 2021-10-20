@@ -91,7 +91,6 @@
                                                             </div>
                                                         </div>
                                                         <select id="gend" class="form-control">
-                                                            <option id="gend">Select Gender</option>
                                                             <option id="gend">Male</option>
                                                             <option id="gend">Female</option>
                                                         </select>
@@ -107,8 +106,7 @@
                                                                 <i class="fas fa-graduation-cap"></i>
                                                             </div>
                                                         </div>
-                                                        <input type="text" id="inst" onclick="hideMsg()"
-                                                            class="form-control">
+                                                        <input type="text" id="inst" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6 col-lg-6 col-sm-12">
@@ -453,7 +451,7 @@ $banks = array(
                                                                 <i class="fas fa-lock"></i>
                                                             </div>
                                                         </div>
-                                                        <input type="text" id="pword" class="form-control">
+                                                        <input type="password" id="pword" class="form-control">
                                                     </div>
 
                                                 </div>
@@ -465,7 +463,7 @@ $banks = array(
                                                                 <i class="fas fa-lock"></i>
                                                             </div>
                                                         </div>
-                                                        <input type="number" id="cpword" class="form-control">
+                                                        <input type="password" id="cpword" class="form-control">
                                                     </div>
 
                                                 </div>
@@ -491,72 +489,6 @@ $banks = array(
                 </div>
             </div>
 
-            <!--<div class="card">
-                            <div class="card-header">
-                                <h4>Example Card</h4>
-                            </div>
-                            <div class="card-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            </div>
-                            <div class="card-footer bg-whitesmoke">
-                                This is card footer
-                            </div>
-                        </div>-->
         </div>
     </section>
 </div>
-
-<script>
-//get account number
-/*document.getElementById('acctn').addEventListener('change', resResult);
-
-function resResult() {
-    var bank = document.forms["userdetails"]["bank"].value;
-    var numb = document.forms["userdetails"]["numb"].value;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', './accountname?id=' + bank + '&other=' + numb, true);
-
-    xhr.onload = function() {
-        if (xhr.status == 200) {
-            //document.write(this.responseText);
-            document.getElementById('actn').value = xhr.responseText;
-        } else {
-
-            document.getElementById('actn').value = 'Poor Internet Connection';
-        }
-    }
-
-    xhr.send();
-}*/
-</script>
-<script>
-//open verify page by default
-function otpVerify() {
-    document.getElementById('verify').style.display = 'block';
-}
-
-//close signup page
-function signupClose() {
-    document.getElementById('signup').style.display = 'none';
-}
-
-//erase validations
-function usr() {
-    document.getElementById("lmsg").innerHTML = '';
-}
-
-function prr() {
-    document.getElementById("lmsg").innerHTML = '';
-}
-
-function otpr() {
-    document.getElementById("vmsg").innerHTML = '';
-    document.getElementById("rvmsg").innerHTML = '';
-}
-</script>
