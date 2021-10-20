@@ -52,32 +52,12 @@ if(isset($_SESSION['login'])) {
                     
                 
                 //new customer paid activation fee
-                if(isset($_SESSION['actref']) || isset($_SESSION['login'])) {
+                if(isset($_SESSION['actref']) === isset($_GET['tx_ref']) && isset($_GET['status']) === "successful") {
 
                     include("include/navcust.php"); 
                     include("include/newcust.php");
 
-                    if($_SESSION['actref'] === $_GET['tx_ref'] && $_GET['status'] === "successful") {
-                        
-                    //credit user wallet
-                    $txt = $_SESSION['actref'];
-                    $user = $_SESSION['login'];
-
                     
-
-                    
-                    //new user page
-                    include("include/component/home.php");
-                    
-                    } else {
-                    
-                    //new user page
-                    include("include/component/home.php");
-                   
-                    //footer
-                    include("include/footer.php");  
-                    
-                    }
                 }
                 
                 }

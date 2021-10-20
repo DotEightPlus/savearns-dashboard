@@ -80,7 +80,7 @@
                 <div class="dropdown-title">Active Now</div>
 
                 <div class="dropdown-divider"></div>
-                <a href=".././logout" class="dropdown-item has-icon text-danger">
+                <a href="./logout" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
