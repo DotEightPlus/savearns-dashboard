@@ -74,6 +74,10 @@ if(isset($_SESSION['login'])) {
                         $msql .="VALUES('$data', 'unread', '1', '$msg', '$date', '$ref')";
 
                         $mes = query($msql);
+
+                        //unset session and refesh
+                        unset($_SESSION['actref']);
+                        redirect("./");
                         
                     } 
 
