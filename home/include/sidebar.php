@@ -2,7 +2,15 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand sidebar-gone-show"><a href="index.html">Stisla</a></div>
         <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
+            <li><a href="./"><i class="fa fa-home"></i>
+                    <span>Home</span></a></li>
+            <li><a href="./plans"><i class="fa fa-list"></i> <span>Plans</span></a></li>
+            <li><a href="./transactionhistory"><i class="fa fa-clock"></i> <span>History</span></a></li>
+            <li><a href="#"><i class="fa fa-gift"></i> <span>Referal</span></a></li>
+            <li><a href="blank.html"><i class="fa fa-credit-card"></i> <span>Payment</span></a></li>
+            <li><a href="#"><i class="fa fa-envelope"></i> <span>Chat</span></a></li>
+
+            <!--<li class="menu-header">Dashboard</li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
@@ -159,13 +167,9 @@
                 </ul>
             </li>
             <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i>
-                    <span>Credits</span></a></li>
+                    <span>Credits</span></a></li>-->
         </ul>
 
-        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
-            </a>
-        </div>
+
     </aside>
 </div>

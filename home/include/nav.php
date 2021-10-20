@@ -120,20 +120,37 @@
                         <a href="#">Mark All As Read</a>
                     </div>
                 </div>
+                <?php 
+                            $data = $_SESSION['login'];
+                            
+                            $sql = "SELECT * FROM t_his WHERE `username` = '$data' ORDER BY `id` desc";
+                            $rss = query($sql);
+                            
+                            if(row_count($rss) == '') {
+
+                                echo "No Notifications Yet";
+                                
+                            } else {
+                                while($row = mysqli_fetch_array($rss)) {
+                            
+                            ?>
                 <div class="dropdown-list-content dropdown-list-icons">
-                    <a href="#" class="dropdown-item dropdown-item-unread">
+                    <a href="./transactionhistory<?php echo $row['t_ref'] ?>"
+                        class="dropdown-item dropdown-item-unread">
                         <div class="dropdown-item-icon bg-primary text-white">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-check"></i>
                         </div>
                         <div class="dropdown-item-desc">
-                            Template update is available now!
-                            <div class="time text-primary">2 Min Ago</div>
+                            <?php echo $row['paynote'] ?>
+                            <div class="time text-primary">
+                                <?php echo date('l, F d, Y - h:i:sa', strtotime($row['datepaid'])); ?></div>
                         </div>
                     </a>
                 </div>
-                <div class="dropdown-footer text-center">
-                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                </div>
+                <?php
+                                }
+                            }
+                                ?>
             </div>
         </li>
         <li class="dropdown"><a href="#" data-toggle="dropdown"

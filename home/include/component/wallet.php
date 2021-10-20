@@ -65,7 +65,7 @@ function makePayment() {
 
 
     FlutterwaveCheckout({
-        public_key: "FLWPUBK_TEST-252c57dacbb153862b1a4865fe33c9f6-X",
+        public_key: "FLWPUBK-aec1e883ede5d055024d042a034f18c9-X",
         tx_ref: txt,
         amount: 200,
         currency: "NGN",

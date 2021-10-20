@@ -3401,8 +3401,10 @@ body.layout-2 .main-sidebar .sidebar-menu li a.has-dropdown:after {
   right: 0;
 }
 body.layout-2 .main-sidebar .sidebar-menu li a:hover {
-  color: #34459c;
-  background-color: transparent;
+  color: #fff;
+  background-color: #34459c;
+  border-radius: 20px 20px 20px 20px;
+  padding: 20px;
 }
 body.layout-2 .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
   padding-left: 34px;
@@ -3664,11 +3666,12 @@ body.layout-3 .main-footer {
   position: relative;
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 80px;
+  font-size: 20px;
   padding: 0 20px;
   width: 100%;
   letter-spacing: 0.3px;
-  color: #868e96;
+  color: #34459c;
   text-decoration: none;
 }
 .main-sidebar .sidebar-menu li a .badge {
@@ -3686,7 +3689,8 @@ body.layout-3 .main-footer {
   width: 100%;
 }
 .main-sidebar .sidebar-menu li a:hover {
-  background-color: #fcfcfd;
+  background-color: #34459c;
+  color: #000;
 }
 .main-sidebar .sidebar-menu li.active a {
   color: #34459c;
