@@ -37,7 +37,7 @@ if(isset($_SESSION['login'])) {
 
                 
                 //check if user is a new customer and hasn't activate account
-                if($t_users['tpin'] != '' && $t_users['wallet'] == '' && !isset($_SESSION['actref'])) {
+                if($t_users['tpin'] != '' && $t_users['wallet'] == '') {
 
                 include("include/navcust.php"); 
                 include("include/newcust.php");
@@ -50,44 +50,16 @@ if(isset($_SESSION['login'])) {
                     
                 } else {
                     
-                
-                //new customer paid activation fee
-                if(isset($_SESSION['actref']) || isset($_SESSION['login'])) {
-
                     include("include/nav.php"); 
                     include("include/sidebar.php");
-                    
-
-                    //credit user wallet
-                    if(isset($_SESSION['actref']) == isset($_GET['tx_ref']) && isset($_GET['status']) == "successful") {
-
-                        $data = $_SESSION['login'];
-                        $date = date("Y-m-d h:i:sa");
-                        $ref  = "tref".rand(0, 999);
-                        $msg  = "Hi there, <br/>Thank you for signing up with SAVEARNS. <br/>Your account is now fully activated.";
-                        $sbj  = "Account Activated";
-                        
-                        $csql = "UPDATE users SET `wallet` = '200' WHERE `usname` = '$data'";
-                        $cres = query($csql);
-
-                        //alert user a message
-                        $msql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
-                        $msql .="VALUES('$data', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
-
-                        $mes = query($msql);
-
-                        //unset session and refesh
-                        unset($_SESSION['actref']);
-                        redirect("./");
-                        
-                    } 
+                
 
                     //display welcome page
                     include("include/component/home.php");
 
                     //footer
                     include("include/footer.php");
-                }
+                
                 
                 }
 

@@ -38,8 +38,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <?php $_SESSION['actref'] =  md5(rand(0, 9999)) ?>
-                            <p id="txt" hidden><?php  echo $_SESSION['actref']; ?></p>
+
+                            <p id="txt" hidden><?php  echo md5(rand(0, 9999)); ?></p>
                             <p id="email" hidden><?php echo $t_users['email'] ?></p>
                             <p id="tel" hidden><?php echo $t_users['tel'] ?></p>
                             <p id="fname" hidden><?php echo $t_users['fname'] ?></p>
@@ -65,7 +65,7 @@ function makePayment() {
 
 
     FlutterwaveCheckout({
-        public_key: "FLWPUBK-aec1e883ede5d055024d042a034f18c9-X",
+        public_key: "FLWPUBK_TEST-252c57dacbb153862b1a4865fe33c9f6-X",
         tx_ref: txt,
         amount: 200,
         currency: "NGN",
@@ -73,7 +73,7 @@ function makePayment() {
         payment_options: " ",
         method: "POST",
         redirect_url: // specified redirect URL
-            "./",
+            "./pay",
         customer: {
             email: emai,
             phone_number: tel,

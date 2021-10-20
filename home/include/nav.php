@@ -81,7 +81,7 @@
                     <?php 
                             $data = $_SESSION['login'];
                             
-                            $sql = "SELECT * FROM msgs WHERE `usname` = '$data' AND `status` = 'unread'";
+                            $sql = "SELECT * FROM msgs WHERE `usname` = '$data' AND `status` = 'unread' ORDER BY `id` desc";
                             $rss = query($sql);
                             
                             if(row_count($rss) == '') {
