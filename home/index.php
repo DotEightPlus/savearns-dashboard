@@ -124,7 +124,7 @@ if(isset($_SESSION['login'])) {
                             <input type="hidden" name="tx_ref" value="<?php echo md5(rand(0, 999)); ?>" />
                             <input type="hidden" name="currency" value="NGN" />
                             <input type="hidden" name="redirect_url"
-                                value="http://localhost/freelance/savearns-dashboard/home/./fundwallet" />
+                                value="https://dashboard.savearns.com/home/./fundwallet" />
                             <input type="hidden" name="customizations[logo]"
                                 value="https://savearns.com/assets/1.png" />
                             <div class="form-group mb-0">
