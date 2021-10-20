@@ -4,35 +4,66 @@ if(isset($_GET['status']) && isset($_GET['tx_ref']) && isset($_GET['transaction_
 
     if($_GET['status'] == "successful") {
 
+        $id = $_GET['transaction_id'];
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.flutterwave.com/v3/transactions/".$id."/verify",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+            "Content-Type: application/json",
+            "Authorization: Bearer FLWSECK_TEST-185a2dd929590007032cacfb3837f3c8-X"
+        ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        $res = json_decode($response);
+        $amt = $res->data->amount;
+        
     $data = $_SESSION['login'];
     $date = date("Y-m-d h:i:sa");
-    $ref  = "tref".rand(0, 999);
     $tref = "tpay".rand(0, 999);
-    $msg  = "Hi there, <br/>Thank you for signing up with SAVEARNS. <br/>Your account is now fully activated.";
-    $sbj  = "Account Activated";
-    $note = "Your wallet was credited NGN200";
+    //get previous wallet balance
+    $asql = "SELECT * FROM users WHERE `usname` = '$data'";
+    $aes  = query($asql);
+
+    $row = mysqli_fetch_array($aes);
+
+    $prvamt = $row['wallet'];
+
+    $newbal =  $prvamt + $amt;
+
     
-    $csql = "UPDATE users SET `wallet` = '200' WHERE `usname` = '$data'";
-    //$cres = query($csql);
+    $note = "Your wallet was credited with ".$amt;
 
-    //alert user a message
-    $msql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
-    $msql .="VALUES('$data', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+    
 
-    //$mes = query($msql);
+    //credit user
+    $csql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$data'";
+    $cres = query($csql);
 
     //insert into transaction history
     $tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
-    $tsql .= "VALUES('$tref', '200', '$date', '$data', '1', 'credit', '$note')";
+    $tsql .= "VALUES('$tref', '$amt', '$date', '$data', '1', 'credit', '$note')";
 
-    //$tes = query($tsql);
+    $tes = query($tsql);
 
     //redirect to home
-    //redirect("./");
+    redirect("./");
     
     } else {
 
-        redirect(".././signin");
+        redirect("./");
     }
 
 } else {

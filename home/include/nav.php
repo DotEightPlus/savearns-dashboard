@@ -120,7 +120,9 @@
                         <a href="#">Mark All As Read</a>
                     </div>
                 </div>
-                <?php 
+
+                <div class="dropdown-list-content dropdown-list-icons">
+                    <?php 
                             $data = $_SESSION['login'];
                             
                             $sql = "SELECT * FROM t_his WHERE `username` = '$data' ORDER BY `id` desc";
@@ -134,7 +136,6 @@
                                 while($row = mysqli_fetch_array($rss)) {
                             
                             ?>
-                <div class="dropdown-list-content dropdown-list-icons">
                     <a href="./transactionhistory<?php echo $row['t_ref'] ?>"
                         class="dropdown-item dropdown-item-unread">
                         <div class="dropdown-item-icon bg-primary text-white">
@@ -146,11 +147,12 @@
                                 <?php echo date('l, F d, Y - h:i:sa', strtotime($row['datepaid'])); ?></div>
                         </div>
                     </a>
-                </div>
-                <?php
+                    <?php
                                 }
                             }
                                 ?>
+                </div>
+
             </div>
         </li>
         <li class="dropdown"><a href="#" data-toggle="dropdown"
