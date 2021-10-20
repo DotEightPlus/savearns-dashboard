@@ -31,6 +31,7 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="assets/modules/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="assets/modules/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="assets/modules/izitoast/css/iziToast.min.css">
     <link rel="stylesheet" href="assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
 

@@ -79,7 +79,7 @@ if(isset($_SESSION['login'])) {
                             <div class="empty-state-icon">
                                 <i class="fas fa-gift"></i>
                             </div>
-                            <h2 class="mb-3">Get free ₦250</h2>
+                            <h2 class="mb-3">Get free ₦200</h2>
                             <p class="lead">
                                 You and your friends earn cash reward when they signup and save with your referral link
                                 or code.
@@ -155,7 +155,11 @@ if(isset($_SESSION['login'])) {
     <!-- JS Libraies -->
     <script src="assets/modules/sticky-kit.js"></script>
 
+    <!-- JS Libraies -->
+    <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
+
     <!-- Page Specific JS File -->
+    <script src="assets/js/page/modules-toastr.js"></script>
 
     <!-- Template JS File -->
     <script src="assets/js/scripts.js"></script>
@@ -167,7 +171,32 @@ if(isset($_SESSION['login'])) {
 
 
 <?php
+if(isset($_SESSION['paymsg'])) {
 
+    $msg = $_SESSION['paymsg'];
+
+    if($msg == "Your Wallet has been funded successfully") {
+   
+    echo "<script>
+        iziToast.success({
+          title: 'Success!',
+          message: 'Your Wallet has been funded successfully',
+          position: 'topCenter'
+        });</script>";
+
+    //unset($_SESSION['paymsg']);
+    } else {
+
+        echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'There was an error processing your payment',
+          position: 'topCenter'
+        });</script>";
+
+        
+    }
+}
   
 } else {
 

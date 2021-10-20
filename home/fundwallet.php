@@ -44,7 +44,7 @@ if(isset($_GET['status']) && isset($_GET['tx_ref']) && isset($_GET['transaction_
     $newbal =  $prvamt + $amt;
 
     
-    $note = "Your wallet was credited with ".$amt;
+    $note = "Your wallet was credited with NGN".number_format($amt);
 
     
 
@@ -59,15 +59,18 @@ if(isset($_GET['status']) && isset($_GET['tx_ref']) && isset($_GET['transaction_
     $tes = query($tsql);
 
     //redirect to home
+    $_SESSION['paymsg'] = "Your Wallet has been funded successfully";
     redirect("./");
     
     } else {
 
+        $_SESSION['paymsg'] = "Error processing your payment";
         redirect("./");
     }
 
 } else {
 
+    $_SESSION['paymsg'] = "Error processing your payment";
     redirect("./");
 }
 ?>
