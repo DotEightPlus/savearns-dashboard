@@ -16,6 +16,10 @@
                     class="btn btn-primary mt-2 section-lead">Fund Wallet </button>
             </h2>
 
+            <div class="section-header">
+                <h1>SAVING PLANS</h1>
+            </div>
+
             <div class="row mt-5">
 
                 <div class="col-lg-4 col-md-4 col-sm-12">
