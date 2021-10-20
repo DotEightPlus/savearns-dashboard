@@ -106,9 +106,7 @@ if(isset($_SESSION['login'])) {
                 </div>
                 <div class="modal-body">
                     <div class="col-12 col-md-12 col-sm-12">
-
-                        <?php fundwallet(); ?>
-                        <form method="POST">
+                        <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
                             <p>Fill the form below to add funds to your wallet</p>
                             <div class="form-group">
                                 <label>Input Amount</label>
@@ -117,9 +115,22 @@ if(isset($_SESSION['login'])) {
                                     <input type="number" name="amount" class="form-control">
                                 </div>
                             </div>
+
+                            <input type="hidden" name="public_key"
+                                value="FLWPUBK_TEST-252c57dacbb153862b1a4865fe33c9f6-X" />
+                            <input type="hidden" name="customer[email]" value="<?php echo $t_users['email'] ?>" />
+                            <input type="hidden" name="customer[phone_number]" value="<?php echo $t_users['tel'] ?>" />
+                            <input type="hidden" name="customizations[title]" value="Savearns" />
+                            <input type="hidden" name="customer[name]" value="<?php echo $t_users['fname'] ?>" />
+                            <input type="hidden" name="tx_ref" value="<?php echo md5(rand(0, 999)); ?>" />
+                            <input type="hidden" name="currency" value="NGN" />
+                            <input type="hidden" name="redirect_url"
+                                value="http://localhost/freelance/savearns-dashboard/home/./fundwallet" />
+                            <input type="hidden" name="customizations[logo]"
+                                value="https://savearns.com/assets/1.png" />
                             <div class="form-group mb-0">
-                                <button type="submit" id="fundwallet" class="form-control btn-primary"
-                                    placeholder="Password" name="password">Fund
+                                <button type="submit" class="form-control btn-primary" placeholder="Password"
+                                    name="password">Fund
                                     Now </button>
                             </div>
                         </form>
