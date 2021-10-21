@@ -3,7 +3,7 @@
     <section class="section">
 
         <div class="section-header">
-            <h1>Welcome Back, <?php echo strtoupper($t_users['usname']) ?>!</h1>
+            <h1>Welcome Back, <?php echo strtoupper($t_users['usname']) ?>! <i class="text-primary fa fa-check-circle"></i></h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a>Last seen:
                         <?php echo date('l, F d, Y', strtotime($t_users['lastseen'])); ?></a></div>

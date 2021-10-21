@@ -16,7 +16,7 @@
                             <p id="myInput" hidden>https://dashboard.savearns.com/signup?link=<?php echo $data ?></p>
                             <a id="copy" onclick="myFunction()" class="btn btn-primary mt-4 text-white"><?php echo $data ?> <i
                                     class="fa fa-copy"></i></a>
-                            <a href="./" class="mt-4 bb">View Your Referral Details</a>
+                            <a href="./ref" class="mt-4 bb">View Your Referral Details</a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Classic Saving Plan(minNGN 1,000/month)</h5>
+                    <h5 class="modal-title">Flex Saving Plan(Min NGN 500/month)</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -200,7 +200,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Classic Saving Plan(minNGN 1,000/month)</h5>
+                    <h5 class="modal-title">Campus Saving Plan(minNGN 100/month)</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
