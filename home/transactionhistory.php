@@ -39,8 +39,8 @@ if(isset($_SESSION['login'])) {
 
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="card">
-                                    <div class="card-body">
-                                        <table class="table">
+                                    <div class="card-body p-0">
+                                        <table class="table table-responsive-sm">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Ref</th>
@@ -67,7 +67,7 @@ if(isset($_SESSION['login'])) {
                                                     <th scope="row"><?php echo $row['t_ref']; ?></th>
                                                     <td>NGN<?php echo number_format($row['amt']); ?></td>
                                                     <td><?php echo ucwords($row['status']); ?></td>
-                                                    <td><?php echo date('l, F d, Y  - h:i:sa', strtotime($row['datepaid'])); ?>
+                                                    <td><?php echo date('d/m/Y  - h:i:sa', strtotime($row['datepaid'])); ?>
                                                     </td>
                                                 </tr>
                                                 <?php 
@@ -94,76 +94,7 @@ if(isset($_SESSION['login'])) {
     </div>
 
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="col-12 col-md-12 col-sm-12">
-                        <div class="empty-state" data-height="400">
-                            <div class="empty-state-icon">
-                                <i class="fas fa-gift"></i>
-                            </div>
-                            <h2 class="mb-3">Get free ₦250</h2>
-                            <p class="lead">
-                                You and your friends earn cash reward when they signup and save with your referral link
-                                or code.
-                            </p>
-                            <a href="#" class="btn btn-primary mt-4">Need to see how you've performed? <i
-                                    class="fas fa-gift"></i> <i class="fas fa-gift"></i></a>
-                            <a href="#" class="mt-4 bb">View Referral Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal fade" tabindex="-1" role="dialog" id="payModal">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Fund Wallet</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-12 col-md-12 col-sm-12">
-                        <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
-                            <p>Fill the form below to add funds to your wallet</p>
-                            <div class="form-group">
-                                <label>Input Amount</label>
-                                <div class="input-group">
-
-                                    <input type="number" name="amount" class="form-control">
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="public_key"
-                                value="FLWPUBK_TEST-252c57dacbb153862b1a4865fe33c9f6-X" />
-                            <input type="hidden" name="customer[email]" value="<?php echo $t_users['email'] ?>" />
-                            <input type="hidden" name="customer[phone_number]" value="<?php echo $t_users['tel'] ?>" />
-                            <input type="hidden" name="customizations[title]" value="Savearns" />
-                            <input type="hidden" name="customer[name]" value="<?php echo $t_users['fname'] ?>" />
-                            <input type="hidden" name="tx_ref" value="<?php echo md5(rand(0, 999)); ?>" />
-                            <input type="hidden" name="currency" value="NGN" />
-                            <input type="hidden" name="redirect_url"
-                                value="http://localhost/freelance/savearns-dashboard/home/./fundwallet" />
-                            <input type="hidden" name="customizations[logo]"
-                                value="https://savearns.com/assets/1.png" />
-                            <div class="form-group mb-0">
-                                <button type="submit" class="form-control btn-primary" placeholder="Password"
-                                    name="password">Fund
-                                    Now </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <?php include("include/component/modal.php"); ?>
 
 
 

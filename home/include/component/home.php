@@ -25,7 +25,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="#">
+                            <a data-toggle="modal" href="#classicModal">
                                 <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
@@ -51,7 +51,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="#">
+                            <a data-toggle="modal" href="#flexModal">
                                 <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
@@ -77,7 +77,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="#">
+                            <a data-toggle="modal" href="#campusModal">
                                 <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
