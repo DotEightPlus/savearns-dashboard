@@ -131,6 +131,9 @@
             </div>
         </div>
     </div>
+    <script>
+        
+        </script>
 
     <script>
     //copy text to clipboard
