@@ -21,13 +21,23 @@
                     ?>
 
             <h2 class="section-title">Wallet Balance:
-                <b>NGN<?php echo number_format($t_users['wallet'] + $a) ?></b> <button data-toggle="modal"
-                    data-target="#payModal" class="btn btn-primary mt-2 section-lead">Fund Wallet </button>
+                <b>NGN<?php echo number_format($t_users['wallet'] + $a) ?></b>
+                <div class = "row pl-4 mt-3">
+                 <button data-toggle="modal"
+                    data-target="#payModal" class="btn btn-primary section-lead">Fund Wallet </button>
+                    <button data-toggle="modal"
+                    data-target="#transferModal" class="btn btn-primary section-lead">Send Funds </button>
+</div>
             </h2>
 
             <div class="section-header">
                 <h1>SAVING PLANS</h1>
             </div>
+
+            <h2 class="section-title">Current Savings:
+                <b>NGN<?php echo number_format($t_users['wallet'] + $a) ?></b> 
+            </h2>
+
 
             <div class="row mt-5">
 
