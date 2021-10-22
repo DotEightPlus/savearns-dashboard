@@ -11,8 +11,17 @@
         </div>
         <div class="section-body">
 
-            <h2 class="section-title">Avalable Wallet Balance :
-                <b>NGN<?php echo number_format($t_users['wallet']) ?></b> <button data-toggle="modal"
+                    <?php 
+                    $data = $_SESSION['login'];
+                    $rss = "SELECT sum(`active`) AS `earn` FROM `users` WHERE `ref` = '$data'";
+                    $res = query($rss);
+                    $wes = mysqli_fetch_array($res);
+
+                    $a = $wes['earn'] * 100;
+                    ?>
+
+            <h2 class="section-title">Wallet Balance:
+                <b>NGN<?php echo number_format($t_users['wallet'] + $a) ?></b> <button data-toggle="modal"
                     data-target="#payModal" class="btn btn-primary mt-2 section-lead">Fund Wallet </button>
             </h2>
 

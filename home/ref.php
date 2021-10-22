@@ -28,12 +28,24 @@ if(isset($_SESSION['login'])) {
             <!--Greet new customer -->
             <div class="main-content">
                 <section class="section">
+                <div class="section-header">
+                            <h1>YOUR REFERALS</h1>
+                        </div>
 
                     <div class="section-body">
 
-                        <div class="section-header">
-                            <h1>YOUR REFERALS</h1>
-                        </div>
+                    <?php 
+                    $data = $_SESSION['login'];
+                    $rss = "SELECT sum(`active`) AS `earn` FROM `users` WHERE `ref` = '$data'";
+                    $res = query($rss);
+                    $wes = mysqli_fetch_array($res);
+
+                    $a = $wes['earn'] * 100;
+                    ?>
+
+                    <h2 class="section-title">Referal Earnings :
+                <b>NGN<?php echo number_format($a) ?></b>
+            </h2>
 
                         <div class="row mt-5">
 
@@ -67,7 +79,7 @@ if(isset($_SESSION['login'])) {
                                                     <th scope="row">1</th>
                                                     <td><?php echo $row['usname']; ?></td>
                                                     <?php 
-                                                    if($row['tpin'] == '') {
+                                                    if($row['wallet'] == '') {
 
                                                         echo '<td>Unverified</td>';
                                                     } else {

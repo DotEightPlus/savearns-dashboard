@@ -13,10 +13,12 @@
                                 You and your friends earn cash reward when they signup and save with your referral link
                                 or code.
                             </p>
-                            <p id="myInput" hidden>https://dashboard.savearns.com/signup?link=<?php echo $data ?></p>
-                            <a id="copy" onclick="myFunction()" class="btn btn-primary mt-4 text-white"><?php echo $data ?> <i
+                            
+                            <input id="myInput" type="text" value="https://dashboard.savearns.com/signup?link=<?php echo $data ?>" hidden>
+                            <a onclick="myFunction()" class="btn btn-primary mt-4 text-white" data-toggle="tooltip" data-placement="top" title="Click to copy your referal link"><?php echo $data ?> <i
                                     class="fa fa-copy"></i></a>
                             <a href="./ref" class="mt-4 bb">View Your Referral Details</a>
+
                         </div>
                     </div>
                 </div>
@@ -259,13 +261,16 @@
             </div>
         </div>
     </div>
-
     <script>
-    //copy text to clipboard
-    function myFunction() {
-        var copyText = document.getElementById("myInput");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999)
-        document.execCommand("copy");
-    }
-    </script>
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+}
+</script>

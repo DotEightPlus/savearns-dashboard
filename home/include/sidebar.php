@@ -5,10 +5,10 @@
             <li><a href="./"><i class="fa fa-home"></i>
                     <span>Home</span></a></li>
             <li><a href="./plans"><i class="fa fa-list"></i> <span>Plans</span></a></li>
-            <li><a href="./transactionhistory"><i class="fa fa-clock"></i> <span>History</span></a></li>
+            <li><a href="./transactionhistory"><i class="fa fa-history"></i> <span>History</span></a></li>
             <li><a data-toggle="modal" href="#exampleModal"><i class="fa fa-gift"></i> <span>Referal</span></a></li>
             <li><a href="./withdrawal"><i class="fa fa-credit-card"></i> <span>Withdraw</span></a></li>
-            <li><a href="#"><i class="fa fa-envelope"></i> <span>Chat</span></a></li>
+            <li><a href="./bills"><i class="fa fa-wifi"></i> <span>Bill Payment</span></a></li>
             <li><a href="./logout"><i class="fa fa-lock"></i> <span>Logout</span></a></li>
 
             <!--<li class="menu-header">Dashboard</li>
