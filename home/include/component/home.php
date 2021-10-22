@@ -17,7 +17,7 @@
                     $res = query($rss);
                     $wes = mysqli_fetch_array($res);
 
-                    $a = $wes['earn'] * 100;
+                    $a = $wes['earn'] * 200;
                     ?>
 
             <h2 class="section-title">Wallet Balance:
