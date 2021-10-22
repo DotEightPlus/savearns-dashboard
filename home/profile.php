@@ -85,7 +85,7 @@ if(isset($_SESSION['login'])) {
                       <i class="fab fa-twitter text-dark"></i>
                     </a>
                     <a data-action="share/whatsapp/share" data-media="images/ico.png"
-                                href="https://api.whatsapp.com/send?text=*Savearns allows me to save while I spend less. Click here to experience the same*https://dashboard.savearns.com/signup?link=<?php echo $data ?>"
+                                href="https://api.whatsapp.com/send?text=*Yo! I use SAVEARNS to save more while I spend less. It has the best student saving plans! Give it a try using this link *https://dashboard.savearns.com/signup?link=<?php echo $data ?>"
                                 target="_blank" class="btn btn-social-icon btn-whatsapp">
                       <i class="fab fa-whatsapp text-dark"></i>
                     </a>

@@ -74,17 +74,25 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Fund Wallet</h5>
+                    <h5 class="modal-title">Send Money</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="col-12 col-md-12 col-sm-12">
-                        <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
-                            <p>Fill the form below to add funds to your wallet</p>
+                        <form method="POST" action="#">
+                            <p>You can send money from your wallet to other savearns users</p>
                             <div class="form-group">
                                 <label>Input Amount</label>
+                                <div class="input-group">
+
+                                    <input type="number" name="amount" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Input beneficiary Username</label>
                                 <div class="input-group">
 
                                     <input type="number" name="amount" class="form-control" required>
