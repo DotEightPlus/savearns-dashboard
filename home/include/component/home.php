@@ -11,17 +11,8 @@
         </div>
         <div class="section-body">
 
-                    <?php 
-                    $data = $_SESSION['login'];
-                    $rss = "SELECT sum(`active`) AS `earn` FROM `users` WHERE `ref` = '$data'";
-                    $res = query($rss);
-                    $wes = mysqli_fetch_array($res);
-
-                    $a = $wes['earn'] * 200;
-                    ?>
-
             <h2 class="section-title">Wallet Balance:
-                <b>NGN<?php echo number_format($t_users['wallet'] + $a) ?></b>
+                <b>NGN<?php echo number_format($t_users['wallet'] + $GLOBALS['t_ref_earn']) ?></b>
                 <div class = "row pl-4 mt-3">
                  <button data-toggle="modal"
                     data-target="#payModal" class="btn btn-primary section-lead">Fund Wallet </button>

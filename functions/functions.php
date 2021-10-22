@@ -443,6 +443,8 @@ function user_details() {
 	
 	$data = $_SESSION['login'];
 
+
+	//users details
 	$sql = "SELECT * FROM users WHERE `usname` = '$data'";
 	$rsl = query($sql);
 
@@ -456,7 +458,16 @@ function user_details() {
     $GLOBALS['t_users'] = mysqli_fetch_array($rsl);
 
 	}
+
+	//referal details
+	$rss = "SELECT sum(`active`) AS `earn` FROM `users` WHERE `ref` = '$data'";
+	$res = query($rss);
+    $GLOBALS['t_ref'] = mysqli_fetch_array($res);
+
+	$GLOBALS['t_ref_earn'] = $GLOBALS['t_ref']['earn'] * 200;
+
 }
+
 
 
 //get account name

@@ -34,17 +34,11 @@ if(isset($_SESSION['login'])) {
 
                     <div class="section-body">
 
-                    <?php 
-                    $data = $_SESSION['login'];
-                    $rss = "SELECT sum(`active`) AS `earn` FROM `users` WHERE `ref` = '$data'";
-                    $res = query($rss);
-                    $wes = mysqli_fetch_array($res);
-
-                    $a = $wes['earn'] * 200;
-                    ?>
 
                     <h2 class="section-title">Referal Earnings :
-                <b>NGN<?php echo number_format($a) ?></b>
+                <b>NGN<?php echo number_format($GLOBALS['t_ref_earn']) ?></b>
+                <button data-toggle="modal"
+                    data-target="#exampleModal" class="btn btn-primary section-lead">Referal Friends </button>
             </h2>
 
                         <div class="row mt-5">

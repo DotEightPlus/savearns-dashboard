@@ -3,7 +3,7 @@ include("../functions/init.php");
 
 if(isset($_SESSION['login'])) {
 
-   
+   $data = $_SESSION['login'];
 ?>
 
 
@@ -51,11 +51,19 @@ if(isset($_SESSION['login'])) {
                     <div class="profile-widget-items">
                       <div class="profile-widget-item">
                         <div class="profile-widget-item-label">Status</div>
-                        <div class="profile-widget-item-value">187</div>
+                        <div class="profile-widget-item-value"><i class="fa fa-check-circle"></i></div>
                       </div>
                       <div class="profile-widget-item">
                         <div class="profile-widget-item-label">Referalls</div>
-                        <div class="profile-widget-item-value">6,8K</div>
+                        <?php
+                    $rss = "SELECT sum(`active`) AS `earn` FROM `users` WHERE `ref` = '$data'";
+                    $res = query($rss);
+                    $wes = mysqli_fetch_array($res);
+
+                    $a = $wes['earn'];
+                    ?>
+
+                        <div class="profile-widget-item-value"><?php echo number_format($a) ?></div>
                       </div>
                       
                     </div>
@@ -65,19 +73,23 @@ if(isset($_SESSION['login'])) {
                     <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.
                   </div>
                   <div class="card-footer text-center">
-                    <div class="font-weight-bold mb-2">Invite More Friends</div>
-                    <a href="#" class="btn btn-social-icon btn-facebook mr-1">
-                      <i class="fab fa-facebook-f"></i>
+                    <div style class="font-weight-bold mb-2" data-toggle="modal" href="#exampleModal">Invite More Friends</div>
+                    <a data-media="images/ico.png"
+                                href="https://facebook.com/sharer.php?u=https://dashboard.savearns.com/signup?link=<?php echo $data ?>"
+                                target="_blank" class="btn btn-social-icon btn-facebook">
+                      <i class="fab fa-facebook-f text-dark"></i>
                     </a>
-                    <a href="#" class="btn btn-social-icon btn-twitter mr-1">
-                      <i class="fab fa-twitter"></i>
+                    <a data-media="images/ico.png"
+                                href="https://twitter.com/home?status=https://dashboard.savearns.com/signup?link=<?php echo $data ?>"
+                                target="_blank" class="btn btn-social-icon btn-twitter">
+                      <i class="fab fa-twitter text-dark"></i>
                     </a>
-                    <a href="#" class="btn btn-social-icon btn-github mr-1">
-                      <i class="fab fa-github"></i>
+                    <a data-action="share/whatsapp/share" data-media="images/ico.png"
+                                href="https://api.whatsapp.com/send?text=*Savearns allows me to save while I spend less. Click here to experience the same*https://dashboard.savearns.com/signup?link=<?php echo $data ?>"
+                                target="_blank" class="btn btn-social-icon btn-whatsapp">
+                      <i class="fab fa-whatsapp text-dark"></i>
                     </a>
-                    <a href="#" class="btn btn-social-icon btn-instagram">
-                      <i class="fab fa-instagram"></i>
-                    </a>
+                    
                   </div>
                 </div>
               </div>
@@ -85,12 +97,12 @@ if(isset($_SESSION['login'])) {
                 <div class="card">
                   <form method="post" class="needs-validation" novalidate="">
                     <div class="card-header">
-                      <h4>Edit Profile</h4>
+                      <h4>Profile Details</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">                               
-                          <div class="form-group col-md-6 col-12">
-                            <label>First Name</label>
+                          <div class="form-group col-md-12 col-12">
+                            <label>Full Name</label>
                             <input type="text" class="form-control" value="Ujang" required="">
                             <div class="invalid-feedback">
                               Please fill in the first name
