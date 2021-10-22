@@ -26,7 +26,7 @@
             </div>
 
             <h2 class="section-title">Current Savings:
-                <b>NGN<?php echo number_format($t_users['wallet'] + $a) ?></b> 
+                <b>NGN</b> 
             </h2>
 
 
