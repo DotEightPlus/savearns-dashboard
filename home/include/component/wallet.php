@@ -32,9 +32,6 @@
                                         <div class="carousel-item">
                                             <img class="d-block w-100" src="assets/img/9.jpg" alt="Third slide">
                                         </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-100" src="assets/img/5.jpg" alt="Third slide">
-                                        </div>
                                     </div>
                                 </div>
                             </a>
