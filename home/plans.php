@@ -149,7 +149,10 @@ if(isset($_SESSION['login'])) {
     </div>
     </div>
 
- <?php include("include/component/modal.php"); ?>
+
+ <?php
+ include("include/footer.php");
+ include("include/component/modal.php"); ?>
 
 
 

@@ -15,8 +15,26 @@
                             </p>
                             
                             <input id="myInput" type="text" value="https://dashboard.savearns.com/signup?link=<?php echo $data ?>" hidden>
-                            <a onclick="myFunction()" class="btn btn-primary mt-4 text-white" data-toggle="tooltip" data-placement="top" title="Click to copy your referal link"><?php echo $data ?> <i
+                            <a onclick="myFunction()" class="btn btn-primary mt-4 text-white" data-toggle="tooltip" data-placement="top" title="Referal link copied"><?php echo $data ?> <i
                                     class="fa fa-copy"></i></a>
+                                    <div class="mt-5 text-center">
+                    <a data-media="images/ico.png"
+                                href="https://facebook.com/sharer.php?u=https://dashboard.savearns.com/signup?link=<?php echo $data ?>"
+                                target="_blank" class="btn btn-social-icon btn-facebook">
+                      <i class="fab fa-facebook-f text-dark"></i>
+                    </a>
+                    <a data-media="images/ico.png"
+                                href="https://twitter.com/home?status=https://dashboard.savearns.com/signup?link=<?php echo $data ?>"
+                                target="_blank" class="btn btn-social-icon btn-twitter">
+                      <i class="fab fa-twitter text-dark"></i>
+                    </a>
+                    <a data-action="share/whatsapp/share" data-media="images/ico.png"
+                                href="https://api.whatsapp.com/send?text=*Yo! I use SAVEARNS to save more while I spend less. It has the best student saving plans! Give it a try using this link *https://dashboard.savearns.com/signup?link=<?php echo $data ?>"
+                                target="_blank" class="btn btn-social-icon btn-whatsapp">
+                      <i class="fab fa-whatsapp text-dark"></i>
+                    </a>
+                    
+                  </div>
                             <a href="./ref" class="mt-4 bb">View Your Referral Details</a>
 
                         </div>
