@@ -464,7 +464,7 @@ function user_details() {
 	$res = query($rss);
     $GLOBALS['t_ref'] = mysqli_fetch_array($res);
 
-	$GLOBALS['t_ref_earn'] = $GLOBALS['t_ref']['earn'] * 200;
+	$GLOBALS['t_ref_earn'] = $GLOBALS['t_ref']['earn'] * 100;
 
 }
 
@@ -473,8 +473,8 @@ function user_details() {
 //get account name
 if(isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['trd'])) {
 
-	$bank  = $_POST['bank'];
-	$acctn = $_POST['acctn'];
+	$bank  = clean(escape($_POST['bank']));
+	$acctn = clean(escape($_POST['acctn']));
 
 
 	//get bank code first
@@ -784,14 +784,14 @@ if(isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['trd'])) {
 
 if(isset($_POST['gend']) && isset($_POST['inst']) && isset($_POST['dept']) && isset($_POST['level']) && isset($_POST['matric']) && isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['actn']) && isset($_POST['pword'])) {
 
-	$gend 	 = $_POST['gend'];
-	$inst 	 = $_POST['inst'];
-	$dept 	 = $_POST['dept'];
-	$level	 = $_POST['level'];
-	$matric  = $_POST['matric'];
-	$bank    = $_POST['bank'];
-	$acctn   = $_POST['acctn'];
-	$actn    = $_POST['actn'];
+	$gend 	 = clean(escape($_POST['gend']));
+	$inst 	 = clean(escape($_POST['inst']));
+	$dept 	 = clean(escape($_POST['dept']));
+	$level	 = clean(escape($_POST['level']));
+	$matric  = clean(escape($_POST['matric']));
+	$bank    = clean(escape($_POST['bank']));
+	$acctn   = clean(escape($_POST['acctn']));
+	$actn    = clean(escape($_POST['actn']));
 	$pword   = md5($_POST['pword']);
 
 	$user = $_SESSION['login'];
@@ -801,5 +801,67 @@ if(isset($_POST['gend']) && isset($_POST['inst']) && isset($_POST['dept']) && is
 
 	echo "Loading... Please wait";
 	echo '<script>window.location.href ="./"</script>';
+}
+
+
+
+//transfer function
+function transfer($usus) {
+
+	$sql = "SELECT * FROM users WHERE `usname` = '$usus'";
+	$res = query($sql);
+
+	if(row_count($res) == null) {
+		
+		echo "Username is invalid";
+	} else {
+
+		$GLOBALS['t_trans'] = mysqli_fetch_array($res);
+	}
+}
+
+
+//sending money to a savearn user
+if(isset($_POST['amt']) && isset($_POST['usus'])) {
+
+$amt = clean(escape($_POST['amt']));
+$usus = clean(escape($_POST['usus']));
+
+//get current user details
+user_details();
+
+//check if user is crediting self
+if($t_users['usname'] == $usus) {
+	
+	echo "You can't send money to yourself";
+	
+} else {
+
+	//check if user exist
+	transfer($usus);
+
+	//chcek if user has enough funds
+	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
+	if($bal < $amt) {
+
+		echo "A minimum of NGN100 should be left on your account";
+		
+	} else {
+
+		//deduct current user wallet
+		$newbal = $bal - $amt;
+		
+		//get beneficiary user wallet and add amt
+		$tbal = $t_trans['wallet'] + $amt;
+		
+		//update user wallet
+
+		//notify transaction history
+
+		//notify 
+		
+	}
+	
+}
 }
 ?>

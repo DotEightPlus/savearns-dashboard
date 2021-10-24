@@ -12,7 +12,7 @@
         <div class="section-body">
 
             <h2 class="section-title">Wallet Balance:
-                <b>NGN<?php echo number_format($t_users['wallet'] + $GLOBALS['t_ref_earn']) ?></b>
+                <b>NGN<?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></b>
                 <div class = "row  mt-3">
                  <button data-toggle="modal"
                     data-target="#payModal" class="btn btn-primary section-lead">Fund Wallet </button>

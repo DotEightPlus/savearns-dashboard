@@ -36,7 +36,7 @@ if(isset($_SESSION['login'])) {
 
 
                     <h2 class="section-title">Referal Earnings :
-                <b>NGN<?php echo number_format($GLOBALS['t_ref_earn']) ?></b>
+                <b>NGN<?php echo number_format($t_ref_earn) ?></b>
                 <button data-toggle="modal"
                     data-target="#exampleModal" class="btn btn-primary section-lead">Referal Friends </button>
             </h2>
@@ -108,7 +108,10 @@ if(isset($_SESSION['login'])) {
     </div>
 
 
-    <?php include("include/component/modal.php"); ?>
+    <?php 
+    //footer
+    include("include/footer.php");
+    include("include/component/modal.php"); ?>
 
 
 

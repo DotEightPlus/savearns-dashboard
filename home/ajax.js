@@ -17,6 +17,35 @@ $(document).ready(function () {
     });
 
 
+    //get account name
+    $("#send").click(function () {
+     var amt = $("#amt").val();
+     var usus = $("#usus").val();
+
+     if(amt == "" || amt == null) {
+       $("#smsg").html("Please input an amount");
+     } else {
+
+       if(usus == "" || usus == null) {
+
+         $("#smsg").html("Please input the beneficiary username");
+       } else {
+
+         $("#smsg").html("Loading... Please wait");
+         $.ajax({
+        type: "post",
+        url: "../functions/init.php",
+        data: {amt: amt, usus: usus},
+        success: function (data) {
+          $("#smsg").html(data);
+      },
+    });
+
+       }
+     }
+    });
+
+
   //profile complete
   $("#subprof").click(function () {
     var gend = $("#gend").val();
