@@ -869,10 +869,10 @@ if($mainuser == ucwords($usus)) {
 		//notify user transaction history
 		$date = date("Y-m-d h:i:sa");
 		$ref = "tpay".rand(0, 999);
-		$msg  = "Your transfer of NGN".number_format($newbal)." to ". $usus ."was successful";
+		$msg  = "Your transfer of NGN".number_format($newbal)." to ". $usus ." was successful";
 		$sbj  = "Debit Alert";
 
-		$msql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$msql = "INSERT INTO t_his(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
 		$msql .="VALUES('$mainuser', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
 		$mes = query($msql);
 
@@ -881,7 +881,7 @@ if($mainuser == ucwords($usus)) {
 		$bmsg  = "You have been credited NGN".number_format($newbal)." from ". $usus;
 		$bsbj  = "Credit Alert";
 
-		$bmsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$bmsql = "INSERT INTO t_his(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
 		$bmsql .="VALUES('$mainuser', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
 		$bmes = query($bmsql);
 
