@@ -69,7 +69,7 @@ if(isset($_SESSION['login'])) {
         </div>
     </div>
 
-    
+
     <?php include("include/component/modal.php"); ?>
 
 
@@ -129,6 +129,35 @@ if(isset($_SESSION['paymsg'])) {
         unset($_SESSION['paymsg']);
     }
 }
+
+//transfer message
+if(isset($_SESSION['transfered'])) {
+
+    $trn = $_SESSION['transfered'];
+
+    if($trn == "Success") {
+   
+        echo "<script>
+            iziToast.success({
+              title: 'Success!',
+              message: 'Your transfer was succesful',
+              position: 'topCenter'
+            });</script>";
+    
+        unset($_SESSION['transfered']);
+        
+        } else {
+    
+            echo "<script>
+            iziToast.error({
+              title: 'Error!',
+              message: 'There was an error processing your transfer',
+              position: 'topCenter'
+            });</script>";
+    
+            unset($_SESSION['transfered']);
+        }
+    }
   
 } else {
 

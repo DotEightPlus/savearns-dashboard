@@ -1,50 +1,43 @@
 $(document).ready(function () {
+  //get account name
+  $("#acctn").change(function () {
+    var bank = $("#bank").val();
+    var acctn = $("#acctn").val();
+    var trd = "hello";
 
-    //get account name
-    $("#acctn").change(function () {
-      var bank = $("#bank").val();
-      var acctn = $("#acctn").val();
-      var trd = "hello";
-  
-      $.ajax({
-        type: "post",
-        url: "../functions/init.php",
-        data: { bank: bank, acctn: acctn, trd: trd },
-        success: function (data) {
-          $("#actn").val(data);
-        },
-      });
-    });
-
-
-    //get account name
-    $("#send").click(function () {
-     var amt = $("#amt").val();
-     var usus = $("#usus").val();
-
-     if(amt == "" || amt == null) {
-       $("#smsg").html("Please input an amount");
-     } else {
-
-       if(usus == "" || usus == null) {
-
-         $("#smsg").html("Please input the beneficiary username");
-       } else {
-
-         $("#smsg").html("Loading... Please wait");
-         $.ajax({
-        type: "post",
-        url: "../functions/init.php",
-        data: {amt: amt, usus: usus},
-        success: function (data) {
-          $("#smsg").html(data);
+    $.ajax({
+      type: "post",
+      url: "../functions/init.php",
+      data: { bank: bank, acctn: acctn, trd: trd },
+      success: function (data) {
+        $("#actn").val(data);
       },
     });
+  });
 
-       }
-     }
-    });
+  //get account name
+  $("#send").click(function () {
+    var amt = $("#amt").val();
+    var usus = $("#usus").val();
 
+    if (amt == "" || amt == null) {
+      $("#smsg").html("Please input an amount");
+    } else {
+      if (usus == "" || usus == null) {
+        $("#smsg").html("Please input the beneficiary username");
+      } else {
+        $("#smsg").html("Loading... Please wait");
+        $.ajax({
+          type: "post",
+          url: "../functions/init.php",
+          data: { amt: amt, usus: usus },
+          success: function (data) {
+            $("#smsg").html(data);
+          },
+        });
+      }
+    }
+  });
 
   //profile complete
   $("#subprof").click(function () {

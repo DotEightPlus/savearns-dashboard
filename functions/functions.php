@@ -125,7 +125,7 @@ if(isset($_POST['fname']) && isset($_POST['tel']) && isset($_POST['email']) && i
 $fname 			= clean(escape($_POST['fname']));
 $tel	 		= clean(escape($_POST['tel']));
 $email	 		= clean(escape($_POST['email']));
-$uname	 		= clean(escape($_POST['user']));
+$uname	 		= clean(escape(ucwords($_POST['user'])));
 $pword    		= clean(escape($_POST['pword']));
 $cpword 		= clean(escape($_POST['cpword']));
 $ref            = clean(escape($_POST['ref']));
@@ -153,7 +153,7 @@ function register($fname, $tel, $email, $uname, $pword, $ref) {
 
 	$fnam = escape($fname);
 	$emai = escape($email);
-	$unam = escape($uname);
+	$unam = escape(ucwords($uname));
 	$pwor = md5($pword);
 
 	$datereg = date("Y-m-d");
@@ -814,9 +814,11 @@ function transfer($usus) {
 	if(row_count($res) == null) {
 		
 		echo "Username is invalid";
+		die();
 	} else {
 
 		$GLOBALS['t_trans'] = mysqli_fetch_array($res);
+		
 	}
 }
 
@@ -830,8 +832,10 @@ $usus = clean(escape($_POST['usus']));
 //get current user details
 user_details();
 
+$mainuser = ucwords($t_users['usname']);
+
 //check if user is crediting self
-if($t_users['usname'] == $usus) {
+if($mainuser == ucwords($usus)) {
 	
 	echo "You can't send money to yourself";
 	
@@ -855,10 +859,37 @@ if($t_users['usname'] == $usus) {
 		$tbal = $t_trans['wallet'] + $amt;
 		
 		//update user wallet
+		$sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$mainuser'";
+		$res = query($sql);
 
-		//notify transaction history
+		//credit beneficiary
+		$bsql = "UPDATE users SET `wallet` = '$tbal' WHERE `usname` = '$usus'";
+		$bres = query($bsql);
 
-		//notify 
+		//notify user transaction history
+		$date = date("Y-m-d h:i:sa");
+		$ref = "tpay".rand(0, 999);
+		$msg  = "Your transfer of NGN".number_format($newbal)." to ". $usus ."was successful";
+		$sbj  = "Debit Alert";
+
+		$msql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$msql .="VALUES('$mainuser', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+		$mes = query($msql);
+
+		//notify beneficiary
+		$bref  = "tpay".rand(0, 999);
+		$bmsg  = "You have been credited NGN".number_format($newbal)." from ". $usus;
+		$bsbj  = "Credit Alert";
+
+		$bmsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$bmsql .="VALUES('$mainuser', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+		$bmes = query($bmsql);
+
+
+		//create an alert message
+		$_SESSION['transfered'] = "Success";
+		echo "Loading... Please wait";
+		echo '<script>window.location.href ="./"</script>';
 		
 	}
 	
