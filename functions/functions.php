@@ -872,7 +872,7 @@ if($mainuser == ucwords($usus)) {
 		$msg  = "Your transfer of NGN".number_format($newbal)." to ". $usus ." was successful";
 		$sbj  = "Debit Alert";
 
-		$msql = "INSERT INTO t_his(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$msql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
 		$msql .="VALUES('$mainuser', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
 		$mes = query($msql);
 
@@ -881,7 +881,7 @@ if($mainuser == ucwords($usus)) {
 		$bmsg  = "You have been credited NGN".number_format($newbal)." from ". $usus;
 		$bsbj  = "Credit Alert";
 
-		$bmsql = "INSERT INTO t_his(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$bmsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
 		$bmsql .="VALUES('$mainuser', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
 		$bmes = query($bmsql);
 
@@ -894,5 +894,113 @@ if($mainuser == ucwords($usus)) {
 	}
 	
 }
+}
+
+
+/*** SAVING PLANS FUNCTIOn */
+
+//campus plan
+if(isset($_POST['campan']) && isset($_POST['rrcampan'])) {
+
+	$ammt  =  clean($_POST['campan']);
+	$det   =  clean($_POST['rrcampan']);
+
+	//get user wallet balance
+	user_details();
+
+	$user = $t_users['usname'];
+
+	//chcek if user has enough funds
+	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
+
+	if($bal < $ammt) {
+
+		echo "A minimum of NGN100 should be left on your account";
+		
+	} else {
+
+		//deduct current user wallet
+		$newbal = $bal - $ammt;
+
+		//notify user transaction history
+		$date = date("Y-m-d h:i:sa");
+		$ref = "tpay".rand(0, 999);
+		$msg  = "Your ". $det ." of NGN".number_format($ammt)." was successful";
+		$sbj  = "Savings Alert";
+
+		$nsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$nsql .="VALUES('$user', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+		$nes = query($nsql);
+
+		//update user wallet
+		$sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$user'";
+		$res = query($sql);
+
+		//credit savings wallet
+		$vsql = "INSERT INTO savings(`usname`, `datepaid`, `plan`, `duration`, `amt`, `status`, `mode`, `descrip`)";
+		$vsql .="VALUES('$user', '$date', '$det', 'A week before exam', '$ammt', 'Active', 'Wallet', 'Oye-Gbeyin Savers')";
+		$ves = query($vsql);
+
+		//create an alert message
+		$_SESSION['campusplan'] = "Success";
+		echo "Loading... Please wait";
+		echo '<script>window.location.href ="./withdrawal"</script>';
+	}
+
+	
+}
+
+
+//flex plan
+if(isset($_POST['flxamt']) && isset($_POST['duration']) && isset($_POST['dest']) && isset($_POST['plann'])) {
+
+	$flxamt     =  clean($_POST['flxamt']);
+	$duration   =  clean($_POST['duration']);
+	$dest       =  clean($_POST['dest']);
+	$plann      =  clean($_POST['plann']);
+
+	//get user wallet balance
+	user_details();
+
+	$user = $t_users['usname'];
+
+	//chcek if user has enough funds
+	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
+
+	if($bal < $flxamt) {
+
+		echo "A minimum of NGN100 should be left on your account";
+		
+	} else {
+
+		//deduct current user wallet
+		$newbal = $bal - $flxamt;
+
+		//notify user transaction history
+		$date = date("Y-m-d h:i:sa");
+		$ref = "tpay".rand(0, 999);
+		$msg  = "Your ". $plann ." of NGN".number_format($flxamt)." was successful";
+		$sbj  = "Savings Alert";
+
+		$nsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$nsql .="VALUES('$user', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+		$nes = query($nsql);
+
+		//update user wallet
+		$sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$user'";
+		$res = query($sql);
+
+		//credit savings wallet
+		$vsql = "INSERT INTO savings(`usname`, `datepaid`, `plan`, `duration`, `amt`, `status`, `mode`, `descrip`)";
+		$vsql .="VALUES('$user', '$date', '$plann', '$duration', '$flxamt', 'Active', 'Wallet', '$dest')";
+		$ves = query($vsql);
+
+		//create an alert message
+		$_SESSION['flexplan'] = "Success";
+		echo "Loading... Please wait";
+		echo '<script>window.location.href ="./withdrawal"</script>';
+	}
+
+	
 }
 ?>

@@ -138,13 +138,14 @@
             </div>
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
-                    <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+                    <form method="POST">
                         <p></p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
 
-                                <input type="number" name="amount" class="form-control" required>
+                                <input type="number" id="classic" value="1000" class="form-control" required>
+                                <input type="text" value="Classic Savings Plan" id="plann" class="form-control" hidden>
                             </div>
                         </div>
                         <div class="form-group">
@@ -170,16 +171,6 @@
                             </div>
                         </div>
 
-                        <input type="hidden" name="public_key" value="FLWPUBK-aec1e883ede5d055024d042a034f18c9-X" />
-                        <input type="hidden" name="customer[email]" value="<?php echo $t_users['email'] ?>" />
-                        <input type="hidden" name="customer[phone_number]" value="<?php echo $t_users['tel'] ?>" />
-                        <input type="hidden" name="customizations[title]" value="Savearns" />
-                        <input type="hidden" name="customer[name]" value="<?php echo $t_users['fname'] ?>" />
-                        <input type="hidden" name="tx_ref" value="<?php echo md5(rand(0, 999)); ?>" />
-                        <input type="hidden" name="currency" value="NGN" />
-                        <input type="hidden" name="redirect_url"
-                            value="https://dashboard.savearns.com/home/./fundwallet" />
-                        <input type="hidden" name="customizations[logo]" value="https://savearns.com/assets/1.png" />
                         <div class="form-group mb-0">
                             <button type="submit" class="form-control btn-primary">Save Now </button>
                         </div>
@@ -194,20 +185,21 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Flex Saving Plan(Min NGN 500/month)</h5>
+                <h5 class="modal-title">Flex Saving Plan(Min NGN 1,000/week)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
-                    <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+                    <form method="POST">
                         <p></p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
 
-                                <input type="number" name="amount" class="form-control" required>
+                                <input type="number" id="flxamt" value="1000" class="form-control" required>
+                                <input type="text" value="Flex Savings Plan" id="plann" class="form-control" hidden>
                             </div>
                         </div>
                         <div class="form-group">
@@ -232,19 +224,15 @@
                                 </select>
                             </div>
                         </div>
-
-                        <input type="hidden" name="public_key" value="FLWPUBK-aec1e883ede5d055024d042a034f18c9-X" />
-                        <input type="hidden" name="customer[email]" value="<?php echo $t_users['email'] ?>" />
-                        <input type="hidden" name="customer[phone_number]" value="<?php echo $t_users['tel'] ?>" />
-                        <input type="hidden" name="customizations[title]" value="Savearns" />
-                        <input type="hidden" name="customer[name]" value="<?php echo $t_users['fname'] ?>" />
-                        <input type="hidden" name="tx_ref" value="<?php echo md5(rand(0, 999)); ?>" />
-                        <input type="hidden" name="currency" value="NGN" />
-                        <input type="hidden" name="redirect_url"
-                            value="https://dashboard.savearns.com/home/./fundwallet" />
-                        <input type="hidden" name="customizations[logo]" value="https://savearns.com/assets/1.png" />
+                        <div class="form-group">
+                            <label>Tell us what you are saving for.</label>
+                            <div class="input-group">
+                                <textarea class="form-control" id="dest">My new iPhone</textarea>
+                            </div>
+                        </div>
+                        <p class="text-danger" id="msg"></p>
                         <div class="form-group mb-0">
-                            <button type="submit" class="form-control btn-primary">Save Now </button>
+                            <button type="button" id="flexsav" class="form-control btn-primary">Save Now </button>
                         </div>
                     </form>
                 </div>
@@ -270,19 +258,16 @@
                             <label>Input Amount</label>
                             <div class="input-group">
 
-                                <input id="campan" value="100" type="number" name="amount" class="form-control"
+                                <input id="campan" value="100" type="number" class="form-control" required>
+                                <input id="rrcampan" value="Campus Savings Plan" type="text" class="form-control" hidden
                                     required>
 
-                                <p id="txt" hidden><?php  echo md5(rand(0, 9999)); ?></p>
-                                <p id="email" hidden><?php echo $t_users['email'] ?></p>
-                                <p id="tel" hidden><?php echo $t_users['tel'] ?></p>
-                                <p id="fname" hidden><?php echo $t_users['fname'] ?></p>
                             </div>
 
                             <p class="text-danger" id="msg"></p>
                         </div>
                         <div class="form-group mb-0">
-                            <button type="button" onclick="camp_val()" class="form-control btn-primary">Save Now
+                            <button type="button" id="cmpbtn" class="form-control btn-primary">Save Now
                             </button>
                         </div>
                     </form>
@@ -291,57 +276,8 @@
         </div>
     </div>
 </div>
-<script src="https://checkout.flutterwave.com/v3.js"></script>
+<script src="../../ajax.js"></script>
 <script>
-//campus pay validation
-function camp_val() {
-
-    var payy = document.getElementById("campan").value;
-
-    if (payy < 100) {
-
-        alert("The minimum you can save oon this plan is NGN100");
-
-    } else {
-
-        var txt = document.getElementById('txt').innerHTML;
-        var emai = document.getElementById('email').innerHTML;
-        var tel = document.getElementById('tel').innerHTML;
-        var fname = document.getElementById('fname').innerHTML;
-
-        //alert(txt);
-
-
-        FlutterwaveCheckout({
-            public_key: "FLWPUBK_TEST-252c57dacbb153862b1a4865fe33c9f6-X",
-            tx_ref: txt,
-            amount: payy,
-            currency: "NGN",
-            country: "NG",
-            payment_options: " ",
-            method: "POST",
-            redirect_url: // specified redirect URL
-                "./campay",
-            customer: {
-                email: emai,
-                phone_number: tel,
-                name: fname,
-            },
-            callback: function(data) {
-
-                // specified callback function
-                console.log(data);
-            },
-            customizations: {
-                title: "Savearns - Campus Saving Plan",
-                description: "Campus Plan",
-                logo: "https://savearns.com/assets/1.png",
-            },
-        });
-
-    }
-}
-
 function myFunction() {
     /* Get the text field */
     var copyText = document.getElementById("myInput");
