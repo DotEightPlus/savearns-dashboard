@@ -264,7 +264,7 @@
             </div>
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
-                    <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+                    <form method="POST">
                         <p></p>
                         <div class="form-group">
                             <label>Input Amount</label>
@@ -272,24 +272,18 @@
 
                                 <input id="campan" value="100" type="number" name="amount" class="form-control"
                                     required>
+
+                                <p id="txt" hidden><?php  echo md5(rand(0, 9999)); ?></p>
+                                <p id="email" hidden><?php echo $t_users['email'] ?></p>
+                                <p id="tel" hidden><?php echo $t_users['tel'] ?></p>
+                                <p id="fname" hidden><?php echo $t_users['fname'] ?></p>
                             </div>
 
                             <p class="text-danger" id="msg"></p>
                         </div>
-
-
-                        <input type="hidden" name="public_key" value="FLWPUBK-aec1e883ede5d055024d042a034f18c9-X" />
-                        <input type="hidden" name="customer[email]" value="<?php echo $t_users['email'] ?>" />
-                        <input type="hidden" name="customer[phone_number]" value="<?php echo $t_users['tel'] ?>" />
-                        <input type="hidden" name="customizations[title]" value="Savearns" />
-                        <input type="hidden" name="customer[name]" value="<?php echo $t_users['fname'] ?>" />
-                        <input type="hidden" name="tx_ref" value="<?php echo md5(rand(0, 999)); ?>" />
-                        <input type="hidden" name="currency" value="NGN" />
-                        <input type="hidden" name="redirect_url"
-                            value="https://dashboard.savearns.com/home/./fundwallet" />
-                        <input type="hidden" name="customizations[logo]" value="https://savearns.com/assets/1.png" />
                         <div class="form-group mb-0">
-                            <button type="submit" class="form-control btn-primary">Save Now </button>
+                            <button type="button" onclick="camp_val()" class="form-control btn-primary">Save Now
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -297,7 +291,57 @@
         </div>
     </div>
 </div>
+<script src="https://checkout.flutterwave.com/v3.js"></script>
 <script>
+//campus pay validation
+function camp_val() {
+
+    var payy = document.getElementById("campan").value;
+
+    if (payy < 100) {
+
+        alert("The minimum you can save oon this plan is NGN100");
+
+    } else {
+
+        var txt = document.getElementById('txt').innerHTML;
+        var emai = document.getElementById('email').innerHTML;
+        var tel = document.getElementById('tel').innerHTML;
+        var fname = document.getElementById('fname').innerHTML;
+
+        //alert(txt);
+
+
+        FlutterwaveCheckout({
+            public_key: "FLWPUBK_TEST-252c57dacbb153862b1a4865fe33c9f6-X",
+            tx_ref: txt,
+            amount: payy,
+            currency: "NGN",
+            country: "NG",
+            payment_options: " ",
+            method: "POST",
+            redirect_url: // specified redirect URL
+                "./campay",
+            customer: {
+                email: emai,
+                phone_number: tel,
+                name: fname,
+            },
+            callback: function(data) {
+
+                // specified callback function
+                console.log(data);
+            },
+            customizations: {
+                title: "Savearns - Campus Saving Plan",
+                description: "Campus Plan",
+                logo: "https://savearns.com/assets/1.png",
+            },
+        });
+
+    }
+}
+
 function myFunction() {
     /* Get the text field */
     var copyText = document.getElementById("myInput");
