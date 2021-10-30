@@ -139,19 +139,21 @@
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
                     <form method="POST">
-                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laborum asperiores,
+                            consectetur magnam aut ratione quidem quas voluptas earum maxime placeat odit repudiandae!
+                            Rem odio recusandae temporibus tempora consectetur sit.</p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
 
                                 <input type="number" id="classic" value="1000" class="form-control" required>
-                                <input type="text" value="Classic Savings Plan" id="plann" class="form-control" hidden>
+                                <input type="text" value="Classic Savings Plan" id="clplan" class="form-control" hidden>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Select Duration</label>
                             <div class="input-group">
-                                <select id="duration" name="duration" class="form-control">
+                                <select id="cldd" name="cldd" class="form-control">
                                     <?php
                                     $x = 2;
 
@@ -159,7 +161,7 @@
                                         echo '
 
             
-                                    <option style="font-size: 20px" id="duration" name="duration">'.$x.' Months</option>
+                                    <option style="font-size: 20px" id="cldd" name="cldd">'.$x.' Months</option>
                                 
 
                                     <br>';
@@ -170,9 +172,9 @@
                                 </select>
                             </div>
                         </div>
-
+                        <p class="text-danger" id="msg"></p>
                         <div class="form-group mb-0">
-                            <button type="submit" class="form-control btn-primary">Save Now </button>
+                            <button type="button" id="clsic" class="form-control btn-primary">Save Now </button>
                         </div>
                     </form>
                 </div>
@@ -193,7 +195,9 @@
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
                     <form method="POST">
-                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laborum asperiores,
+                            consectetur magnam aut ratione quidem quas voluptas earum maxime placeat odit repudiandae!
+                            Rem odio recusandae temporibus tempora consectetur sit.</p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
@@ -250,10 +254,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
                     <form method="POST">
-                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laborum asperiores,
+                            consectetur magnam aut ratione quidem quas voluptas earum maxime placeat odit repudiandae!
+                            Rem odio recusandae temporibus tempora consectetur sit.</p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
@@ -276,6 +283,7 @@
         </div>
     </div>
 </div>
+
 <script src="../../ajax.js"></script>
 <script>
 function myFunction() {

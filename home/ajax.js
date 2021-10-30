@@ -66,6 +66,31 @@ $(document).ready(function () {
   });
 
 
+  //classic savings plan
+  $("#clsic").click(function () {
+    var classic   = $("#classic").val();
+    var cldd      = $("#cldd").val();
+    var clplan    = $("#clplan").val();
+
+    if(classic < 1000) {
+      $("#msg").html("Minimum deposit for the Classic plan is NGN1,000");
+
+    } else {
+
+      $("#msg").html("Loading... Please wait");
+
+    $.ajax({
+      type: "post",
+      url: "../functions/init.php",
+      data: { classic: classic, cldd: cldd, clplan: clplan},
+      success: function (data) {
+        $("#msg").html(data);
+      },
+    });
+  }
+  });
+
+
   //get account name
   $("#send").click(function () {
     var amt = $("#amt").val();

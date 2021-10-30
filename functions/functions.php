@@ -1000,7 +1000,57 @@ if(isset($_POST['flxamt']) && isset($_POST['duration']) && isset($_POST['dest'])
 		echo "Loading... Please wait";
 		echo '<script>window.location.href ="./withdrawal"</script>';
 	}
+}
 
-	
+
+
+//classic plan
+if(isset($_POST['classic']) && isset($_POST['cldd']) && isset($_POST['clplan'])) {
+
+	$classic    =  clean($_POST['classic']);
+	$cldd       =  clean($_POST['cldd']);
+	$clplan     =  clean($_POST['clplan']);
+
+	//get user wallet balance
+	user_details();
+
+	$user = $t_users['usname'];
+
+	//chcek if user has enough funds
+	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
+
+	if($bal < $classic) {
+
+		echo "A minimum of NGN100 should be left on your account";
+		
+	} else {
+
+		//deduct current user wallet
+		$newbal = $bal - $classic;
+
+		//notify user transaction history
+		$date = date("Y-m-d h:i:sa");
+		$ref = "tpay".rand(0, 999);
+		$msg  = "Your ". $clplan ." of NGN".number_format($classic)." was successful";
+		$sbj  = "Savings Alert";
+
+		$nsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$nsql .="VALUES('$user', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+		$nes = query($nsql);
+
+		//update user wallet
+		$sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$user'";
+		$res = query($sql);
+
+		//credit savings wallet
+		$vsql = "INSERT INTO savings(`usname`, `datepaid`, `plan`, `duration`, `amt`, `status`, `mode`, `descrip`)";
+		$vsql .="VALUES('$user', '$date', '$clplan', '$cldd', '$classic', 'Active', 'Wallet', 'Classic Saving')";
+		$ves = query($vsql);
+
+		//create an alert message
+		$_SESSION['classicplan'] = "Success";
+		echo "Loading... Please wait";
+		echo '<script>window.location.href ="./withdrawal"</script>';
+	}
 }
 ?>
