@@ -61,8 +61,11 @@ if(isset($_SESSION['login'])) {
                             </div>
                         </h2>
 
+                        <div class="section-header mt-5">
+                            <h1>SAVINGS WALLET</h1>
+                        </div>
 
-                        <h2 class="section-title ml-4">Total Savings:
+                        <h2 class="section-title">Total Savings:
                             <b>NGN<?php echo number_format($roow['total']) ?></b>
                             <!---<div class="row  mt-3">
                                 <button data-toggle="modal" data-target="#withdModal"
@@ -72,10 +75,7 @@ if(isset($_SESSION['login'])) {
                         </h2>
 
 
-
-
-
-                        <div class="row mt-5 ml-1">
+                        <div class="row mt-2">
 
                             <?php
                             
