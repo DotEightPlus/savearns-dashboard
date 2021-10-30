@@ -3,6 +3,7 @@ include("../functions/init.php");
 
 if(isset($_SESSION['login'])) {
 
+    $user = $_SESSION['login'];
    
 ?>
 
@@ -24,6 +25,20 @@ if(isset($_SESSION['login'])) {
             
              include("include/nav.php"); 
              include("include/sidebar.php");
+
+             $sql = "SELECT SUM(`amt`) AS total FROM savings WHERE `usname` = '$user'";
+             $res = query($sql);
+
+             if(row_count($res) == null) {
+
+                echo 'You have no savings record yet';
+                
+             } else {
+
+                $roow = mysqli_fetch_array($res);
+             }
+
+             
             ?>
             <!--Greet new customer -->
             <div class="main-content">
@@ -37,17 +52,20 @@ if(isset($_SESSION['login'])) {
                             <h1>WITHDRAWAL</h1>
                         </div>
 
-                        <h2 class="section-title">Wallet Balance:
-                            <b>NGN<?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></b>
-                            <div class="row  mt-3">
-                                <button data-toggle="modal" data-target="#payModal"
-                                    class="btn btn-primary section-lead">Fund Wallet
-                                </button>
+
+
+                        <h2 class="section-title ml-4">Total Savings:
+                            <b>NGN<?php echo number_format($roow['total']) ?></b>
+                            <!---<div class="row  mt-3">
                                 <button data-toggle="modal" data-target="#withdModal"
                                     class="btn btn-primary section-lead">Withdraw Funds
                                 </button>
-                            </div>
+                            </div>-->
                         </h2>
+
+
+
+
 
                         <div class="row mt-5 ml-1">
 
@@ -76,7 +94,7 @@ if(isset($_SESSION['login'])) {
                                                 class="fas fa-minus"></i></a>
                                     </div>
                                     <div class="collapse show" id="mycard-collapse">
-                                        <div class="card-body">
+                                        <div class="card-body text-dark">
                                             Amount Saved : <b>NGN <?php echo number_format($row['amt'])  ?></b><br />
                                             Description : <b><?php echo $row['descrip'] ?></b><br />
                                             Date of Savings :
