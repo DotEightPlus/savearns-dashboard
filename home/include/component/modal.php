@@ -77,9 +77,16 @@
                         <input type="hidden" name="redirect_url"
                             value="https://dashboard.savearns.com/home/./fundwallet" />
                         <input type="hidden" name="customizations[logo]" value="https://savearns.com/assets/1.png" />
-                        <div class="form-group mb-0">
-                            <button type="submit" class="form-control btn-primary">Fund
-                                Now </button>
+
+                        <div class="row">
+                            <div class="form-group mb-0 col-6">
+                                <button type="submit" class="form-control btn-primary">Fund
+                                    Now (NGN/eNaira)</button>
+                            </div>
+                            <div class="form-group mb-0 col-6">
+                                <button type="button" class="form-control btn-primary">Fund with
+                                    Crypto<sup><small> Beta</small></sup> </button>
+                            </div>
                         </div>
                     </form>
                 </div>

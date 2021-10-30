@@ -3,7 +3,8 @@
     <section class="section">
 
         <div class="section-header">
-            <h1>Welcome Back, <?php echo ucwords($t_users['usname']) ?>! <i class="text-primary fa fa-check-circle"></i></h1>
+            <h1>Welcome Back, <?php echo ucwords($t_users['usname']) ?>! <i class="text-primary fa fa-check-circle"></i>
+            </h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a>Last seen:
                         <?php echo date('l, F d, Y', strtotime($t_users['lastseen'])); ?></a></div>
@@ -13,16 +14,16 @@
 
             <h2 class="section-title">Wallet Balance:
                 <b>NGN<?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></b>
-                <div class = "row  mt-3">
-                 <button data-toggle="modal"
-                    data-target="#payModal" class="btn btn-primary section-lead">Fund Wallet </button>
-                    <button data-toggle="modal"
-                    data-target="#transferModal" class="btn btn-primary section-lead">Send Funds </button>
-</div>
+                <div class="row  mt-3">
+                    <button data-toggle="modal" data-target="#payModal" class="btn btn-primary section-lead">Fund Wallet
+                    </button>
+                    <button data-toggle="modal" data-target="#transferModal" class="btn btn-primary section-lead">Send
+                        Funds </button>
+                </div>
             </h2>
 
-         
-           
+
+
 
 
             <div class="row mt-5">
