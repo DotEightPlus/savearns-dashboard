@@ -49,7 +49,7 @@ if(isset($_SESSION['login'])) {
 
                         <div class="row mt-5">
 
-                            <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <a data-toggle="modal" href="#classicModal">
@@ -73,7 +73,7 @@ if(isset($_SESSION['login'])) {
                             </div>
 
 
-                            <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <a data-toggle="modal" href="#flexModal">
@@ -81,20 +81,12 @@ if(isset($_SESSION['login'])) {
                                                 data-ride="carousel">
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img class="d-block w-100" src="assets/img/1.png"
+                                                        <img class="d-block w-100" src="assets/img/fl1.jpg"
                                                             alt="First slide">
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/3.jpg"
+                                                        <img class="d-block w-100" src="assets/img/fl2.jpg"
                                                             alt="Second slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/4.jpg"
-                                                            alt="Third slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/5.jpg"
-                                                            alt="Third slide">
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,7 +96,7 @@ if(isset($_SESSION['login'])) {
                             </div>
 
 
-                            <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <a data-toggle="modal" href="#campusModal">
@@ -112,20 +104,12 @@ if(isset($_SESSION['login'])) {
                                                 data-ride="carousel">
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img class="d-block w-100" src="assets/img/1.png"
+                                                        <img class="d-block w-100" src="assets/img/cp1.jpg"
                                                             alt="First slide">
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/3.jpg"
+                                                        <img class="d-block w-100" src="assets/img/cp2.jpg"
                                                             alt="Second slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/4.jpg"
-                                                            alt="Third slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/5.jpg"
-                                                            alt="Third slide">
                                                     </div>
                                                 </div>
                                             </div>

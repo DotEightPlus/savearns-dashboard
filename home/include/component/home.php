@@ -28,7 +28,7 @@
 
             <div class="row mt-5">
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
                             <a data-toggle="modal" href="#classicModal">
@@ -49,19 +49,18 @@
                 </div>
 
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <a data-toggle="modal" href="#classicModal">
+                            <a data-toggle="modal" href="#flexModal">
                                 <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="d-block w-100" src="assets/img/cl1.jpg" alt="First slide">
+                                            <img class="d-block w-100" src="assets/img/fl1.jpg" alt="First slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block w-100" src="assets/img/cl2.jpg" alt="Second slide">
+                                            <img class="d-block w-100" src="assets/img/fl2.jpg" alt="Second slide">
                                         </div>
-
                                     </div>
                                 </div>
                             </a>
@@ -69,39 +68,19 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <a data-toggle="modal" href="#classicModal">
+                            <a data-toggle="modal" href="#campusModal">
                                 <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="d-block w-100" src="assets/img/cl1.jpg" alt="First slide">
+                                            <img class="d-block w-100" src="assets/img/cp1.jpg" alt="First slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block w-100" src="assets/img/cl2.jpg" alt="Second slide">
+                                            <img class="d-block w-100" src="assets/img/cp2.jpg" alt="Second slide">
                                         </div>
-
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <a data-toggle="modal" href="#classicModal">
-                                <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img class="d-block w-100" src="assets/img/cl1.jpg" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-100" src="assets/img/cl2.jpg" alt="Second slide">
-                                        </div>
-
                                     </div>
                                 </div>
                             </a>
