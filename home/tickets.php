@@ -9,6 +9,10 @@ if(isset($_SESSION['login'])) {
     $data = $_SESSION['login'];
     $idr  = $_GET['id'];
     
+
+    //update ticket to read
+    $ssl = "UPDATE msgs SET `status` = 'read' WHERE `ticket` = '$idr'";
+    $rsl = query($ssl);
     
 } else {
 
