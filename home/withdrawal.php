@@ -37,11 +37,39 @@ if(isset($_SESSION['login'])) {
                             <h1>WITHDRAWAL</h1>
                         </div>
 
+                        <h2 class="section-title">Wallet Balance:
+                            <b>NGN<?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></b>
+                            <div class="row  mt-3">
+                                <button data-toggle="modal" data-target="#payModal"
+                                    class="btn btn-primary section-lead">Fund Wallet
+                                </button>
+                                <button data-toggle="modal" data-target="#payModal"
+                                    class="btn btn-primary section-lead">Withdraw Funds
+                                </button>
+                            </div>
+                        </h2>
+
                         <div class="row mt-5 ml-1">
+
+                            <?php
+                            
+                            //savings details
+                            $svs = "SELECT * FROM `savings` WHERE `usname` = '$data'";
+                            $rvs = query($svs);
+                            if(row_count($rvs) == null) {
+
+                                echo '<h2 class="section-title mt-0">You have no savings record yet</b>';
+                                
+                                
+                            } else {
+                            while($row = mysqli_fetch_array($rvs)) {
+                            
+                            ?>
+
 
                             <div class="card col-md-6 col-sm-12">
                                 <div class="card-header">
-                                    <h4>Show/Hide</h4>
+                                    <h4><?php echo $sav_det['plan']  ?></h4>
                                     <div class="card-header-action">
                                         <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i
                                                 class="fas fa-minus"></i></a>
@@ -58,7 +86,10 @@ if(isset($_SESSION['login'])) {
                             </div>
 
 
-
+                            <?php
+                            }
+                         }
+                          ?>
 
                         </div>
 

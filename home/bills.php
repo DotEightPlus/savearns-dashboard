@@ -28,17 +28,17 @@ if(isset($_SESSION['login'])) {
             <!--Greet new customer -->
             <div class="main-content">
                 <section class="section">
-                <div class="section-header">
-                            <h1>COMING SOON</h1>
-                        </div>
+                    <div class="section-header">
+                        <h1>COMING SOON</h1>
+                    </div>
 
                     <div class="section-body">
 
 
-                    <h2 class="section-title">This page will be unlocked soon.</b>
-            </h2>
+                        <h2 class="section-title">This page will be unlocked soon.</b>
+                        </h2>
 
- 
+
 
                     </div>
 
