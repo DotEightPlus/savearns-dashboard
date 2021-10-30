@@ -94,7 +94,7 @@ if(isset($_SESSION['login'])) {
                             ?>
 
                             <div class="col-md-6 col-sm-12">
-                                <div class="card">
+                                <div class="card bg-primary">
                                     <div class="card-header">
                                         <h4><?php echo $row['plan']  ?></h4>
 
@@ -102,7 +102,7 @@ if(isset($_SESSION['login'])) {
                                                 class="fas fa-minus"></i></a>
                                     </div>
                                     <div class="collapse show" id="mycard-collapse">
-                                        <div class="card-body text-dark">
+                                        <div class="card-body text-white">
                                             Amount Saved : <b>NGN <?php echo number_format($row['amt'])  ?></b><br />
                                             Description : <b><?php echo $row['descrip'] ?></b><br />
                                             Date of Savings :
