@@ -136,8 +136,7 @@
                                 while($row = mysqli_fetch_array($rss)) {
                             
                             ?>
-                    <a href="./transactionhistory"
-                        class="dropdown-item dropdown-item-unread">
+                    <a href="./transactionhistory" class="dropdown-item dropdown-item-unread">
                         <div class="dropdown-item-icon bg-primary text-white">
                             <i class="fas fa-check"></i>
                         </div>

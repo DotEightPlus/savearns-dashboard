@@ -43,7 +43,7 @@ if(isset($_SESSION['login'])) {
                                 <button data-toggle="modal" data-target="#payModal"
                                     class="btn btn-primary section-lead">Fund Wallet
                                 </button>
-                                <button data-toggle="modal" data-target="#payModal"
+                                <button data-toggle="modal" data-target="#withdModal"
                                     class="btn btn-primary section-lead">Withdraw Funds
                                 </button>
                             </div>
@@ -62,34 +62,37 @@ if(isset($_SESSION['login'])) {
                                 
                                 
                             } else {
+                                
                             while($row = mysqli_fetch_array($rvs)) {
                             
                             ?>
 
+                            <div class="col-md-6 col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4><?php echo $row['plan']  ?></h4>
 
-                            <div class="card col-md-6 col-sm-12">
-                                <div class="card-header">
-                                    <h4><?php echo $sav_det['plan']  ?></h4>
-                                    <div class="card-header-action">
-                                        <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i
+                                        <a data-collapse="#mycard-collapse" class="pl-5 ml-md-5" href="#"><i
                                                 class="fas fa-minus"></i></a>
                                     </div>
-                                </div>
-                                <div class="collapse show" id="mycard-collapse">
-                                    <div class="card-body">
-                                        You can show or hide this card.
-                                    </div>
-                                    <div class="card-footer">
-                                        Card Footer
+                                    <div class="collapse show" id="mycard-collapse">
+                                        <div class="card-body">
+                                            Amount Saved : <b>NGN <?php echo number_format($row['amt'])  ?></b><br />
+                                            Description : <b><?php echo $row['descrip'] ?></b><br />
+                                            Date of Savings :
+                                            <b><?php echo date('l, F d, Y', strtotime($row['datepaid'])); ?></b><br />
+                                        </div>
+                                        <div class="card-footer">
+                                            Maturity Date:
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-
                             <?php
                             }
                          }
                           ?>
+
 
                         </div>
 

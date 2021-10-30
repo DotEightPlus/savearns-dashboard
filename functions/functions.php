@@ -939,7 +939,7 @@ if(isset($_POST['campan']) && isset($_POST['rrcampan'])) {
 
 		//credit savings wallet
 		$vsql = "INSERT INTO savings(`usname`, `datepaid`, `plan`, `duration`, `amt`, `status`, `mode`, `descrip`)";
-		$vsql .="VALUES('$user', '$date', '$det', 'A week before exam', '$ammt', 'Active', 'Wallet', 'Oye-Gbeyin Savers')";
+		$vsql .="VALUES('$user', '$date', '$det', 'A week before exam', '$ammt', 'Active', 'Wallet', 'Campus Savings')";
 		$ves = query($vsql);
 
 		//create an alert message
