@@ -52,6 +52,14 @@ if(isset($_SESSION['login'])) {
                             <h1>WITHDRAWAL</h1>
                         </div>
 
+                        <h2 class="section-title ml-4">Available Balance:
+                            <b>NGN<?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></b>
+                            <div class="row  mt-3">
+                                <button data-toggle="modal" data-target="#withdModal"
+                                    class="btn btn-primary section-lead">Withdraw Funds
+                                </button>
+                            </div>
+                        </h2>
 
 
                         <h2 class="section-title ml-4">Total Savings:
