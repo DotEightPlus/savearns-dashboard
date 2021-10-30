@@ -1003,7 +1003,6 @@ if(isset($_POST['flxamt']) && isset($_POST['duration']) && isset($_POST['dest'])
 }
 
 
-
 //classic plan
 if(isset($_POST['classic']) && isset($_POST['cldd']) && isset($_POST['clplan'])) {
 
