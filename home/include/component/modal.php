@@ -79,12 +79,12 @@
                         <input type="hidden" name="customizations[logo]" value="https://savearns.com/assets/1.png" />
 
                         <div class="row">
-                            <div class="form-group mb-0 col-6">
+                            <div class="form-group mb-0 col-md-6 col-lg-6 col-sm-4">
                                 <button type="submit" class="form-control btn-primary">Fund
-                                    Now (NGN/eNaira)</button>
+                                    Now</button>
                             </div>
-                            <div class="form-group mb-0 col-6">
-                                <button type="button" class="form-control btn-primary">Fund with
+                            <div class="form-group mb-2 col-md-6 col-lg-6 col-sm-3">
+                                <button type="button" class="form-control btn-primary">Pay with
                                     Crypto<sup><small> Beta</small></sup> </button>
                             </div>
                         </div>
