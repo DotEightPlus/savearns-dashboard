@@ -31,7 +31,7 @@ if(isset($_SESSION['login'])) {
 
              if(row_count($res) == null) {
 
-                echo 'You have no savings record yet';
+                //echo 'You have no savings record yet';
                 
              } else {
 
