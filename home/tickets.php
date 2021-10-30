@@ -9,16 +9,7 @@ if(isset($_SESSION['login'])) {
     $data = $_SESSION['login'];
     $idr  = $_GET['id'];
     
-    $sql = "SELECT * FROM msgs WHERE `ticket` = '$idr'";
-    $rss = query($sql);
     
-    if(row_count($rss) == '') {
-
-        echo "No Messages Yet";
-        
-    } else {
-       $row = mysqli_fetch_array($rss);
-    }
 } else {
 
     redirect("./");
@@ -45,6 +36,17 @@ if(isset($_SESSION['login'])) {
             
              include("include/nav.php"); 
              include("include/sidebar.php");
+
+             $sql = "SELECT * FROM msgs WHERE `ticket` = '$idr'";
+            $rss = query($sql);
+            
+            if(row_count($rss) == '') {
+
+                echo "No Messages Yet";
+                
+            } else {
+            $row = mysqli_fetch_array($rss);
+            }
             ?>
 
             <!--Greet new customer -->
@@ -85,14 +87,18 @@ if(isset($_SESSION['login'])) {
                                                             <h4><?php echo $row['sbj'] ?></h4>
                                                         </div>
                                                         <div class="ticket-info">
-                                                            <div class="font-weight-600">Farhan A. Mujib</div>
+                                                            <div class="font-weight-600">Team Savearns</div>
                                                             <div class="bullet"></div>
-                                                            <div class="text-primary font-weight-600">2 min ago</div>
+                                                            <div class="text-primary font-weight-600">
+                                                                <?php echo date('l, F d, Y - h:i:sa', strtotime($row['date'])); ?>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="ticket-description">
-                                                    <p class="col-12">Lorem ipsum dolor sit amet, consectetur.</p>
+                                                    <p class="col-12">
+                                                        <?php echo $row['msg']; ?>
+                                                    </p>
 
 
 
