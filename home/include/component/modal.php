@@ -330,7 +330,9 @@
     </div>
 </div>
 
-<script src="../../ajax.js"></script>
+<script src="assets/modules/jquery.min.js"></script>
+<script src="../ajax.js"></script>
+
 <script>
 function myFunction() {
     /* Get the text field */

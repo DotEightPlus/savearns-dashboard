@@ -22,7 +22,13 @@ $(document).ready(function () {
     var rrcampan = $("#rrcampan").val();
 
     if(campan < 100) {
-      $("#msg").html("Minimum deposit for the campus plan is NGN100");
+      //$("#msg").html("Minimum deposit for the campus plan is NGN100");
+
+      iziToast.error({
+        title: 'Error!',
+        message: 'Minimum deposit for the campus plan is NGN100',
+        position: 'topCenter'
+      });
 
     } else {
 

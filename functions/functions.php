@@ -916,7 +916,12 @@ if(isset($_POST['campan']) && isset($_POST['rrcampan'])) {
 
 	if($bal < $ammt) {
 
-		echo "A minimum of NGN100 should be left on your account";
+		echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'You do not have enough funds in your wallet. Kindly fund your wallet and try again',
+          position: 'topCenter'
+        });</script>";
 		
 	} else {
 

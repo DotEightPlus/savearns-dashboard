@@ -21,7 +21,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://savearns.com/assets/1.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://savearns.com/assets/1.png">
     <link rel="shortcut icon" type="image/x-icon" href="https://savearns.com/assets/1.png">
-    <link rel="manifest" href="https://savearns.com/manifest.json">
     <meta name="msapplication-TileImage" content="https://savearns.com/log.png">
 
     <!-- General CSS Files -->
