@@ -38,6 +38,7 @@ $(document).ready(function () {
         position: 'topCenter'
       });
 
+
     $.ajax({
       type: "post",
       url: "../functions/init.php",
@@ -72,6 +73,7 @@ $(document).ready(function () {
         position: 'topCenter'
       });
 
+
     $.ajax({
       type: "post",
       url: "../functions/init.php",
@@ -104,6 +106,7 @@ $(document).ready(function () {
         message: 'Please wait while we process your request...',
         position: 'topCenter'
       });
+
 
     $.ajax({
       type: "post",
