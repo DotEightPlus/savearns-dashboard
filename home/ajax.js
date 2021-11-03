@@ -26,13 +26,17 @@ $(document).ready(function () {
 
       iziToast.error({
         title: 'Error!',
-        message: 'Minimum deposit for the campus plan is NGN100',
+        message: 'Minimum deposit for the Campus plan is NGN100',
         position: 'topCenter'
       });
 
     } else {
 
-      $("#msg").html("Loading... Please wait");
+      iziToast.info({
+        title: 'Info!',
+        message: 'Please wait while we process your request...',
+        position: 'topCenter'
+      });
 
     $.ajax({
       type: "post",
@@ -54,11 +58,19 @@ $(document).ready(function () {
     var plann     = $("#plann").val();
 
     if(flxamt < 1000) {
-      $("#msg").html("Minimum deposit for the flex plan is NGN1,000");
+      iziToast.error({
+        title: 'Error!',
+        message: 'Minimum deposit for the Flex plan is NGN1,000',
+        position: 'topCenter'
+      });
 
     } else {
 
-      $("#msg").html("Loading... Please wait");
+      iziToast.info({
+        title: 'Info!',
+        message: 'Please wait while we process your request...',
+        position: 'topCenter'
+      });
 
     $.ajax({
       type: "post",
@@ -79,11 +91,19 @@ $(document).ready(function () {
     var clplan    = $("#clplan").val();
 
     if(classic < 1000) {
-      $("#msg").html("Minimum deposit for the Classic plan is NGN1,000");
+      iziToast.error({
+        title: 'Error!',
+        message: 'Minimum deposit for the Classic plan is NGN1,000',
+        position: 'topCenter'
+      });
 
     } else {
 
-      $("#msg").html("Loading... Please wait");
+      iziToast.info({
+        title: 'Info!',
+        message: 'Please wait while we process your request...',
+        position: 'topCenter'
+      });
 
     $.ajax({
       type: "post",
@@ -97,7 +117,7 @@ $(document).ready(function () {
   });
 
 
-  //get account name
+  //send money
   $("#send").click(function () {
     var amt = $("#amt").val();
     var usus = $("#usus").val();

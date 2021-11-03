@@ -975,7 +975,12 @@ if(isset($_POST['flxamt']) && isset($_POST['duration']) && isset($_POST['dest'])
 
 	if($bal < $flxamt) {
 
-		echo "A minimum of NGN100 should be left on your account";
+		echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'You do not have enough funds in your wallet. Kindly fund your wallet and try again',
+          position: 'topCenter'
+        });</script>";
 		
 	} else {
 
@@ -1026,7 +1031,12 @@ if(isset($_POST['classic']) && isset($_POST['cldd']) && isset($_POST['clplan']))
 
 	if($bal < $classic) {
 
-		echo "A minimum of NGN100 should be left on your account";
+		echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'You do not have enough funds in your wallet. Kindly fund your wallet and try again',
+          position: 'topCenter'
+        });</script>";
 		
 	} else {
 
