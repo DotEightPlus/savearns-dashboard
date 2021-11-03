@@ -28,18 +28,18 @@ if(isset($_SESSION['login'])) {
             <!--Greet new customer -->
             <div class="main-content">
                 <section class="section">
-                <div class="section-header">
-                            <h1>YOUR REFERALS</h1>
-                        </div>
+                    <div class="section-header">
+                        <h1>YOUR REFERALS</h1>
+                    </div>
 
                     <div class="section-body">
 
 
-                    <h2 class="section-title">Referal Earnings :
-                <b>NGN<?php echo number_format($t_ref_earn) ?></b>
-                <button data-toggle="modal"
-                    data-target="#exampleModal" class="btn btn-primary section-lead">Referal Friends </button>
-            </h2>
+                        <h2 class="section-title">Referal Earnings :
+                            <b>NGN<?php echo number_format($t_ref_earn) ?></b>
+                            <button data-toggle="modal" data-target="#exampleModal"
+                                class="btn btn-primary section-lead">Refer Friends </button>
+                        </h2>
 
                         <div class="row mt-5">
 
