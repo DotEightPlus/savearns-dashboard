@@ -4,7 +4,7 @@ $(document).ready(function () {
     var bank = $("#bank").val();
     var acctn = $("#acctn").val();
     var trd = "hello";
-
+    $("#actn").val("Retrieving... Please wait");
     $.ajax({
       type: "post",
       url: "../functions/init.php",

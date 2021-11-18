@@ -5,7 +5,8 @@
 
 
         <div class="mt-0 mb-0 p-0 hide-sidebar-mini">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-icon-split">
+            <a target="_blank" href="https://savearns.com/contact"
+                class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-envelope"></i> Customer Support
             </a>
         </div>

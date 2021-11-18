@@ -24,13 +24,13 @@
                                 <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="d-block w-100" src="assets/img/7.jpg" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
                                             <img class="d-block w-100" src="assets/img/8.jpg" alt="Second slide">
                                         </div>
                                         <div class="carousel-item">
                                             <img class="d-block w-100" src="assets/img/9.jpg" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="assets/img/7.jpg" alt="First slide">
                                         </div>
                                     </div>
                                 </div>
