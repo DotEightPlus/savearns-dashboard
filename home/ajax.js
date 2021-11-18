@@ -21,12 +21,12 @@ $(document).ready(function () {
     var campan = $("#campan").val();
     var rrcampan = $("#rrcampan").val();
 
-    if(campan < 100) {
+    if(campan < 200) {
       //$("#msg").html("Minimum deposit for the campus plan is NGN100");
 
       iziToast.error({
         title: 'Error!',
-        message: 'Minimum deposit for the Campus plan is NGN100',
+        message: 'Minimum deposit for the Campus plan is NGN200',
         position: 'topCenter'
       });
 

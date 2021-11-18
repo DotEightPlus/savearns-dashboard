@@ -926,7 +926,7 @@ if(isset($_POST['campan']) && isset($_POST['rrcampan'])) {
 	} else {
 
 		//deduct current user wallet
-		$newbal = $bal - $ammt;
+		$newbal = $bal - $ammt + 100;
 
 		//notify user transaction history
 		$date = date("Y-m-d h:i:sa");
@@ -1041,7 +1041,7 @@ if(isset($_POST['classic']) && isset($_POST['cldd']) && isset($_POST['clplan']))
 	} else {
 
 		//deduct current user wallet
-		$newbal = $bal - $classic;
+		$newbal = $bal - $classic + 100;
 
 		//notify user transaction history
 		$date = date("Y-m-d h:i:sa");

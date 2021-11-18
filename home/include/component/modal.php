@@ -192,7 +192,7 @@
                             <label>Input Amount</label>
                             <div class="input-group">
 
-                                <input type="number" id="classic" value="1000" class="form-control" required>
+                                <input type="number" id="classic" value="2000" class="form-control" required>
                                 <input type="text" value="Classic Savings Plan" id="clplan" class="form-control" hidden>
                             </div>
                         </div>
@@ -295,7 +295,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Campus Saving Plan(minNGN 100/day)</h5>
+                <h5 class="modal-title">Campus Saving Plan(minNGN 200/day)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -311,7 +311,7 @@
                             <label>Input Amount</label>
                             <div class="input-group">
 
-                                <input id="campan" value="100" type="number" class="form-control" required>
+                                <input id="campan" value="200" type="number" class="form-control" required>
                                 <input id="rrcampan" value="Campus Savings Plan" type="text" class="form-control" hidden
                                     required>
 
