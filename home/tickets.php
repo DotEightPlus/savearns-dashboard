@@ -81,7 +81,7 @@ if(isset($_SESSION['login'])) {
 
                                         <div class="tickets">
 
-                                            <div class="ticket-content">
+                                            <div style="width: 100%" class="ticket-content">
                                                 <div class="ticket-header">
                                                     <div class="ticket-sender-picture img-shadow">
                                                         <img src="../assets/img/1.png" alt="image">
