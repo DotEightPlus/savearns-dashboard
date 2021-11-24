@@ -49,7 +49,7 @@ if($t_users['flex'] == 0 || $t_users['flex'] == '')  {
     <div class="carousel-item active">
     <div class="card card-statistic-2">
         <div class="card-wrap">
-        <img src="assets/img/fl1.jpg" class="img-fluid">
+        <a href="./plans"><img src="assets/img/fl1.jpg" class="img-fluid"></a>
                         </div>
                     </div>
                 </div>';
@@ -88,7 +88,7 @@ if($t_users['flex'] == 0 || $t_users['flex'] == '')  {
                     <div class="carousel-item">
                     <div class="card card-statistic-2">
                         <div class="card-wrap">
-                        <img src="assets/img/cl1.jpg" class="img-fluid">
+                        <a href="./plans"><img src="assets/img/cl1.jpg" class="img-fluid"></a>
                                         </div>
                                     </div>
                                 </div>';
@@ -126,7 +126,7 @@ if($t_users['flex'] == 0 || $t_users['flex'] == '')  {
                                     <div class="carousel-item">
                                     <div class="card card-statistic-2">
                                         <div class="card-wrap">
-                                        <img src="assets/img/cp1.jpg" class="img-fluid">
+                                        <a href="./plans"><img src="assets/img/cp1.jpg" class="img-fluid"></a>
                                                         </div>
                                                     </div>
                                                 </div>';
