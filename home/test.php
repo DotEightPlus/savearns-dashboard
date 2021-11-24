@@ -1,6 +1,6 @@
 <?php
 include('../functions/init.php');
 
-echo $_SESSION['paymsg'];
+echo md5("jcf.fgs@");
 
 ?>

@@ -38,65 +38,132 @@
                                 <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
                                 <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active bg-primary">
-                                    <div class="card card-statistic-2">
-                                        <div class="card-wrap">
-                                            <div class="card-header">
-                                                <h4 class="lead mb-2">FLEX WALLET
-                                                </h4>
 
-                                            </div>
-                                            <div class="card-body">
-                                                ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
-                                            </div>
-                                            <div class="card-header">
-                                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
-                                                    data-toggle="modal" data-target="#payModal"><b>WITHDRAW FUNDS</b>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item bg-info">
-                                    <div class="card card-statistic-2">
-                                        <div class="card-wrap">
-                                            <div class="card-header">
-                                                <h4 class="lead mb-2">FLEX WALLET
-                                                </h4>
+                            <div class="carousel-inner bg-primary">
+                                <?php
 
-                                            </div>
-                                            <div class="card-body">
-                                                ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
-                                            </div>
-                                            <div class="card-header">
-                                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
-                                                    data-toggle="modal" data-target="#payModal"><b>WITHDRAW FUNDS</b>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item bg-warning">
-                                    <div class="card card-statistic-2">
-                                        <div class="card-wrap">
-                                            <div class="card-header">
-                                                <h4 class="lead mb-2">FLEX WALLET
-                                                </h4>
+//check if flex plan is activated
+if($t_users['flex'] == 0 || $t_users['flex'] == '')  {
 
-                                            </div>
-                                            <div class="card-body">
-                                                ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
-                                            </div>
-                                            <div class="card-header">
-                                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
-                                                    data-toggle="modal" data-target="#payModal"><b>WITHDRAW FUNDS</b>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    echo '
+    <div class="carousel-item active">
+    <div class="card card-statistic-2">
+        <div class="card-wrap">
+        <img src="assets/img/fl1.jpg" class="img-fluid">
+                        </div>
+                    </div>
+                </div>';
+                } else {
+
+                    echo '
+
+                    <div class="carousel-item active">
+    <div class="card card-statistic-2">
+        <div class="card-wrap">
+            <div class="card-header">
+                <h4 class="lead mb-2">FLEX WALLET
+                </h4>
+
+            </div>
+            <div class="card-body">
+                ₦ 
                             </div>
+                            <div class="card-header">
+                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary" data-toggle="modal"
+                                    data-target="#payModal"><b>WITHDRAW FUNDS</b>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    
+                    ';
+                }
+
+
+                if($t_users['classic'] == 0 || $t_users['classic'] == '')  {
+
+                    echo '
+                    <div class="carousel-item">
+                    <div class="card card-statistic-2">
+                        <div class="card-wrap">
+                        <img src="assets/img/cl1.jpg" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>';
+                                } else {
+                
+                                    echo '
+                
+                                    <div class="carousel-item active">
+                    <div class="card card-statistic-2">
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4 class="lead mb-2">FLEX WALLET
+                                </h4>
+                
+                            </div>
+                            <div class="card-body">
+                                ₦ 
+                                            </div>
+                                            <div class="card-header">
+                                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary" data-toggle="modal"
+                                                    data-target="#payModal"><b>WITHDRAW FUNDS</b>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
+                                    
+                                    ';
+                                }
+                
+                                if($t_users['campus'] == 0 || $t_users['campus'] == '')  {
+
+                                    echo '
+                                    <div class="carousel-item">
+                                    <div class="card card-statistic-2">
+                                        <div class="card-wrap">
+                                        <img src="assets/img/cp1.jpg" class="img-fluid">
+                                                        </div>
+                                                    </div>
+                                                </div>';
+                                                } else {
+                                
+                                                    echo '
+                                
+                                                    <div class="carousel-item active">
+                                    <div class="card card-statistic-2">
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4 class="lead mb-2">FLEX WALLET
+                                                </h4>
+                                
+                                            </div>
+                                            <div class="card-body">
+                                                ₦ 
+                                                            </div>
+                                                            <div class="card-header">
+                                                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary" data-toggle="modal"
+                                                                    data-target="#payModal"><b>WITHDRAW FUNDS</b>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    
+                                                    
+                                                    ';
+                                                }
+
+                ?>
+
+
+
+                            </div>
+
                             <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button"
                                 data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
