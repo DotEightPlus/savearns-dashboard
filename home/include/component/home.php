@@ -201,7 +201,7 @@ if($t_users['flex'] == 0 || $t_users['flex'] == '')  {
                                         <tbody>
                                             <?php 
                                                 $data = $_SESSION['login'];
-                                                $trsql = "SELECT * FROM t_his WHERE `username` = '$data' ORDER BY `id` desc";
+                                                $trsql = "SELECT * FROM t_his WHERE `username` = '$data' ORDER BY `id` desc LIMIT 10";
                                                 $tes  = query($trsql);
                                                 if(row_count($tes) == '') {
 
