@@ -54,14 +54,14 @@ $(document).ready(function () {
   //flex plan savings
   $("#flexsav").click(function () {
     var flxamt    = $("#flxamt").val();
-    var duration  = $("#duration").val();
+    //var duration  = $("#duration").val();
     var dest      = $("#dest").val();
     var plann     = $("#plann").val();
 
-    if(flxamt < 1000) {
+    if(flxamt < 5000) {
       iziToast.error({
         title: 'Error!',
-        message: 'Minimum deposit for the Flex plan is NGN1,000',
+        message: 'Minimum deposit for the Flex plan is NGN5,000',
         position: 'topCenter'
       });
 
@@ -77,7 +77,7 @@ $(document).ready(function () {
     $.ajax({
       type: "post",
       url: "../functions/init.php",
-      data: { flxamt: flxamt, duration: duration, dest: dest, plann: plann},
+      data: { flxamt: flxamt, dest: dest, plann: plann},
       success: function (data) {
         $("#msg").html(data);
       },

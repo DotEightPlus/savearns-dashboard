@@ -958,12 +958,12 @@ if(isset($_POST['campan']) && isset($_POST['rrcampan'])) {
 
 
 //flex plan
-if(isset($_POST['flxamt']) && isset($_POST['duration']) && isset($_POST['dest']) && isset($_POST['plann'])) {
+if(isset($_POST['flxamt']) && isset($_POST['dest']) && isset($_POST['plann'])) {
 
 	$flxamt     =  clean($_POST['flxamt']);
-	$duration   =  clean($_POST['duration']);
 	$dest       =  clean($_POST['dest']);
 	$plann      =  clean($_POST['plann']);
+	$date 		=  date("Y-m-d h:i:sa");
 
 	//get user wallet balance
 	user_details();
@@ -985,10 +985,9 @@ if(isset($_POST['flxamt']) && isset($_POST['duration']) && isset($_POST['dest'])
 	} else {
 
 		//deduct current user wallet
-		$newbal = $bal - $flxamt;
+		$newbal = $bal - $flxamt + 100;
 
-		//notify user transaction history
-		$date = date("Y-m-d h:i:sa");
+		/*//notify user transaction history
 		$ref = "tpay".rand(0, 999);
 		$msg  = "Your ". $plann ." of NGN".number_format($flxamt)." was successful";
 		$sbj  = "Savings Alert";
@@ -999,11 +998,11 @@ if(isset($_POST['flxamt']) && isset($_POST['duration']) && isset($_POST['dest'])
 
 		//update user wallet
 		$sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$user'";
-		$res = query($sql);
+		$res = query($sql);*/
 
 		//credit savings wallet
-		$vsql = "INSERT INTO savings(`usname`, `datepaid`, `plan`, `duration`, `amt`, `status`, `mode`, `descrip`)";
-		$vsql .="VALUES('$user', '$date', '$plann', '$duration', '$flxamt', 'Active', 'Wallet', '$dest')";
+		$vsql = "INSERT INTO savings(`usname`, `datepaid`, `plan`, `amt`, `status`, `mode`, `descrip`)";
+		$vsql .="VALUES('$user', '$date', '$plann', '$flxamt', 'Active', 'Wallet', '$dest')";
 		$ves = query($vsql);
 
 		//create an alert message

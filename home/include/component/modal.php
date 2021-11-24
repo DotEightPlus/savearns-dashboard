@@ -192,7 +192,7 @@
                             <label>Input Amount</label>
                             <div class="input-group">
 
-                                <input type="number" id="classic" value="2000" class="form-control" required>
+                                <input type="number" id="classic" value="1000" class="form-control" required>
                                 <input type="text" value="Classic Savings Plan" id="clplan" class="form-control" hidden>
                             </div>
                         </div>
@@ -233,7 +233,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Flex Saving Plan(Min NGN 1,000/week)</h5>
+                <h5 class="modal-title">Flex Saving Plan(Min NGN 5,00o0)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -243,16 +243,17 @@
                     <form method="POST">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laborum asperiores,
                             consectetur magnam aut ratione quidem quas voluptas earum maxime placeat odit repudiandae!
-                            Rem odio recusandae temporibus tempora consectetur sit.</p>
+                            Rem odio recusandae temporibus tempora consectetur sit... <a href="./campusmore">Read
+                                More</a></p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
 
-                                <input type="number" id="flxamt" value="1000" class="form-control" required>
+                                <input type="number" id="flxamt" value="5000" class="form-control" required>
                                 <input type="text" value="Flex Savings Plan" id="plann" class="form-control" hidden>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label>Select Duration</label>
                             <div class="input-group">
                                 <select id="duration" name="duration" class="form-control">
@@ -273,7 +274,7 @@
 
                                 </select>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <label>Tell us what you are saving for.</label>
                             <div class="input-group">
@@ -306,7 +307,8 @@
                     <form method="POST">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laborum asperiores,
                             consectetur magnam aut ratione quidem quas voluptas earum maxime placeat odit repudiandae!
-                            Rem odio recusandae temporibus tempora consectetur sit.</p>
+                            Rem odio recusandae temporibus tempora consectetur sit... <a href="./campusmore">Read
+                                More</a></p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
