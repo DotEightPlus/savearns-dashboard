@@ -182,6 +182,7 @@ if($t_users['flex'] == 0 || $t_users['flex'] == '')  {
 
                 <div class="col-lg-8 col-md-8 col-sm-12 pl-0">
                     <div class="pricing">
+
                         <div class="pricing-title">
                             Transaction History
                         </div>
