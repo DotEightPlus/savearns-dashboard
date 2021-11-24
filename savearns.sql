@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2021 at 02:44 PM
+-- Generation Time: Nov 24, 2021 at 10:34 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -101,8 +101,18 @@ CREATE TABLE `users` (
   `bact` text NOT NULL,
   `actname` text NOT NULL,
   `gend` text NOT NULL,
-  `wallet` text NOT NULL
+  `wallet` text NOT NULL,
+  `campus` text NOT NULL,
+  `flex` text NOT NULL,
+  `classic` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `sn`, `fname`, `tel`, `email`, `usname`, `pword`, `ref`, `activator`, `active`, `datereg`, `lastseen`, `tpin`, `inst`, `dept`, `level`, `matric`, `bname`, `bact`, `actname`, `gend`, `wallet`, `campus`, `flex`, `classic`) VALUES
+(50, '1', 'Abolade Greatness', '09010484986', 'greatnessabolade@gmail.com', 'Grtnxhor', '53c1df01e11ec01bcf9ced4ccae8c667', '', '', '1', '2021-11-18 00:00:00', '2021-11-21 06:02:19', '4ba29b9f9e5732ed33761840f4ba6c53', 'Federal University Oye Ekiti', 'MTE', '300', 'MTE/2018/1005', 'United Bank for Africa', '2115376418', 'ABOLADE GREATNESS OLATOMIWA', 'Male', '7000', '0', '0', '0');
 
 --
 -- Indexes for dumped tables
@@ -140,25 +150,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `msgs`
 --
 ALTER TABLE `msgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `savings`
 --
 ALTER TABLE `savings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `t_his`
 --
 ALTER TABLE `t_his`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
