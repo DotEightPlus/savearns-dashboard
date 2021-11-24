@@ -33,19 +33,67 @@ if(isset($_SESSION['login'])) {
 
                     <div class="section-body">
 
-
-                        <div class="section-header">
-                            <h1>SAVING PLANS</h1>
+                        <div class="hero-inner">
+                            <h2 class="text-dark">Saving Plans</h2>
+                            <p class="lead">Enjoy a well developed student-in-mind savings package that meet your
+                                everyday needs.
+                            </p>
                         </div>
 
-                        <h2 class="section-title">Wallet Balance:
-                            <b>NGN<?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></b>
-                            <div class="row  mt-3">
-                                <button data-toggle="modal" data-target="#payModal"
-                                    class="btn btn-primary section-lead">Fund Wallet
-                                </button>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
+                                <div class="card card-statistic-2">
+                                    <div class="card-wrap">
+                                        <div class="card-header">
+                                            <h4 class="lead mb-2">YOUR CLASSIC SAVINGS</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
+                                        </div>
+                                        <div class="card-header">
+                                            <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
+                                                data-toggle="modal" data-target="#payModal"><b>FUND WALLET BALANCE</b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </h2>
+                            <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
+                                <div class="card card-statistic-2">
+                                    <div class="card-wrap">
+                                        <div class="card-header">
+                                            <h4 class="lead mb-2">YOUR FLEX SAVINGS</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
+                                        </div>
+                                        <div class="card-header">
+                                            <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
+                                                data-toggle="modal" data-target="#payModal"><b>FUND WALLET BALANCE</b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
+                                <div class="card card-statistic-2">
+                                    <div class="card-wrap">
+                                        <div class="card-header">
+                                            <h4 class="lead mb-2">YOUR WALLET BALANCE</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
+                                        </div>
+                                        <div class="card-header">
+                                            <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
+                                                data-toggle="modal" data-target="#payModal"><b>FUND WALLET BALANCE</b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="row mt-5">
 
