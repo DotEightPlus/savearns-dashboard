@@ -29,181 +29,146 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-8 col-md-8 col-sm-8 pl-3">
-                    <div class="pricing">
-                        <div class="pricing-title">
-                            Developer
-                        </div>
-                        <div class="pricing-padding">
-                            <div class="pricing-price">
-                                <div>$19</div>
-                                <div>per month</div>
-                            </div>
-                            <div class="pricing-details">
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">1 user agent</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">Core features</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">1GB storage</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">2 Custom domain</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon bg-danger text-white"><i class="fas fa-times"></i>
+
+                    <div class="card card-statistic-2">
+                        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active bg-primary">
+                                    <div class="card card-statistic-2">
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4 class="lead mb-2">FLEX WALLET
+                                                </h4>
+
+                                            </div>
+                                            <div class="card-body">
+                                                ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
+                                            </div>
+                                            <div class="card-header">
+                                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
+                                                    data-toggle="modal" data-target="#payModal"><b>WITHDRAW FUNDS</b>
+                                                </h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="pricing-item-label">Live Support</div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="pricing-cta">
-                            <a href="#">Subscribe <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                                <div class="carousel-item bg-info">
+                                    <div class="card card-statistic-2">
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4 class="lead mb-2">FLEX WALLET
+                                                </h4>
 
-            </div>
-
-
-
-
-
-            <div class="col-12 mb-4">
-                <div class="hero bg-primary text-white">
-                    <div class="hero-inner">
-                        <h2>Welcome Back, Ujang!</h2>
-                        <p class="lead">This page is a place to manage posts, categories and more.</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row mt-5">
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="pricing">
-                        <div class="pricing-title">
-                            Developer
-                        </div>
-                        <div class="pricing-padding">
-                            <div class="pricing-price">
-                                <div>$19</div>
-                                <div>per month</div>
-                            </div>
-                            <div class="pricing-details">
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">1 user agent</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">Core features</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">1GB storage</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">2 Custom domain</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon bg-danger text-white"><i class="fas fa-times"></i>
+                                            </div>
+                                            <div class="card-body">
+                                                ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
+                                            </div>
+                                            <div class="card-header">
+                                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
+                                                    data-toggle="modal" data-target="#payModal"><b>WITHDRAW FUNDS</b>
+                                                </h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="pricing-item-label">Live Support</div>
+                                </div>
+                                <div class="carousel-item bg-warning">
+                                    <div class="card card-statistic-2">
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4 class="lead mb-2">FLEX WALLET
+                                                </h4>
+
+                                            </div>
+                                            <div class="card-body">
+                                                ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
+                                            </div>
+                                            <div class="card-header">
+                                                <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
+                                                    data-toggle="modal" data-target="#payModal"><b>WITHDRAW FUNDS</b>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="pricing-cta">
-                            <a href="#">Subscribe <i class="fas fa-arrow-right"></i></a>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
+
+
                 </div>
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="pricing pricing-highlight">
-                        <div class="pricing-title">
-                            Small Team
-                        </div>
-                        <div class="pricing-padding">
-                            <div class="pricing-price">
-                                <div>$60</div>
-                                <div>per month</div>
-                            </div>
-                            <div class="pricing-details">
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">5 user agent</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">Core features</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">10GB storage</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">10 Custom domain</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">24/7 Support</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pricing-cta">
-                            <a href="#">Subscribe <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 col-lg-4">
+
+                <div class="col-lg-8 col-md-8 col-sm-12 pl-0">
                     <div class="pricing">
                         <div class="pricing-title">
-                            Enterprise
+                            Transaction History
                         </div>
-                        <div class="pricing-padding">
-                            <div class="pricing-price">
-                                <div>$499</div>
-                                <div>per month</div>
-                            </div>
-                            <div class="pricing-details">
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">Unlimited user agent</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">Core features</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">8TB storage</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">Unlimited custom domain</div>
-                                </div>
-                                <div class="pricing-item">
-                                    <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                    <div class="pricing-item-label">Lifetime Support</div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <table class="table table-responsive-sm">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Ref</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $data = $_SESSION['login'];
+                                                $trsql = "SELECT * FROM t_his WHERE `username` = '$data' ORDER BY `id` desc";
+                                                $tes  = query($trsql);
+                                                if(row_count($tes) == '') {
+
+                                                    echo "No transaction yet";
+                                                } else {
+
+                                                    while($row = mysqli_fetch_array($tes)) {
+                                                
+                                                
+                                                ?>
+                                            <tr>
+                                                <th scope="row"><?php echo $row['t_ref']; ?></th>
+                                                <td>NGN<?php echo number_format($row['amt']); ?></td>
+                                                <td><?php echo ucwords($row['status']); ?></td>
+                                                <td><?php echo date('d/m/Y  - h:i:sa', strtotime($row['datepaid'])); ?>
+                                                </td>
+                                            </tr>
+                                            <?php 
+                                                    }
+                                                }
+                                                ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                         <div class="pricing-cta">
-                            <a href="#">Subscribe <i class="fas fa-arrow-right"></i></a>
+                            <a href="./transactionhistory">View All History <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
+
+
             </div>
+
 
 
             <!-- <div class="row mt-5">

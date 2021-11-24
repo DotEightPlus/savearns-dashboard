@@ -22,3 +22,23 @@
 <h4 style="cursor: pointer" class="lead mt-3 mb-3 text-primary" data-toggle="modal" data-target="#payModal"><b>FUND
         WALLET BALANCE</b>
 </h4>
+
+
+<div class="card card-statistic-2">
+    <div class="card-wrap">
+    <div class="card-header">
+        <h4 class="lead mb-2">FLEX WALLET
+        </h4>
+
+    </div>
+    <div class="card-body">
+        ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
+    </div>
+    <div class="card-header">
+        <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary" data-toggle="modal"
+            data-target="#payModal"><b>WITHDRAW FUNDS</b>
+        </h4>
+    </div>
+    </div>
+</div>
+
