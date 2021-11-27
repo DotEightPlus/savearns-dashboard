@@ -24,7 +24,7 @@
                             </div>
                             <div class="card-header">
                                 <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary" data-toggle="modal"
-                                    data-target="#payModal"><b>FUND WALLET BALANCE</b>
+                                    data-target="#payModal"><b>FUND YOUR WALLET</b>
                                 </h4>
                             </div>
                         </div>
