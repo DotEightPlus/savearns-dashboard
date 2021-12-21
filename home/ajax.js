@@ -95,7 +95,7 @@ $(document).ready(function () {
     if(classic < 1000) {
       iziToast.error({
         title: 'Error!',
-        message: 'Minimum deposit for the Classic plan is NGN1,000',
+        message: 'Minimum deposit for the Classic plan is NGN2,000',
         position: 'topCenter'
       });
 

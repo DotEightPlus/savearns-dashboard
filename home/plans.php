@@ -40,7 +40,8 @@ if(isset($_SESSION['login'])) {
                             </p>
                         </div>
 
-                        <div class="row">
+
+                        <!-- <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
                                 <div class="card card-statistic-2">
                                     <div class="card-wrap">
@@ -92,9 +93,9 @@ if(isset($_SESSION['login'])) {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --->
 
-                        <div class="row">
+                        <div class="row mt-5">
                             <div class="col-12 col-md-4 col-lg-4 pl-0">
                                 <div class="pricing">
                                     <div class="pricing-title">
@@ -102,35 +103,31 @@ if(isset($_SESSION['login'])) {
                                     </div>
                                     <div class="pricing-padding">
                                         <div class="pricing-price">
-                                            <div>₦2,000</div>
+                                            <div>NGN2,000</div>
                                             <div>2 months and above</div>
                                         </div>
                                         <div class="pricing-details">
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">1 user agent</div>
+                                                <div class="pricing-item-label">2 Month Saving Plan</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">Core features</div>
+                                                <div class="pricing-item-label">3 Month Saving Plan</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">1GB storage</div>
+                                                <div class="pricing-item-label">6 Month Saving Plan</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">2 Custom domain</div>
-                                            </div>
-                                            <div class="pricing-item">
-                                                <div class="pricing-item-icon bg-danger text-white"><i
-                                                        class="fas fa-times"></i></div>
-                                                <div class="pricing-item-label">Live Support</div>
+                                                <div class="pricing-item-label">Custom Saving Plan</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="pricing-cta">
-                                        <a href="#">Subscribe <i class="fas fa-arrow-right"></i></a>
+                                        <a data-toggle="modal" href="#classicModal">Choose Plan <i
+                                                class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -141,152 +138,75 @@ if(isset($_SESSION['login'])) {
                                     </div>
                                     <div class="pricing-padding">
                                         <div class="pricing-price">
-                                            <div>$60</div>
-                                            <div>per month</div>
+                                            <div>NGN5,000</div>
+                                            <div>flexible</div>
                                         </div>
                                         <div class="pricing-details">
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">5 user agent</div>
+                                                <div class="pricing-item-label">Target Savings</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">Core features</div>
+                                                <div class="pricing-item-label">Save as you go</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">10GB storage</div>
+                                                <div class="pricing-item-label">Unlock on target</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">10 Custom domain</div>
+                                                <div class="pricing-item-label">30 days Minimum savings duration</div>
                                             </div>
-                                            <div class="pricing-item">
-                                                <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">24/7 Support</div>
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="pricing-cta">
-                                        <a href="#">Subscribe <i class="fas fa-arrow-right"></i></a>
+                                        <a data-toggle="modal" href="#flexModal">Choose Plan <i
+                                                class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 col-lg-4 pl-0">
                                 <div class="pricing">
                                     <div class="pricing-title">
-                                        Enterprise
+                                        Campus Plan
                                     </div>
                                     <div class="pricing-padding">
                                         <div class="pricing-price">
-                                            <div>$499</div>
-                                            <div>per month</div>
+                                            <div>NGN200</div>
+                                            <div>per day</div>
                                         </div>
                                         <div class="pricing-details">
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">Unlimited user agent</div>
+                                                <div class="pricing-item-label">Exam Saver</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">Core features</div>
+                                                <div class="pricing-item-label">Save for odd academdic times</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">8TB storage</div>
+                                                <div class="pricing-item-label">Unlocked at the end of semester</div>
                                             </div>
                                             <div class="pricing-item">
                                                 <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">Unlimited custom domain</div>
+                                                <div class="pricing-item-label">Save as you wish</div>
                                             </div>
-                                            <div class="pricing-item">
-                                                <div class="pricing-item-icon"><i class="fas fa-check"></i></div>
-                                                <div class="pricing-item-label">Lifetime Support</div>
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="pricing-cta">
-                                        <a href="#">Subscribe <i class="fas fa-arrow-right"></i></a>
+                                        <a data-toggle="modal" href="#campusModal">Choose Plan <i
+                                                class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
 
-                        <div class="row mt-5">
 
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <a data-toggle="modal" href="#classicModal">
-                                            <div id=" carouselExampleIndicators" class="carousel slide"
-                                                data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img class="d-block w-100" src="assets/img/cl1.jpg"
-                                                            alt="First slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/cl2.jpg"
-                                                            alt="Second slide">
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <a data-toggle="modal" href="#flexModal">
-                                            <div id=" carouselExampleIndicators" class="carousel slide"
-                                                data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img class="d-block w-100" src="assets/img/fl1.jpg"
-                                                            alt="First slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/fl2.jpg"
-                                                            alt="Second slide">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <a data-toggle="modal" href="#campusModal">
-                                            <div id=" carouselExampleIndicators" class="carousel slide"
-                                                data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img class="d-block w-100" src="assets/img/cp1.jpg"
-                                                            alt="First slide">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100" src="assets/img/cp2.jpg"
-                                                            alt="Second slide">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                        </div>
 
                     </div>
 
@@ -316,7 +236,11 @@ if(isset($_SESSION['login'])) {
     <!-- JS Libraies -->
     <script src="assets/modules/sticky-kit.js"></script>
 
+    <!-- JS Libraies -->
+    <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
+
     <!-- Page Specific JS File -->
+    <script src="assets/js/page/modules-toastr.js"></script>
 
     <!-- Template JS File -->
     <script src="assets/js/scripts.js"></script>

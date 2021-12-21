@@ -177,7 +177,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Classic Saving Plan(minNGN 1,000/week)</h5>
+                <h5 class="modal-title">Classic Saving Plan(minNGN 2,000)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -185,14 +185,12 @@
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
                     <form method="POST">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laborum asperiores,
-                            consectetur magnam aut ratione quidem quas voluptas earum maxime placeat odit repudiandae!
-                            Rem odio recusandae temporibus tempora consectetur sit.</p>
+
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
 
-                                <input type="number" id="classic" value="1000" class="form-control" required>
+                                <input type="number" id="classic" value="2000" class="form-control" required>
                                 <input type="text" value="Classic Savings Plan" id="clplan" class="form-control" hidden>
                             </div>
                         </div>
