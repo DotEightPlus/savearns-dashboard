@@ -15,108 +15,157 @@ $(document).ready(function () {
     });
   });
 
-
   //campus plan savings
   $("#cmpbtn").click(function () {
     var campan = $("#campan").val();
     var rrcampan = $("#rrcampan").val();
 
-    if(campan < 200) {
+    if (campan < 200) {
       //$("#msg").html("Minimum deposit for the campus plan is NGN100");
 
       iziToast.error({
-        title: 'Error!',
-        message: 'Minimum deposit for the Campus plan is NGN200',
-        position: 'topCenter'
+        title: "Error!",
+        message: "Minimum deposit for the Campus plan is NGN200",
+        position: "topCenter",
       });
-
     } else {
-
       iziToast.info({
-        title: 'Info!',
-        message: 'Please wait while we process your request...',
-        position: 'topCenter'
+        title: "Info!",
+        message: "Please wait while we process your request...",
+        position: "topCenter",
       });
 
-
-    $.ajax({
-      type: "post",
-      url: "../functions/init.php",
-      data: { campan: campan, rrcampan: rrcampan},
-      success: function (data) {
-        $("#msg").html(data);
-      },
-    });
-  }
+      $.ajax({
+        type: "post",
+        url: "../functions/init.php",
+        data: { campan: campan, rrcampan: rrcampan },
+        success: function (data) {
+          $("#msg").html(data);
+        },
+      });
+    }
   });
 
+
+  //fund campus plan wallet
+  $("#fndcmpbtn").click(function () {
+    var fndcampan = $("#fndcampan").val();
+    var fndrrcampan = $("#fndrrcampan").val();
+
+    if (fndcampan < 200) {
+      //$("#msg").html("Minimum deposit for the campus plan is NGN100");
+
+      iziToast.error({
+        title: "Error!",
+        message: "Minimum deposit for the Campus plan is NGN200",
+        position: "topCenter",
+      });
+    } else {
+      iziToast.info({
+        title: "Info!",
+        message: "Please wait while we process your request...",
+        position: "topCenter",
+      });
+
+      $.ajax({
+        type: "post",
+        url: "../functions/init.php",
+        data: { fndcampan: fndcampan, fndrrcampan: fndrrcampan },
+        success: function (data) {
+          $("#msg").html(data);
+        },
+      });
+    }
+  });
 
   //flex plan savings
   $("#flexsav").click(function () {
-    var flxamt    = $("#flxamt").val();
+    var flxamt = $("#flxamt").val();
     //var duration  = $("#duration").val();
-    var dest      = $("#dest").val();
-    var plann     = $("#plann").val();
+    var dest = $("#dest").val();
+    var plann = $("#plann").val();
 
-    if(flxamt < 5000) {
+    if (flxamt < 5000) {
       iziToast.error({
-        title: 'Error!',
-        message: 'Minimum deposit for the Flex plan is NGN5,000',
-        position: 'topCenter'
+        title: "Error!",
+        message: "Minimum deposit for the Flex plan is NGN5,000",
+        position: "topCenter",
       });
-
     } else {
-
       iziToast.info({
-        title: 'Info!',
-        message: 'Please wait while we process your request...',
-        position: 'topCenter'
+        title: "Info!",
+        message: "Please wait while we process your request...",
+        position: "topCenter",
       });
 
-
-    $.ajax({
-      type: "post",
-      url: "../functions/init.php",
-      data: { flxamt: flxamt, dest: dest, plann: plann},
-      success: function (data) {
-        $("#msg").html(data);
-      },
-    });
-  }
+      $.ajax({
+        type: "post",
+        url: "../functions/init.php",
+        data: { flxamt: flxamt, dest: dest, plann: plann },
+        success: function (data) {
+          $("#msg").html(data);
+        },
+      });
+    }
   });
-
 
   //classic savings plan
   $("#clsic").click(function () {
-    var classic   = $("#classic").val();
-    var cldd      = $("#cldd").val();
-    var clplan    = $("#clplan").val();
+    var classic = $("#classic").val();
+    var cldd = $("#cldd").val();
+    var clplan = $("#clplan").val();
 
-    if(classic < 1000) {
+    if (classic < 2000) {
       iziToast.error({
-        title: 'Error!',
-        message: 'Minimum deposit for the Classic plan is NGN2,000',
-        position: 'topCenter'
+        title: "Error!",
+        message: "Minimum deposit for the Classic plan is NGN2,000",
+        position: "topCenter",
       });
-
     } else {
-
       iziToast.info({
-        title: 'Info!',
-        message: 'Please wait while we process your request...',
-        position: 'topCenter'
+        title: "Info!",
+        message: "Please wait while we process your request...",
+        position: "topCenter",
       });
 
+      $.ajax({
+        type: "post",
+        url: "../functions/init.php",
+        data: { classic: classic, cldd: cldd, clplan: clplan },
+        success: function (data) {
+          $("#msg").html(data);
+        },
+      });
+    }
+  });
 
-    $.ajax({
-      type: "post",
-      url: "../functions/init.php",
-      data: { classic: classic, cldd: cldd, clplan: clplan},
-      success: function (data) {
-        $("#msg").html(data);
-      },
-    });
-  }
+  //fund classic savings plan
+  $("#fndclsic").click(function () {
+    var fndclassic = $("#fndclassic").val();
+    var fndclplan = $("#fndclplan").val();
+
+    if (fndclassic < 500) {
+      iziToast.error({
+        title: "Error!",
+        message: "Minimum deposit for the Classic plan is NGN500",
+        position: "topCenter",
+      });
+    } else {
+      iziToast.info({
+        title: "Info!",
+        message: "Please wait while we process your request...",
+        position: "topCenter",
+      });
+
+      $.ajax({
+        type: "post",
+        url: "../functions/init.php",
+        data: { fndclassic: fndclassic, fndclplan: fndclplan },
+        success: function (data) {
+          $("#fdmsg").html(data);
+        },
+      });
+    }
   });
 
 

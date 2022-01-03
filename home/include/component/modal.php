@@ -185,7 +185,7 @@
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
                     <form method="POST">
-
+                        <p>Available Balance: ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></a></p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
@@ -227,6 +227,41 @@
     </div>
 </div>
 
+<div class="modal fade" tabindex="-1" role="dialog" id="fundclassicModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Fund Classic Saving Plan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 col-md-12 col-sm-12">
+                    <form method="POST">
+                        <p>Available Balance: ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></a></p>
+                        <div class="form-group">
+                            <label>Input Amount</label>
+                            <div class="input-group">
+
+                                <input type="number" id="fndclassic" value="2000" class="form-control" required>
+                                <input type="text" value="Classic Savings Plan" id="fndclplan" class="form-control"
+                                    hidden>
+                            </div>
+                        </div>
+
+                        <p class="text-danger" id="fdmsg"></p>
+                        <div class="form-group mb-0">
+                            <button type="button" id="fndclsic" class="form-control btn-primary">Fund Classic Wallet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" tabindex="-1" role="dialog" id="flexModal">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -239,10 +274,7 @@
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
                     <form method="POST">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laborum asperiores,
-                            consectetur magnam aut ratione quidem quas voluptas earum maxime placeat odit repudiandae!
-                            Rem odio recusandae temporibus tempora consectetur sit... <a href="./campusmore">Read
-                                More</a></p>
+                        <p>Available Balance: ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></a></p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
@@ -303,10 +335,7 @@
             <div class="modal-body">
                 <div class="col-12 col-md-12 col-sm-12">
                     <form method="POST">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laborum asperiores,
-                            consectetur magnam aut ratione quidem quas voluptas earum maxime placeat odit repudiandae!
-                            Rem odio recusandae temporibus tempora consectetur sit... <a href="./campusmore">Read
-                                More</a></p>
+                        <p>Available Balance: ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></a></p>
                         <div class="form-group">
                             <label>Input Amount</label>
                             <div class="input-group">
@@ -321,6 +350,43 @@
                         </div>
                         <div class="form-group mb-0">
                             <button type="button" id="cmpbtn" class="form-control btn-primary">Save Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="fundcampusModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Fund Campus Wallet</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="col-12 col-md-12 col-sm-12">
+                    <form method="POST">
+                        <p>Available Balance: ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></a></p>
+                        <div class="form-group">
+                            <label>Input Amount</label>
+                            <div class="input-group">
+
+                                <input id="fndcampan" value="200" type="number" class="form-control" required>
+                                <input id="fndrrcampan" value="Campus Savings Plan" type="text" class="form-control"
+                                    hidden required>
+
+                            </div>
+
+                            <p class="text-danger" id="msg"></p>
+                        </div>
+                        <div class="form-group mb-0">
+                            <button type="button" id="fndcmpbtn" class="form-control btn-primary">Fund Campus Plan
                             </button>
                         </div>
                     </form>

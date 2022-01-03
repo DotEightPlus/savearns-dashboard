@@ -33,7 +33,7 @@ if(isset($_SESSION['login'])) {
 
                     <div class="section-body">
 
-                        <div class="hero-inner">
+                        <div class="hero-inner mt-5">
                             <h2 class="text-dark">Saving Plans</h2>
                             <p class="lead">Enjoy a well developed student-in-mind savings package that meet your
                                 everyday needs.
@@ -41,59 +41,6 @@ if(isset($_SESSION['login'])) {
                         </div>
 
 
-                        <!-- <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
-                                <div class="card card-statistic-2">
-                                    <div class="card-wrap">
-                                        <div class="card-header">
-                                            <h4 class="lead mb-2">YOUR CLASSIC SAVINGS</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
-                                        </div>
-                                        <div class="card-header">
-                                            <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
-                                                data-toggle="modal" data-target="#payModal"><b>SAVE NOW</b>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
-                                <div class="card card-statistic-2">
-                                    <div class="card-wrap">
-                                        <div class="card-header">
-                                            <h4 class="lead mb-2">YOUR FLEX SAVINGS</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
-                                        </div>
-                                        <div class="card-header">
-                                            <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
-                                                data-toggle="modal" data-target="#payModal"><b>SAVE NOW</b>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 pl-0">
-                                <div class="card card-statistic-2">
-                                    <div class="card-wrap">
-                                        <div class="card-header">
-                                            <h4 class="lead mb-2">YOUR CAMPUS SAVINGS</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
-                                        </div>
-                                        <div class="card-header">
-                                            <h4 style="cursor: pointer" class="lead mt-3 mb-4 text-primary"
-                                                data-toggle="modal" data-target="#payModal"><b>SAVE NOW</b>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --->
 
                         <div class="row mt-5">
                             <div class="col-12 col-md-4 col-lg-4 pl-0">
@@ -103,8 +50,27 @@ if(isset($_SESSION['login'])) {
                                     </div>
                                     <div class="pricing-padding">
                                         <div class="pricing-price">
-                                            <div>NGN2,000</div>
-                                            <div>2 months and above</div>
+
+                                            <?php
+                                            if(isset($clcsvs)) {
+
+                                                echo '
+
+                                                <div>₦'.number_format($clcsvs['amt']).'</div>
+                                                <div>'.$clcsvs['duration'].'</div>
+                                                
+                                                ';
+                                            } else {
+
+                                                echo '
+                                                
+                                                <div>₦2,000</div>
+                                                <div>2 months and above</div>
+                                                
+                                                ';
+                                            }
+                                        ?>
+
                                         </div>
                                         <div class="pricing-details">
                                             <div class="pricing-item">
@@ -125,12 +91,32 @@ if(isset($_SESSION['login'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="pricing-cta">
-                                        <a data-toggle="modal" href="#classicModal">Choose Plan <i
-                                                class="fas fa-arrow-right"></i></a>
-                                    </div>
+                                    <?php
+                                        if(isset($clcsvs)) {
+
+                                            echo '
+                                            <div class="pricing-cta">
+                                            <a data-toggle="modal" href="#fundclassicModal">Fund Classic Wallet <i
+                                                    class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                            ';
+                                        } else {
+
+                                            echo '
+                                            <div class="pricing-cta">
+                                            <a data-toggle="modal" href="#classicModal">Choose Plan <i
+                                                    class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                            ';
+                                        }
+
+                                    ?>
+
                                 </div>
                             </div>
+
+
+
                             <div class="col-12 col-md-4 col-lg-4 pl-0">
                                 <div class="pricing pricing-highlight">
                                     <div class="pricing-title">
@@ -138,8 +124,21 @@ if(isset($_SESSION['login'])) {
                                     </div>
                                     <div class="pricing-padding">
                                         <div class="pricing-price">
-                                            <div>NGN5,000</div>
-                                            <div>flexible</div>
+                                            <?php
+                                            if(isset($flsvs)) {
+                                                echo '
+                                                <div>₦'.number_format($flsvs['amt']).'</div>
+                                                <div>flexible</div>
+                                                ';
+                                            } else {
+                                                
+                                                echo '
+                                                <div>NGN5,000</div>
+                                                <div>flexible</div>
+                                                ';
+                                            }
+                                            ?>
+
                                         </div>
                                         <div class="pricing-details">
                                             <div class="pricing-item">
@@ -167,6 +166,8 @@ if(isset($_SESSION['login'])) {
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="col-12 col-md-4 col-lg-4 pl-0">
                                 <div class="pricing">
                                     <div class="pricing-title">
@@ -174,8 +175,24 @@ if(isset($_SESSION['login'])) {
                                     </div>
                                     <div class="pricing-padding">
                                         <div class="pricing-price">
-                                            <div>NGN200</div>
-                                            <div>per day</div>
+                                            <?php
+                                            if(isset($cmsvs)) {
+                                            
+                                                echo '
+                                                <div>₦'.$cmsvs['amt'].'</div>
+                                                <div>1 Weeks Before Exams</div>
+                                                ';
+                                                
+                                            } else {
+                                                
+                                                echo '
+                                                <div>NGN200</div>
+                                                <div>per day</div>
+                                                ';
+                                                
+                                            }
+                                            ?>
+
                                         </div>
                                         <div class="pricing-details">
                                             <div class="pricing-item">
@@ -198,13 +215,26 @@ if(isset($_SESSION['login'])) {
                                         </div>
                                     </div>
                                     <div class="pricing-cta">
-                                        <a data-toggle="modal" href="#campusModal">Choose Plan <i
+                                        <?php
+                                        if(isset($cmsvs)) {
+                                            
+                                            echo '
+                                            <a data-toggle="modal" href="#fundcampusModal"> Fund Campus Wallet<i
+                                            class="fas fa-arrow-right"></i></a>
+                                            ';
+                                        } else {
+
+                                            echo '
+                                            <a data-toggle="modal" href="#campusModal">Choose Plan <i
                                                 class="fas fa-arrow-right"></i></a>
+                                            ';
+                                        }
+                                        ?>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-
 
 
 
@@ -253,7 +283,89 @@ if(isset($_SESSION['login'])) {
 
 <?php
 
-  
+//campus plan notification
+if(isset($_SESSION['campusplan'])) {
+
+    $msg = $_SESSION['campusplan'];
+
+    if($msg == "Success") {
+   
+    echo "<script>
+        iziToast.success({
+          title: 'Success!',
+          message: 'Campus Plan Activated Successfully',
+          position: 'topCenter'
+        });</script>";
+
+    unset($_SESSION['campusplan']);
+    } else {
+
+        echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'There was an error processing your savings',
+          position: 'topCenter'
+        });</script>";
+
+        unset($_SESSION['campusplan']);
+    }
+}
+
+if(isset($_SESSION['flexplan'])) {
+
+    $msg = $_SESSION['flexplan'];
+
+    if($msg == "Success") {
+   
+    echo "<script>
+        iziToast.success({
+          title: 'Success!',
+          message: 'Flex Plan Activated Successfully',
+          position: 'topCenter'
+        });</script>";
+
+    unset($_SESSION['flexplan']);
+    } else {
+
+        echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'There was an error processing your savings',
+          position: 'topCenter'
+        });</script>";
+
+        unset($_SESSION['flexplan']);
+    }
+}
+
+if(isset($_SESSION['classicplan'])) {
+
+    $msg = $_SESSION['classicplan'];
+
+    if($msg == "Success") {
+   
+    echo "<script>
+        iziToast.success({
+          title: 'Success!',
+          message: 'Classic Plan Activated Successfully',
+          position: 'topCenter'
+        });</script>";
+
+    unset($_SESSION['classicplan']);
+    } else {
+
+        echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'There was an error processing your savings',
+          position: 'topCenter'
+        });</script>";
+
+        unset($_SESSION['classicplan']);
+    }
+}
+
+
 } else {
 
     redirect(".././logout");

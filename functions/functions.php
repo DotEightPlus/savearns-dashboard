@@ -466,6 +466,35 @@ function user_details() {
 
 	$GLOBALS['t_ref_earn'] = $GLOBALS['t_ref']['earn'] * 100;
 
+
+	//classic savings plan
+	$clsvs = "SELECT * FROM `savings` WHERE `usname` = '$data' AND `plan` = 'Classic Savings Plan' AND `status` = 'Active'";
+	$clsvl = query($clsvs);
+	if(row_count($clsvl) != null) {
+		
+		$GLOBALS['clcsvs'] = mysqli_fetch_array($clsvl);
+	} 
+	
+
+	//flex saving plan
+	$flsvs = "SELECT * FROM `savings` WHERE `usname` = '$data' AND `plan` = 'Flex Savings Plan' AND `status` = 'Active'";
+	$flsvl = query($flsvs);
+	if(row_count($flsvl) != null) {
+	
+		$GLOBALS['flsvs'] = mysqli_fetch_array($flsvl);
+		
+	}
+
+	//campus saving plan
+	$cmsvs = "SELECT * FROM `savings` WHERE `usname` = '$data' AND `plan` = 'Campus Savings Plan' AND `status` = 'Active'";
+	$cmsvl = query($cmsvs);
+	if(row_count($cmsvl) != null) {
+
+	
+	$GLOBALS['cmsvs'] = mysqli_fetch_array($cmsvl);
+
+	}
+
 }
 
 
@@ -932,6 +961,7 @@ if(isset($_POST['campan']) && isset($_POST['rrcampan'])) {
 		$date = date("Y-m-d h:i:sa");
 		$ref = "tpay".rand(0, 999);
 		$msg  = "Your ". $det ." of NGN".number_format($ammt)." was successful";
+		$tref = "tpay".rand(0, 999);
 		$sbj  = "Savings Alert";
 
 		$nsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
@@ -947,10 +977,79 @@ if(isset($_POST['campan']) && isset($_POST['rrcampan'])) {
 		$vsql .="VALUES('$user', '$date', '$det', 'A week before exam', '$ammt', 'Active', 'Wallet', 'Campus Savings')";
 		$ves = query($vsql);
 
+		//insert transaction history
+		$tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
+		$tsql .= "VALUES('$tref', '$ammt', '$date', '$user', '1', 'debit', '$msg')";
+		$tes = query($tsql);
+
 		//create an alert message
 		$_SESSION['campusplan'] = "Success";
 		echo "Loading... Please wait";
-		echo '<script>window.location.href ="./withdrawal"</script>';
+		echo '<script>window.location.href ="./plans"</script>';
+	}
+
+	
+}
+
+//fund campus wallet
+if(isset($_POST['fndcampan']) && isset($_POST['fndrrcampan'])) {
+
+	$fndammt  =  clean($_POST['fndcampan']);
+	$fnddet   =  clean($_POST['fndrrcampan']);
+
+	//get user wallet balance
+	user_details();
+
+	$user = $t_users['usname'];
+
+	//chcek if user has enough funds
+	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
+
+	if($bal < $ammt) {
+
+		echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'You do not have enough funds in your wallet. Kindly fund your wallet and try again',
+          position: 'topCenter'
+        });</script>";
+		
+	} else {
+
+		//deduct current user wallet
+		$newbal = $bal - $fndammt + 100;
+
+		//get previous campus saving and add with new campus savings
+		$cmbal = $cmsvs['amt'] + $fndammt;
+
+		//notify user transaction history
+		$date = date("Y-m-d h:i:sa");
+		$ref = "tpay".rand(0, 999);
+		$msg  = "Your ". $det ." of NGN".number_format($fndammt)." was successful";
+		$tref = "tpay".rand(0, 999);
+		$sbj  = "Savings Alert";
+
+		$nsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$nsql .="VALUES('$user', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+		$nes = query($nsql);
+
+		//update user wallet
+		$sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$user'";
+		$res = query($sql);
+
+		//update credit savings wallet
+		$vsql = "UPDATE savings SET `amt` = '$cmbal' WHERE `usname` = '$user' AND `plan` = 'Campus Savings Plan' AND `status` = 'Active'";
+		$ves = query($vsql);
+
+		//insert transaction history
+		$tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
+		$tsql .= "VALUES('$tref', '$fndammt', '$date', '$user', '1', 'debit', '$msg')";
+		$tes = query($tsql);
+
+		//create an alert message
+		$_SESSION['campusplan'] = "Success";
+		echo "Loading... Please wait";
+		echo '<script>window.location.href ="./plans"</script>';
 	}
 
 	
@@ -1045,6 +1144,7 @@ if(isset($_POST['classic']) && isset($_POST['cldd']) && isset($_POST['clplan']))
 		//notify user transaction history
 		$date = date("Y-m-d h:i:sa");
 		$ref = "tpay".rand(0, 999);
+		$tref = "tpay".rand(0, 999);
 		$msg  = "Your ". $clplan ." of NGN".number_format($classic)." was successful";
 		$sbj  = "Savings Alert";
 
@@ -1061,10 +1161,77 @@ if(isset($_POST['classic']) && isset($_POST['cldd']) && isset($_POST['clplan']))
 		$vsql .="VALUES('$user', '$date', '$clplan', '$cldd', '$classic', 'Active', 'Wallet', 'Classic Saving')";
 		$ves = query($vsql);
 
+		//insert transaction history
+		 $tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
+		 $tsql .= "VALUES('$tref', '$classic', '$date', '$user', '1', 'debit', '$msg')";
+		 $tes = query($tsql);
+
 		//create an alert message
 		$_SESSION['classicplan'] = "Success";
 		echo "Loading... Please wait";
-		echo '<script>window.location.href ="./withdrawal"</script>';
+		echo '<script>window.location.href ="./plans"</script>';
 	}
 }
+
+//fund classic plan
+if(isset($_POST['fndclassic']) && isset($_POST['fndclplan'])) {
+
+	$fndclassic    =  clean($_POST['fndclassic']);
+	$fndclplan     =  clean($_POST['fndclplan']);
+
+	//get user wallet balance
+	user_details();
+
+	$user = $t_users['usname'];
+
+	//chcek if user has enough funds
+	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
+
+	if($bal < $fndclassic) {
+
+    echo "<script>
+    iziToast.error({
+      title: 'Error!',
+      message: 'You do not have enough funds in your wallet. Kindly fund your wallet and try again',
+      position: 'topCenter'
+    });</script>";
+} else {
+
+	 //deduct current user wallet
+	$newbal = $bal - $fndclassic + 100;
+
+	 //notify user transaction history
+	 $date = date("Y-m-d h:i:sa");
+	 $ref = "tpay".rand(0, 999);
+	 $msg  = "Your ". $fndclplan ." of NGN".number_format($fndclassic)." was successful";
+	 $sbj  = "Savings Alert";
+	 $tref = "tpay".rand(0, 999);
+
+	 $nsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+     $nsql .="VALUES('$user', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+     $nes = query($nsql);
+
+	//update savings wallet
+	$clsvbal = $clcsvs['amt'] + $fndclassic;
+	
+    $svup = "UPDATE savings SET `amt` = '$clsvbal' WHERE `usname` = '$user' AND `plan` = 'Classic Savings Plan' AND `status` = 'Active'";
+    $svql = query($svup);
+    
+
+    //update user wallet
+    $sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$user'";
+    $res = query($sql);
+
+	//insert transaction history
+	$tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
+	$tsql .= "VALUES('$tref', '$fndclassic', '$date', '$user', '1', 'debit', '$msg')";
+	$tes = query($tsql);
+
+    //create an alert message
+    $_SESSION['classicplan'] = "Success";
+    echo "Loading... Please wait";
+    echo '<script>window.location.href ="./plans"</script>';
+}
+    
+} 
 ?>

@@ -48,79 +48,105 @@ if(isset($_SESSION['login'])) {
 
                     <div class="section-body">
 
-                        <div class="section-header">
-                            <h1>WITHDRAWAL</h1>
+
+                        <div class="hero-inner mt-5">
+                            <h2 class="text-dark">Withdrawal</h2>
+                            <p class="lead">Savings automatically get credited into main wallet after maturity</p>
                         </div>
 
-                        <h2 class="section-title ml-4">Available Balance:
-                            <b>NGN<?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></b>
-                            <div class="row  mt-3">
-                                <button data-toggle="modal" data-target="#withdModal"
-                                    class="btn btn-primary section-lead">Withdraw Funds
-                                </button>
-                            </div>
-                        </h2>
-
-                        <div class="section-header mt-5">
-                            <h1>SAVINGS WALLET</h1>
-                        </div>
-
-                        <h2 class="section-title">Total Savings:
-                            <b>NGN<?php echo number_format($roow['total']) ?></b>
-                            <!---<div class="row  mt-3">
-                                <button data-toggle="modal" data-target="#withdModal"
-                                    class="btn btn-primary section-lead">Withdraw Funds
-                                </button>
-                            </div>-->
-                        </h2>
-
-
-                        <div class="row mt-2">
-
-                            <?php
-                            
-                            //savings details
-                            $svs = "SELECT * FROM `savings` WHERE `usname` = '$data'";
-                            $rvs = query($svs);
-                            if(row_count($rvs) == null) {
-
-                                echo '<h2 class="section-title mt-0">You have no savings record yet</b>';
-                                
-                                
-                            } else {
-                                
-                            while($row = mysqli_fetch_array($rvs)) {
-                            
-                            ?>
-
-                            <div class="col-md-6 col-sm-12">
-                                <div class="card bg-primary">
+                        <div class="row col-lg-12">
+                            <div class="card card-statistic-2 col-lg-5 ml-lg-2">
+                                <div class="card-wrap">
                                     <div class="card-header">
-                                        <h4><?php echo $row['plan']  ?></h4>
-
-                                        <a data-collapse="#mycard-collapse" class="pl-5 ml-md-5" href="#"><i
-                                                class="fas fa-minus"></i></a>
+                                        <h4 class="lead mb-2">YOUR WALLET BALANCE</h4>
                                     </div>
-                                    <div class="collapse show" id="mycard-collapse">
-                                        <div class="card-body text-white">
-                                            Amount Saved : <b>NGN <?php echo number_format($row['amt'])  ?></b><br />
-                                            Description : <b><?php echo $row['descrip'] ?></b><br />
-                                            Date of Savings :
-                                            <b><?php echo date('l, F d, Y', strtotime($row['datepaid'])); ?></b><br />
-                                        </div>
-                                        <div class="card-footer">
-                                            Maturity Date:
-                                        </div>
+                                    <div class="card-body">
+                                        ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?>
+                                    </div>
+                                    <div class="row mt-4 mb-5 ">
+                                        <button data-toggle="modal" data-target="#transferModal"
+                                            class="btn btn-primary section-lead">Transfer Funds
+                                        </button>
+
+                                        <button data-toggle="modal" data-target="#withdModal"
+                                            class="btn btn-primary section-lead">Withdraw Funds
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <?php
-                            }
-                         }
-                          ?>
+
+                            <div class="card card-statistic-2 col-lg-5 ml-lg-5">
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4 class="lead mb-2">YOUR TOTAL SAVINGS</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        ₦ <?php echo number_format($roow['total']) ?>
+                                    </div>
+                                    <div class="row mt-4 mb-5 ">
+                                        <a href="./plans"><button data-toggle="modal" data-target="#transferModal"
+                                                class="btn btn-primary section-lead">Fund Savings Wallet
+                                            </button></a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card card-statistic-2 col-lg-4 ml-lg-1">
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4 class="lead mb-2">CLASSIC WALLET</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        ₦ <?php echo number_format($clcsvs['amt']) ?>
+                                    </div>
+                                    <div class="row mt-4 mb-5 ">
+                                        <button data-toggle="modal" href="#fundclassicModal"
+                                            class="btn btn-primary section-lead">Fund Classic Savings Wallet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card card-statistic-2 col-lg-3 ml-lg-1">
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4 class="lead mb-2">FLEX WALLET</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        ₦ <?php echo number_format($flsvs['amt']) ?>
+                                    </div>
+                                    <div class="row mt-4 mb-5 ">
+                                        <button data-toggle="modal" href="#fundclassicModal"
+                                            class="btn btn-primary section-lead">Fund Flex Savings Wallet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card card-statistic-2 col-lg-4 ml-lg-1">
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4 class="lead mb-2">CAMPUS WALLET</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        ₦ <?php echo number_format($cmsvs['amt']) ?>
+                                    </div>
+                                    <div class="row mt-4 mb-5 ">
+                                        <button data-toggle="modal" href="#fundclassicModal"
+                                            class="btn btn-primary section-lead">Fund Campus Savings Wallet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
 
 
                         </div>
+
+
+
 
                     </div>
 
@@ -163,96 +189,6 @@ if(isset($_SESSION['login'])) {
 </body>
 
 </html>
-
-
 <?php
-
-//campus plan notification
-if(isset($_SESSION['campusplan'])) {
-
-    $msg = $_SESSION['campusplan'];
-
-    if($msg == "Success") {
-   
-    echo "<script>
-        iziToast.success({
-          title: 'Success!',
-          message: 'Campus Plan Activated Successfully',
-          position: 'topCenter'
-        });</script>";
-
-    unset($_SESSION['campusplan']);
-    } else {
-
-        echo "<script>
-        iziToast.error({
-          title: 'Error!',
-          message: 'There was an error processing your savings',
-          position: 'topCenter'
-        });</script>";
-
-        unset($_SESSION['campusplan']);
-    }
-}
-
-if(isset($_SESSION['flexplan'])) {
-
-    $msg = $_SESSION['flexplan'];
-
-    if($msg == "Success") {
-   
-    echo "<script>
-        iziToast.success({
-          title: 'Success!',
-          message: 'Flex Plan Activated Successfully',
-          position: 'topCenter'
-        });</script>";
-
-    unset($_SESSION['flexplan']);
-    } else {
-
-        echo "<script>
-        iziToast.error({
-          title: 'Error!',
-          message: 'There was an error processing your savings',
-          position: 'topCenter'
-        });</script>";
-
-        unset($_SESSION['flexplan']);
-    }
-}
-
-if(isset($_SESSION['classicplan'])) {
-
-    $msg = $_SESSION['classicplan'];
-
-    if($msg == "Success") {
-   
-    echo "<script>
-        iziToast.success({
-          title: 'Success!',
-          message: 'Classic Plan Activated Successfully',
-          position: 'topCenter'
-        });</script>";
-
-    unset($_SESSION['classicplan']);
-    } else {
-
-        echo "<script>
-        iziToast.error({
-          title: 'Error!',
-          message: 'There was an error processing your savings',
-          position: 'topCenter'
-        });</script>";
-
-        unset($_SESSION['classicplan']);
-    }
-}
-
-
-} else {
-
-    redirect(".././logout");
-
 }
 ?>

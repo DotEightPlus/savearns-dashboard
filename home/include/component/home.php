@@ -7,7 +7,7 @@
 
         <div class="section-body">
 
-            <div class="hero-inner">
+            <div class="hero-inner mt-5">
                 <h2 class="text-dark">Home</h2>
                 <p class="lead">Welcome Back, <?php echo ucwords($t_users['usname']) ?></p>
             </div>
