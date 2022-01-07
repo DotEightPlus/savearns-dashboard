@@ -473,6 +473,10 @@ function user_details() {
 	if(row_count($clsvl) != null) {
 		
 		$GLOBALS['clcsvs'] = mysqli_fetch_array($clsvl);
+
+		//get savings duration
+		$dur = $GLOBALS['clcsvs']['duration'];
+		$GLOBALS['campdura'] = date('Y-m-d h:i:s', strtotime($GLOBALS['clcsvs']['datepaid']. ' +'.$dur));
 	} 
 	
 
@@ -503,6 +507,7 @@ function user_details() {
 	$GLOBALS['cmsvs'] = mysqli_fetch_array($cmsvl);
 
 	}
+
 
 }
 
