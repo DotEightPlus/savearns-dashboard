@@ -266,7 +266,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Flex Saving Plan(Min NGN 5,00o0)</h5>
+                <h5 class="modal-title">Flex Saving Plan(Min NGN 5,000)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -276,11 +276,85 @@
                     <form method="POST">
                         <p>Available Balance: ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></a></p>
                         <div class="form-group">
-                            <label>Input Amount</label>
+                            <label>Input a Target Amount</label>
                             <div class="input-group">
 
                                 <input type="number" id="flxamt" value="5000" class="form-control" required>
                                 <input type="text" value="Flex Savings Plan" id="plann" class="form-control" hidden>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Input an amount to save now</label>
+                            <div class="input-group">
+
+                                <input type="number" id="saflxamt" value="500" class="form-control" required>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label>Select Duration</label>
+                            <div class="input-group">
+                                <select id="duration" name="duration" class="form-control">
+                                    <?php
+                                    $x = 2;
+
+                                    while($x <= 12) {
+                                        echo '
+
+            
+                                    <option style="font-size: 20px" id="duration" name="duration">'.$x.' Months</option>
+                                
+
+                                    <br>';
+                                    $x++;
+                                    }
+                                ?>
+
+                                </select>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label>Tell us what you are saving for.</label>
+                            <div class="input-group">
+                                <textarea class="form-control" id="dest">My new iPhone</textarea>
+                            </div>
+                        </div>
+                        <p class="text-danger" id="msg"></p>
+                        <div class="form-group mb-0">
+                            <button type="button" id="flexsav" class="form-control btn-primary">Save Now </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="fundflexModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Flex Saving Plan(Min NGN 5,000)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 col-md-12 col-sm-12">
+                    <form method="POST">
+                        <p>Available Balance: ₦ <?php echo number_format($t_users['wallet'] + $t_ref_earn) ?></a></p>
+                        <div class="form-group">
+                            <label>Input a Target Amount</label>
+                            <div class="input-group">
+
+                                <input type="number" id="flxamt" value="5000" class="form-control" required>
+                                <input type="text" value="Flex Savings Plan" id="plann" class="form-control" hidden>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Input an amount to save now</label>
+                            <div class="input-group">
+
+                                <input type="number" id="saflxamt" value="500" class="form-control" required>
                             </div>
                         </div>
                         <!--<div class="form-group">

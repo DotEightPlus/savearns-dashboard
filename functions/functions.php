@@ -476,13 +476,22 @@ function user_details() {
 	} 
 	
 
-	//flex saving plan
-	$flsvs = "SELECT * FROM `savings` WHERE `usname` = '$data' AND `plan` = 'Flex Savings Plan' AND `status` = 'Active'";
+	//flex target
+	$flsvs = "SELECT * FROM `flex` WHERE `usname` = '$data' AND `status` = 'Active'";
 	$flsvl = query($flsvs);
 	if(row_count($flsvl) != null) {
 	
 		$GLOBALS['flsvs'] = mysqli_fetch_array($flsvl);
 		
+	}
+
+
+	//flex savings
+	$lsvlr = "SELECT * FROM `savings` WHERE `usname` = '$data' AND `plan` = 'Flex Savings Plan' AND `status` = 'Active'";
+	$lsvrl = query($lsvlr);
+	if(row_count($lsvrl) != null) {
+	
+		$GLOBALS['lsrs'] = mysqli_fetch_array($lsvrl);
 	}
 
 	//campus saving plan
@@ -1057,9 +1066,10 @@ if(isset($_POST['fndcampan']) && isset($_POST['fndrrcampan'])) {
 
 
 //flex plan
-if(isset($_POST['flxamt']) && isset($_POST['dest']) && isset($_POST['plann'])) {
+if(isset($_POST['flxamt']) && isset($_POST['dest']) && isset($_POST['plann']) && isset($_POST['saflxamt'])) {
 
 	$flxamt     =  clean($_POST['flxamt']);
+	$saflxamt   =  clean($_POST['saflxamt']);
 	$dest       =  clean($_POST['dest']);
 	$plann      =  clean($_POST['plann']);
 	$date 		=  date("Y-m-d h:i:sa");
@@ -1072,7 +1082,7 @@ if(isset($_POST['flxamt']) && isset($_POST['dest']) && isset($_POST['plann'])) {
 	//chcek if user has enough funds
 	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
 
-	if($bal < $flxamt) {
+	if($bal < $saflxamt) {
 
 		echo "<script>
         iziToast.error({
@@ -1083,31 +1093,54 @@ if(isset($_POST['flxamt']) && isset($_POST['dest']) && isset($_POST['plann'])) {
 		
 	} else {
 
-		//deduct current user wallet
-		$newbal = $bal - $flxamt + 100;
+	if($saflxamt > $flxamt) {
+		
+		echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'You current deposit is greater than your targeted saving',
+          position: 'topCenter'
+        });</script>";
+		
+	} else {
 
-		/*//notify user transaction history
+		//deduct current user wallet
+		$newbal = $bal - $saflxamt + 100;
+
+		//notify user transaction history
 		$ref = "tpay".rand(0, 999);
-		$msg  = "Your ". $plann ." of NGN".number_format($flxamt)." was successful";
+		$tref = "tpay".rand(0, 999);
+		$msg  = "Your ". $plann ." of NGN".number_format($saflxamt)." was successful";
 		$sbj  = "Savings Alert";
 
 		$nsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
 		$nsql .="VALUES('$user', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
 		$nes = query($nsql);
 
+		//insert transaction history
+		$tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
+		$tsql .= "VALUES('$tref', '$saflxamt', '$date', '$user', '1', 'debit', '$msg')";
+		$tes = query($tsql);
+
 		//update user wallet
 		$sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$user'";
-		$res = query($sql);*/
+		$res = query($sql);
+
+		//credit flex wallet
+		$vsql = "INSERT INTO flex(`usname`, `date`, `amt`, `status`, `mode`, `descrip`)";
+		$vsql .="VALUES('$user', '$date', '$flxamt', 'Active', 'Wallet', '$dest')";
+		$ves = query($vsql);
 
 		//credit savings wallet
-		$vsql = "INSERT INTO savings(`usname`, `datepaid`, `plan`, `amt`, `status`, `mode`, `descrip`)";
-		$vsql .="VALUES('$user', '$date', '$plann', '$flxamt', 'Active', 'Wallet', '$dest')";
-		$ves = query($vsql);
+		$ssql = "INSERT INTO savings(`usname`, `datepaid`, `plan`, `amt`, `status`, `mode`, `descrip`)";
+		$ssql .="VALUES('$user', '$date', 'Flex Savings Plan', '$saflxamt', 'Active', 'Wallet', 'Flex Saving')";
+		$fes = query($ssql);
 
 		//create an alert message
 		$_SESSION['flexplan'] = "Success";
 		echo "Loading... Please wait";
-		echo '<script>window.location.href ="./withdrawal"</script>';
+		echo '<script>window.location.href ="./plans"</script>';
+	}
 	}
 }
 

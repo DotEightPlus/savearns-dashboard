@@ -81,9 +81,9 @@ $(document).ready(function () {
   //flex plan savings
   $("#flexsav").click(function () {
     var flxamt = $("#flxamt").val();
-    //var duration  = $("#duration").val();
     var dest = $("#dest").val();
     var plann = $("#plann").val();
+    var saflxamt = $('#saflxamt').val();
 
     if (flxamt < 5000) {
       iziToast.error({
@@ -92,6 +92,15 @@ $(document).ready(function () {
         position: "topCenter",
       });
     } else {
+
+      if(saflxamt < 500) {
+        iziToast.error({
+          title: "Error!",
+          message: "Minimum amount you can save now is NGN500",
+          position: "topCenter",
+        });
+
+      } else {
       iziToast.info({
         title: "Info!",
         message: "Please wait while we process your request...",
@@ -101,12 +110,13 @@ $(document).ready(function () {
       $.ajax({
         type: "post",
         url: "../functions/init.php",
-        data: { flxamt: flxamt, dest: dest, plann: plann },
+        data: { flxamt: flxamt, dest: dest, plann: plann, saflxamt: saflxamt },
         success: function (data) {
           $("#msg").html(data);
         },
       });
     }
+  }
   });
 
   //classic savings plan

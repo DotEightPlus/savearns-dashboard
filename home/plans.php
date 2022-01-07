@@ -118,7 +118,7 @@ if(isset($_SESSION['login'])) {
 
 
                             <div class="col-12 col-md-4 col-lg-4 pl-0">
-                                <div class="pricing pricing-highlight">
+                                <div class="pricing">
                                     <div class="pricing-title">
                                         FLEX PLAN
                                     </div>
@@ -127,8 +127,8 @@ if(isset($_SESSION['login'])) {
                                             <?php
                                             if(isset($flsvs)) {
                                                 echo '
-                                                <div>₦'.number_format($flsvs['amt']).'</div>
-                                                <div>flexible</div>
+                                                <div>₦'.number_format($lsrs['amt']).'</div>
+                                                <div class="text-dark">Target: &nbsp;₦'.number_format($flsvs['amt']).'</div>
                                                 ';
                                             } else {
                                                 
@@ -160,10 +160,27 @@ if(isset($_SESSION['login'])) {
 
                                         </div>
                                     </div>
-                                    <div class="pricing-cta">
+
+                                    <?php
+                                    if(isset($flsvs)) {
+
+                                        echo '
+                                        <div class="pricing-cta">
+                                        <a data-toggle="modal" href="#fundflexModal">Fund Flex Wallet <i
+                                                class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                        ';
+                                    } else {
+
+                                        echo '
+                                        <div class="pricing-cta">
                                         <a data-toggle="modal" href="#flexModal">Choose Plan <i
                                                 class="fas fa-arrow-right"></i></a>
                                     </div>
+                                        ';
+                                    }
+                                    ?>
+
                                 </div>
                             </div>
 
