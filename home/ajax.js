@@ -119,6 +119,35 @@ $(document).ready(function () {
   }
   });
 
+  //fund flex plan savings
+  $("#fnddflexsav").click(function () {
+    var fnddsaflxamt = $('#fnddsaflxamt').val();
+
+      if(fnddsaflxamt < 500) {
+        iziToast.error({
+          title: "Error!",
+          message: "Minimum amount you can save now is NGN500",
+          position: "topCenter",
+        });
+
+      } else {
+      iziToast.info({
+        title: "Info!",
+        message: "Please wait while we process your request...",
+        position: "topCenter",
+      });
+
+      $.ajax({
+        type: "post",
+        url: "../functions/init.php",
+        data: {fnddsaflxamt: fnddsaflxamt },
+        success: function (data) {
+          $("#msg").html(data);
+        },
+      });
+    }
+  });
+
   //classic savings plan
   $("#clsic").click(function () {
     var classic = $("#classic").val();

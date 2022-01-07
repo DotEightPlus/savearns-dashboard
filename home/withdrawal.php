@@ -92,55 +92,96 @@ if(isset($_SESSION['login'])) {
 
                                 </div>
                             </div>
+                            <?php
 
-                            <div class="card card-statistic-2 col-lg-4 ml-lg-1">
+                            if(isset($clcsvs)) {
+
+                                echo '
+
+                                <div class="card card-statistic-2 col-lg-4 ml-lg-1">
                                 <div class="card-wrap">
                                     <div class="card-header">
                                         <h4 class="lead mb-2">CLASSIC WALLET</h4>
                                     </div>
                                     <div class="card-body">
-                                        ₦ <?php echo number_format($clcsvs['amt']) ?>
-                                    </div>
-                                    <div class="row mt-4 mb-5 ">
-                                        <button data-toggle="modal" href="#fundclassicModal"
-                                            class="btn btn-primary section-lead">Fund Classic Savings Wallet
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                                        ₦ '.number_format($clcsvs['amt']).'
+                        </div>
+                        <div class="row mt-4 mb-5 ">
+                            <button data-toggle="modal" href="#fundclassicModal"
+                                class="btn btn-primary section-lead">Fund Classic Savings Wallet
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            ';
 
-                            <div class="card card-statistic-2 col-lg-3 ml-lg-1">
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4 class="lead mb-2">FLEX WALLET</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        ₦ <?php echo number_format($flsvs['amt']) ?>
-                                    </div>
-                                    <div class="row mt-4 mb-5 ">
-                                        <button data-toggle="modal" href="#fundclassicModal"
-                                            class="btn btn-primary section-lead">Fund Flex Savings Wallet
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+            }
 
-                            <div class="card card-statistic-2 col-lg-4 ml-lg-1">
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4 class="lead mb-2">CAMPUS WALLET</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        ₦ <?php echo number_format($cmsvs['amt']) ?>
-                                    </div>
-                                    <div class="row mt-4 mb-5 ">
-                                        <button data-toggle="modal" href="#fundclassicModal"
-                                            class="btn btn-primary section-lead">Fund Campus Savings Wallet
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+            if(isset($flsvs)) {
 
+            echo '
+
+            <div class="card card-statistic-2 col-lg-3 ml-lg-1">
+            <div class="card-wrap">
+                <div class="card-header">
+                    <h4 class="lead mb-2">FLEX WALLET</h4>
+                </div>
+                <div class="card-body">
+                    ₦ '.number_format($lsrs['amt']).'
+                        </div>
+                        <div class="row mt-4 mb-5 ">';
+                        //when target is reached
+                        if(isset($flsvs) && $lsrs['amt'] == $flsvs['amt']) {
+
+                            echo '
+                            <button data-toggle="modal" href="#withdModal" class="btn btn-primary bg-dark section-lead">Withdraw Funds
+                            </button>
+                            ';
+                        } else {
+                        if(isset($flsvs)) {
+
+                            echo '
+                            <button data-toggle="modal" href="#fundflexModal" class="btn btn-primary section-lead">Fund
+                                Flex
+                                Savings Wallet
+                            </button>
+                            ';
+                        }
+                    }
+                    echo '
+                            
+                        </div>
+                    </div>
+            </div>
+
+            ';
+            }
+
+
+            if(isset($cmsvs)) {
+
+            echo '
+            <div class="card card-statistic-2 col-lg-4 ml-lg-1">
+            <div class="card-wrap">
+                <div class="card-header">
+                    <h4 class="lead mb-2">CAMPUS WALLET</h4>
+                </div>
+                <div class="card-body">
+                    ₦ '.number_format($cmsvs['amt']).'
+                        </div>
+                        <div class="row mt-4 mb-5 ">
+                            <button data-toggle="modal" href="#fundclassicModal"
+                                class="btn btn-primary section-lead">Fund
+                                Campus Savings Wallet
+                            </button>
+                        </div>
+                    </div>
+            </div>
+
+            ';
+            }
+
+            ?>
 
 
                         </div>

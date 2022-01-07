@@ -96,7 +96,7 @@ if(isset($_SESSION['login'])) {
 
                                             echo '
                                             <div class="pricing-cta">
-                                            <a data-toggle="modal" href="#fundclassicModal">Fund Classic Wallet <i
+                                            <a class="bg-primary text-white" data-toggle="modal" href="#fundclassicModal">Fund Classic Wallet <i
                                                     class="fas fa-arrow-right"></i></a>
                                         </div>
                                             ';
@@ -162,11 +162,21 @@ if(isset($_SESSION['login'])) {
                                     </div>
 
                                     <?php
+                                    //when target is reached
+                                    if(isset($flsvs) && $lsrs['amt'] == $flsvs['amt']) {
+
+                                        echo '
+                                        <div class="pricing-cta">
+                                        <a class="bg-dark text-white" data-toggle="modal" href="#withdModal">Withdraw funds<i
+                                                class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        ';
+                                    } else {
                                     if(isset($flsvs)) {
 
                                         echo '
                                         <div class="pricing-cta">
-                                        <a data-toggle="modal" href="#fundflexModal">Fund Flex Wallet <i
+                                        <a class="bg-primary text-white" data-toggle="modal" href="#fundflexModal">Fund Flex Wallet <i
                                                 class="fas fa-arrow-right"></i></a>
                                     </div>
                                         ';
@@ -178,7 +188,8 @@ if(isset($_SESSION['login'])) {
                                                 class="fas fa-arrow-right"></i></a>
                                     </div>
                                         ';
-                                    }
+                                    } 
+                                }
                                     ?>
 
                                 </div>
@@ -197,7 +208,7 @@ if(isset($_SESSION['login'])) {
                                             
                                                 echo '
                                                 <div>₦'.$cmsvs['amt'].'</div>
-                                                <div>1 Weeks Before Exams</div>
+                                                <div>1 Week Before Exams</div>
                                                 ';
                                                 
                                             } else {
@@ -236,7 +247,7 @@ if(isset($_SESSION['login'])) {
                                         if(isset($cmsvs)) {
                                             
                                             echo '
-                                            <a data-toggle="modal" href="#fundcampusModal"> Fund Campus Wallet<i
+                                            <a class="bg-primary text-white" data-toggle="modal" href="#fundcampusModal"> Fund Campus Wallet<i
                                             class="fas fa-arrow-right"></i></a>
                                             ';
                                         } else {

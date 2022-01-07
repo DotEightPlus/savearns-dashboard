@@ -1144,6 +1144,81 @@ if(isset($_POST['flxamt']) && isset($_POST['dest']) && isset($_POST['plann']) &&
 	}
 }
 
+//fund flex plan
+if(isset($_POST['fnddsaflxamt'])) {
+
+	$fnddsaflxamt   =  clean($_POST['fnddsaflxamt']);
+	$date 		    =  date("Y-m-d h:i:sa");
+	
+
+	//get user wallet balance
+	user_details();
+
+	$flxamt         =  $flsvs['amt'];
+	$user 			=  $t_users['usname'];
+
+	//chcek if user has enough funds
+	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
+
+	//add previous saving
+	$flnwmt = $lsrs['amt'] + $fnddsaflxamt;
+
+	if($bal < $fnddsaflxamt) {
+
+		echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'You do not have enough funds in your wallet. Kindly fund your wallet and try again',
+          position: 'topCenter'
+        });</script>";
+		
+	} else {
+
+	if($flnwmt > $flxamt) {
+		
+		echo "<script>
+        iziToast.error({
+          title: 'Error!',
+          message: 'You current deposit is greater than your targeted saving',
+          position: 'topCenter'
+        });</script>";
+		
+	} else {
+
+		//deduct current user wallet
+		$newbal = $bal - $fnddsaflxamt + 100;
+
+		//notify user transaction history
+		$ref = "tpay".rand(0, 999);
+		$tref = "tpay".rand(0, 999);
+		$msg  = "Your Flex Savings Plan of NGN".number_format($fnddsaflxamt)." was successful";
+		$sbj  = "Savings Alert";
+
+		$nsql = "INSERT INTO msgs(`usname`, `status`, `sn`, `msg`, `date`, `ticket`, `sbj`)";
+		$nsql .="VALUES('$user', 'unread', '1', '$msg', '$date', '$ref', '$sbj')";
+		$nes = query($nsql);
+
+		//insert transaction history
+		$tsql = "INSERT INTO t_his(`t_ref`, `amt`, `datepaid`, `username`, `sn`, `status`, `paynote`)";
+		$tsql .= "VALUES('$tref', '$fnddsaflxamt', '$date', '$user', '1', 'debit', '$msg')";
+		$tes = query($tsql);
+
+		//update user wallet
+		$sql = "UPDATE users SET `wallet` = '$newbal' WHERE `usname` = '$user'";
+		$res = query($sql);
+
+		//update credit savings wallet
+		$vsql = "UPDATE savings SET `amt` = '$flnwmt' WHERE `usname` = '$user' AND `plan` = 'Flex Savings Plan' AND `status` = 'Active'";
+		$ves = query($vsql);
+		
+		//create an alert message
+		$_SESSION['flexplan'] = "Success";
+		echo "Loading... Please wait";
+		echo '<script>window.location.href ="./plans"</script>';
+	}
+	}
+}
+
 
 //classic plan
 if(isset($_POST['classic']) && isset($_POST['cldd']) && isset($_POST['clplan'])) {
