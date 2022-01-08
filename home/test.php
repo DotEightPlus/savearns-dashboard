@@ -2,13 +2,44 @@
 include('../functions/init.php');
 
 
-user_details();
+$curl = curl_init();
 
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.flutterwave.com/v3/bills",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => "{\"country\":\"NG\",\"customer\":\"+23490803840303\",\"amount\":\"500\",\"recurrence\":\"ONCE\",\"type\":\"AIRTIME\",\"reference\":\"9300049404444\",\"biller_name\":\"DSTV, MTN VTU, TIGO VTU, VODAFONE VTU, VODAFONE POSTPAID PAYMENT\"}",
+  CURLOPT_HTTPHEADER => [
+    "Accept: application/json",
+    "Authorization: Bearer FLWSECK_TEST-185a2dd929590007032cacfb3837f3c8-X",
+    "Content-Type: application/json"
+  ],
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+
+
+/**user_details();
 $dur = $clcsvs['duration'];
 $a = date('Y-m-d h:i:s', strtotime($clcsvs['datepaid']. ' +'.$dur));
 
+*/
+
 ?>
-<!-- Display the countdown timer in an element -->
+<!-- Display the countdown timer in an element 
 <p id="demo"></p>
 
 <script>
@@ -40,4 +71,4 @@ var x = setInterval(function() {
         document.getElementById("demo").innerHTML = "EXPIRED";
     }
 }, 1000);
-</script>
+</script>-->

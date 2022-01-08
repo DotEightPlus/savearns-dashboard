@@ -27,25 +27,59 @@ if(isset($_SESSION['login'])) {
             ?>
             <!--Greet new customer -->
             <div class="main-content">
-                <section class="section">
-                    <div class="section-header">
-                        <h1>COMING SOON</h1>
+                <section class="">
+
+
+                    <h2 class="section-title mt-5 text-dark">Bills and Utilities</h2>
+                    <p class="section-lead">
+                        Top-up Airtime, Data and utilities
+                    </p>
+
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img src="assets/img/bill/1.png" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img src="assets/img/bill/2.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img src="assets/img/bill/3.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img src="assets/img/bill/4.jpg" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img src="assets/img/bill/5.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img src="assets/img/bill/6.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card">
+                                <img src="assets/img/bill/7.jpg" class="img-fluid">
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="section-body">
-
-
-                        <h2 class="section-title">This page will be unlocked soon.</b>
-                        </h2>
-
-
-
-                    </div>
-
+                </section>
             </div>
-            </section>
         </div>
-    </div>
     </div>
 
 
