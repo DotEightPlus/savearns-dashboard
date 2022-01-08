@@ -36,9 +36,25 @@ if(isset($_SESSION['login'])) {
                     </p>
 
 
-                    <div class="row">
+                    <div class="row" style="cursor: pointer">
                         <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card">
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h4 class="text-dark">Airtime</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mt-4 mb-5">
+                                        <a href="./plans"><button data-toggle="modal" data-target="#transferModal"
+                                                class="btn btn-primary section-lead">Fund Savings Wallet
+                                            </button></a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card" data-toggle="modal" href="#classicModal">
                                 <img src="assets/img/bill/1.png" class="img-fluid">
                             </div>
                         </div>
@@ -51,27 +67,6 @@ if(isset($_SESSION['login'])) {
                         <div class="col-12 col-md-6 col-lg-3">
                             <div class="card">
                                 <img src="assets/img/bill/3.jpg" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card">
-                                <img src="assets/img/bill/4.jpg" class="img-fluid">
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card">
-                                <img src="assets/img/bill/5.jpg" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card">
-                                <img src="assets/img/bill/6.jpg" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card">
-                                <img src="assets/img/bill/7.jpg" class="img-fluid">
                             </div>
                         </div>
 
