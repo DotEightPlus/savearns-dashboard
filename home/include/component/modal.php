@@ -423,7 +423,7 @@
 
                             </div>
 
-                            <p class="text-danger" id="msg"></p>
+                            <p class="text-danger" id="cpmmsg"></p>
                         </div>
                         <div class="form-group mb-0">
                             <button type="button" id="fndcmpbtn" class="form-control btn-primary">Fund Campus Plan

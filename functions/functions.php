@@ -1019,7 +1019,7 @@ if(isset($_POST['fndcampan']) && isset($_POST['fndrrcampan'])) {
 	//chcek if user has enough funds
 	$bal = ($t_users['wallet'] + $t_ref_earn) - 100;
 
-	if($bal < $ammt) {
+	if($bal < $fndammt) {
 
 		echo "<script>
         iziToast.error({
@@ -1030,6 +1030,7 @@ if(isset($_POST['fndcampan']) && isset($_POST['fndrrcampan'])) {
 		
 	} else {
 
+		
 		//deduct current user wallet
 		$newbal = $bal - $fndammt + 100;
 
@@ -1064,7 +1065,8 @@ if(isset($_POST['fndcampan']) && isset($_POST['fndrrcampan'])) {
 		$_SESSION['campusplan'] = "Success";
 		echo "Loading... Please wait";
 		echo '<script>window.location.href ="./plans"</script>';
-	}
+		
+	} 
 
 	
 }

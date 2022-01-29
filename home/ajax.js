@@ -72,7 +72,7 @@ $(document).ready(function () {
         url: "../functions/init.php",
         data: { fndcampan: fndcampan, fndrrcampan: fndrrcampan },
         success: function (data) {
-          $("#msg").html(data);
+          $("#cpmmsg").html(data);
         },
       });
     }
